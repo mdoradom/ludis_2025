@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhmja4nfsmdct"]
+
+[ext_resource type="Script" uid="uid://b0hbh6c2qvdqx" path="res://scripts/letter.gd" id="1_kg060"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfigq"]
+
+[node name="Letter" type="Area2D"]
+script = ExtResource("1_kg060")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hfigq")
