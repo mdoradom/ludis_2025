@@ -4,7 +4,8 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hfigq"]
 
-[node name="Letter" type="Area2D"]
+[node name="Letter" type="RigidBody2D"]
+lock_rotation = true
 script = ExtResource("1_kg060")
 
 [node name="Label" type="Label" parent="."]
