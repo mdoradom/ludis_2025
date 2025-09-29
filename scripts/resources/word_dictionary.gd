@@ -1,22 +1,29 @@
 class_name WordDictionary
 extends Resource
 
-@export var valid_words: Array[Dictionary] = []
+@export var level_name: String = ""
+@export var objects: Array[BreakableObject] = []
 
-func add_word(word: String, sprite_path: String):
-	valid_words.append({
-		"word": word,
-		"sprite": sprite_path
-	})
+func add_object(breakable_object: BreakableObject):
+	objects.append(breakable_object)
+
+func get_object_by_word(word: String) -> BreakableObject:
+	for obj in objects:
+		if obj.item_name == word:
+			return obj
+	return null
+
+func get_available_objects() -> Dictionary:
+	var result = {}
+	for obj in objects:
+		result[obj.item_name] = obj
+	return result
 
 func is_valid_word(word: String) -> bool:
-	for entry in valid_words:
-		if entry.word == word:
-			return true
-	return false
+	return get_object_by_word(word) != null
 
-func get_sprite_for_word(word: String) -> String:
-	for entry in valid_words:
-		if entry.word == word:
-			return entry.sprite
-	return ""
+func get_all_words() -> Array[String]:
+	var words: Array[String] = []
+	for obj in objects:
+		words.append(obj.item_name)
+	return words

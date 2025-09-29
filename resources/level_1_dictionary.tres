@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="WordDictionary" load_steps=7 format=3 uid="uid://clwe7ppeedrco"]
+
+[ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/brekable_object.gd" id="1_kadpu"]
+[ext_resource type="Script" uid="uid://c6oapo0myuruh" path="res://scripts/resources/word_dictionary.gd" id="2_2x2qx"]
+[ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_5fp1f"]
+
+[sub_resource type="Resource" id="Resource_5mh4n"]
+script = ExtResource("1_kadpu")
+item_name = "GODOT"
+sprite = ExtResource("2_5fp1f")
+letters = Array[String](["G", "O", "D", "O", "T"])
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_vuta8"]
+script = ExtResource("1_kadpu")
+item_name = "DOT"
+sprite = ExtResource("2_5fp1f")
+letters = Array[String](["D", "O", "T"])
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_s2hnk"]
+script = ExtResource("1_kadpu")
+item_name = "GOD"
+sprite = ExtResource("2_5fp1f")
+letters = Array[String](["G", "O", "D"])
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[resource]
+script = ExtResource("2_2x2qx")
+level_name = "Level 1"
+objects = Array[ExtResource("1_kadpu")]([SubResource("Resource_5mh4n"), SubResource("Resource_vuta8"), SubResource("Resource_s2hnk")])
+metadata/_custom_type_script = "uid://c6oapo0myuruh"
