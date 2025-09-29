@@ -3,7 +3,7 @@ extends Resource
 
 @export var item_name: String = ""
 @export var sprite_path: String = ""
-@export var letters: Array[Letter] = []
+@export var letters: Array[String] = []
 @export var taps_to_break: int = 3
 
 # Visual and audio feedback

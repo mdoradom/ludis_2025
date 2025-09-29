@@ -4,7 +4,12 @@ signal letter_dragged(letter)
 signal letter_released(letter)
 signal letter_clicked(letter)
 
-var letter_data: Letter
+# Floating / motion properties
+@export var float_amplitude: float = 6.0
+@export var float_frequency: float = 2.5
+@export var float_speed: float = 30.0
+
+var value: String = ""
 var is_floating: bool = false
 var is_dragging: bool = false
 var is_in_word_area: bool = false
@@ -13,7 +18,6 @@ var target_position: Vector2
 var drag_offset: Vector2
 var time_passed: float = 0
 var float_direction: Vector2
-var value: String = ""
 
 func _ready():
 	input_pickable = true
@@ -21,19 +25,13 @@ func _ready():
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 
-func setup(data: Letter, start_pos: Vector2):
-	letter_data = data
-	value = data.letter_value
+func setup(letter_char: String, start_pos: Vector2):
+	value = letter_char
 	position = start_pos
 	initial_position = position
 	
-	# Update visual appearance
 	$Label.text = value
-	
-	# Set random float direction
 	float_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-	
-	# Start floating
 	is_floating = true
 
 func _process(delta):
@@ -42,9 +40,9 @@ func _process(delta):
 	if is_dragging:
 		position = get_global_mouse_position() + drag_offset
 	elif is_floating:
-		# Apply floating motion
-		var float_offset = letter_data.float_amplitude * sin(time_passed * letter_data.float_frequency)
-		position += float_direction * letter_data.float_speed * delta
+		# Apply floating motion using local float properties
+		var float_offset = float_amplitude * sin(time_passed * float_frequency)
+		position += float_direction * float_speed * delta
 		position += Vector2(0, float_offset * delta)
 		
 		# Bounce off screen edges

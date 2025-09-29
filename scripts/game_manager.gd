@@ -24,13 +24,13 @@ func create_available_objects():
 	create_godot_object()
 	
 	# Create GOD object
-	var god_letters = [Letter.new("G"), Letter.new("O"), Letter.new("D")]
+	var god_letters = ["G", "O", "D"]
 	var god_object = BreakableObject.new("GOD", "res://icon.svg", god_letters)
 	god_object.taps_to_break = 3
 	available_objects["GOD"] = god_object
 	
 	# Create DOT object
-	var dot_letters = [Letter.new("D"), Letter.new("O"), Letter.new("T")]
+	var dot_letters = ["D", "O", "T"]
 	var dot_object = BreakableObject.new("DOT", "res://icon.svg", dot_letters)
 	dot_object.taps_to_break = 3
 	available_objects["DOT"] = dot_object
@@ -39,11 +39,11 @@ func create_available_objects():
 
 func create_godot_object():
 	# Create letter objects
-	var g_letter = Letter.new("G")
-	var o_letter = Letter.new("O")
-	var d_letter = Letter.new("D")
-	var o2_letter = Letter.new("O")
-	var t_letter = Letter.new("T")
+	var g_letter = "G"
+	var o_letter = "O"
+	var d_letter = "D"
+	var o2_letter = "O"
+	var t_letter = "T"
 	
 	# Create breakable object
 	var godot_object = BreakableObject.new("GODOT", "res://icon.svg", [g_letter, o_letter, d_letter, o2_letter, t_letter])

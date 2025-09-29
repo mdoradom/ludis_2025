@@ -9,9 +9,8 @@ var tap_timer: Timer
 
 func _ready():
 	if not object_data:
-		object_data = BreakableObject.new("Default", "res://icon.svg", [Letter.new("A"), Letter.new("B")])
+		object_data = BreakableObject.new("Default", "res://icon.svg", ["A", "B"])
 	
-	# Set up sprite
 	$Sprite2D.texture = load(object_data.sprite_path)
 	
 	# Set up timer for tap detection
