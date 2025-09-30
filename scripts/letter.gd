@@ -59,13 +59,13 @@ func _process(delta):
 	time_passed += delta
 	if is_dragging and mouse_body:
 		mouse_body.global_position = get_global_mouse_position() + drag_offset
+	
+	if is_dragging and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		_stop_dragging()
 
 func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			_start_dragging()
-		else:
-			_stop_dragging()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		_start_dragging()
 
 func _start_dragging():
 	is_dragging = true
