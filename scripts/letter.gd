@@ -7,6 +7,7 @@ signal letter_clicked(letter)
 @export var float_amplitude: float = 6.0
 @export var float_frequency: float = 2.5
 @export var float_speed: float = 100.0
+@export var impulse_strength: float = 200.0
 
 var value: String = ""
 var is_floating: bool = false
@@ -16,7 +17,6 @@ var initial_position: Vector2
 var target_position: Vector2
 var drag_offset: Vector2
 var time_passed: float = 0
-var float_direction: Vector2
 
 func _ready():
 	gravity_scale = 0.0
@@ -31,9 +31,10 @@ func setup(letter_char: String, start_pos: Vector2):
 	initial_position = global_position
 	
 	$Label.text = value
-	float_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	
-	linear_velocity = float_direction * float_speed
+	var random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	apply_central_impulse(random_direction * impulse_strength)
+	
 	is_floating = true
 
 func _process(delta):
@@ -48,7 +49,6 @@ func _process(delta):
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			is_floating = false
 			is_dragging = true
 			drag_offset = global_position - get_global_mouse_position()
 			emit_signal("letter_dragged", self)
@@ -56,7 +56,6 @@ func _on_input_event(_viewport, event, _shape_idx):
 		else:
 			is_dragging = false
 			sleeping = false
-			linear_velocity = float_direction * float_speed
 			emit_signal("letter_released", self)
 			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
@@ -67,7 +66,3 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	if not is_dragging:
 		scale = Vector2(1.0, 1.0)
-
-func stop_floating():
-	is_floating = false
-	linear_velocity = Vector2.ZERO
