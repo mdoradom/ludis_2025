@@ -8,8 +8,9 @@ signal letter_clicked(letter)
 @export var float_frequency: float = 2.5
 @export var float_speed: float = 100.0
 @export var impulse_strength: float = 200.0
-@export var spring_stiffness: float = 50.0
-@export var spring_damping: float = 2.0
+@export var spring_stiffness: float = 1000.0
+@export var spring_damping: float = 8.0
+@export var spring_length: int = 1
 
 var value: String = ""
 var is_floating: bool = false
@@ -33,6 +34,7 @@ func _ready():
 	spring_joint = $DampedSpringJoint2D
 	spring_joint.stiffness = spring_stiffness
 	spring_joint.damping = spring_damping
+	spring_joint.length = spring_length
 	
 	_create_mouse_body()
 
@@ -58,7 +60,10 @@ func setup(letter_char: String, start_pos: Vector2):
 func _process(delta):
 	time_passed += delta
 	if is_dragging and mouse_body:
-		mouse_body.global_position = get_global_mouse_position() + drag_offset
+		mouse_body.global_position = get_global_mouse_position()
+		
+		if linear_velocity.length() > 100:
+			linear_velocity *= 0.9
 	
 	if is_dragging and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		_stop_dragging()
@@ -69,12 +74,12 @@ func _on_input_event(_viewport, event, _shape_idx):
 
 func _start_dragging():
 	is_dragging = true
-	drag_offset = global_position - get_global_mouse_position()
 	
-	mouse_body.global_position = get_global_mouse_position() + drag_offset
+	mouse_body.global_position = get_global_mouse_position()
 	spring_joint.node_b = mouse_body.get_path()
 	
-	gravity_scale = 0.1
+	gravity_scale = 0.0
+	linear_damp = 5.0
 	
 	emit_signal("letter_dragged", self)
 	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
@@ -85,6 +90,7 @@ func _stop_dragging():
 	spring_joint.node_b = NodePath()
 	
 	gravity_scale = 0.0
+	linear_damp = 1.0
 	
 	emit_signal("letter_released", self)
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
