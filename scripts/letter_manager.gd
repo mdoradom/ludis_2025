@@ -73,8 +73,6 @@ func _on_letter_released(letter):
 			current_word.append(letter)
 			letter.is_in_word_area = true
 			
-			letter.stop_floating()
-			
 			_arrange_word_letters()
 			
 			_check_current_word()
