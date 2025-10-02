@@ -12,9 +12,12 @@ signal letter_clicked(letter)
 @export var spring_damping: float = 8.0
 @export var spring_length: int = 1
 
+@export var text_label: Label
+
 var value: String = ""
 var is_floating: bool = false
 var is_dragging: bool = false
+var is_hovered: bool = false
 var is_in_word_area: bool = false
 var initial_position: Vector2
 var target_position: Vector2
@@ -50,7 +53,7 @@ func setup(letter_char: String, start_pos: Vector2):
 	global_position = start_pos
 	initial_position = global_position
 	
-	$Label.text = value
+	text_label.text = value
 	
 	var random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	apply_central_impulse(random_direction * impulse_strength)
@@ -96,12 +99,10 @@ func _stop_dragging():
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 
 func _on_mouse_entered():
-	if not is_dragging:
-		scale = Vector2(1.1, 1.1)
+	is_hovered = true
 
 func _on_mouse_exited():
-	if not is_dragging:
-		scale = Vector2(1.0, 1.0)
+	is_hovered = false
 
 func _exit_tree():
 	if mouse_body and is_instance_valid(mouse_body):

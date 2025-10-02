@@ -1,15 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhmja4nfsmdct"]
+[gd_scene load_steps=4 format=3 uid="uid://bhmja4nfsmdct"]
 
 [ext_resource type="Script" uid="uid://b0hbh6c2qvdqx" path="res://scripts/letter.gd" id="1_kg060"]
+[ext_resource type="Script" uid="uid://cm5qjrylere8k" path="res://scripts/letter_effects.gd" id="2_s3w0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg060"]
 size = Vector2(42, 46.02944)
 
-[node name="Letter" type="RigidBody2D"]
+[node name="Letter" type="RigidBody2D" node_paths=PackedStringArray("text_label")]
 lock_rotation = true
 script = ExtResource("1_kg060")
+text_label = NodePath("Sprite/Label")
 
-[node name="shadow" type="ColorRect" parent="."]
+[node name="Sprite" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -11.0
+offset_top = -18.0
+offset_right = -11.0
+offset_bottom = -18.0
+script = ExtResource("2_s3w0n")
+
+[node name="shadow" type="ColorRect" parent="Sprite"]
+layout_mode = 0
 offset_left = -10.0
 offset_top = -13.0
 offset_right = 33.0
@@ -17,14 +29,16 @@ offset_bottom = 50.0
 mouse_filter = 2
 color = Color(0.63375676, 0.6337568, 0.63375676, 1)
 
-[node name="background" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="Sprite"]
+layout_mode = 0
 offset_left = -10.0
 offset_top = -13.0
 offset_right = 30.0
 offset_bottom = 47.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Sprite"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -44,7 +58,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, 17.700006)
+position = Vector2(0, -0.29999352)
 scale = Vector2(1, 1.359999)
 shape = SubResource("RectangleShape2D_kg060")
 
