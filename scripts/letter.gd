@@ -17,7 +17,6 @@ signal letter_clicked(letter)
 var value: String = ""
 var is_floating: bool = false
 var is_dragging: bool = false
-var is_hovered: bool = false
 var is_in_word_area: bool = false
 var initial_position: Vector2
 var target_position: Vector2
@@ -30,9 +29,6 @@ var mouse_body: StaticBody2D
 func _ready():
 	gravity_scale = 0.0
 	input_pickable = true
-	connect("input_event", Callable(self, "_on_input_event"))
-	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
-	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
 	
 	spring_joint = $DampedSpringJoint2D
 	spring_joint.stiffness = spring_stiffness
@@ -97,12 +93,6 @@ func _stop_dragging():
 	
 	emit_signal("letter_released", self)
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
-
-func _on_mouse_entered():
-	is_hovered = true
-
-func _on_mouse_exited():
-	is_hovered = false
 
 func _exit_tree():
 	if mouse_body and is_instance_valid(mouse_body):

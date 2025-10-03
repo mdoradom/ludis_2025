@@ -1,12 +1,27 @@
 extends Control
 
-func _process(delta):
-	
-	if get_parent().is_hovered:
-		scale = Vector2(1.25, 1.25)
-	
-	if get_parent().is_dragging:
-		scale = Vector2(1.5, 1.5) 
+const DEFAULT_SCALE: Vector2 = Vector2.ONE
 
-	if not get_parent().is_hovered:
-		scale = Vector2(1.0, 1.0)
+@export var hovered_scale_multiplier: float = 1.25
+@export var dragged_scale_multiplier: float = 1.5
+
+var is_hovered: bool = false
+var is_dragged: bool = false
+
+func _on_letter_mouse_entered() -> void:
+	if not is_dragged: scale *= hovered_scale_multiplier
+	is_hovered = true
+
+func _on_letter_mouse_exited() -> void:
+	if not is_dragged: scale = DEFAULT_SCALE
+	is_hovered = false
+
+
+func _on_letter_letter_dragged(letter: Variant) -> void:
+	scale = DEFAULT_SCALE * dragged_scale_multiplier
+	is_dragged = true
+
+
+func _on_letter_letter_released(letter: Variant) -> void:
+	scale = DEFAULT_SCALE * hovered_scale_multiplier
+	is_dragged = false
