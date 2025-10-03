@@ -55,7 +55,7 @@ func spawn_letters_from_object(object_data: BreakableObject, pos: Vector2):
 		var spawn_radius = randf_range(20, object_data.letter_spawn_radius)
 		var spawn_pos = pos + Vector2(cos(spawn_angle), sin(spawn_angle)) * spawn_radius
 		
-		letter_instance.setup(letter_data, spawn_pos)
+		letter_instance.spawn(letter_data, spawn_pos)
 		letter_instance.connect("letter_dragged", Callable(self, "_on_letter_dragged"))
 		letter_instance.connect("letter_released", Callable(self, "_on_letter_released"))
 		

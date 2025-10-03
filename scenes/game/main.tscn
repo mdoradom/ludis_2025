@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2hdqh1mihrjm"]
+[gd_scene load_steps=5 format=3 uid="uid://b2hdqh1mihrjm"]
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/game_manager.gd" id="1_llaio"]
+[ext_resource type="Script" uid="uid://c4n457xse28h1" path="res://scripts/mouse_body.gd" id="2_oekm8"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
 b = Vector2(1152, 0)
@@ -26,3 +27,6 @@ shape = SubResource("SegmentShape2D_oekm8")
 [node name="Right" type="CollisionShape2D" parent="Viewport Borders"]
 position = Vector2(1152, 0)
 shape = SubResource("SegmentShape2D_oekm8")
+
+[node name="MouseBody" type="StaticBody2D" parent="."]
+script = ExtResource("2_oekm8")
