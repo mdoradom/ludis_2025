@@ -45,7 +45,7 @@ func _setup_word_area():
 	label.size = Vector2(viewport_size.x, 40)
 	word_area.add_child(label)
 	
-	add_child(word_area)
+	#add_child(word_area)
 
 func spawn_letters_from_object(object_data: BreakableObject, pos: Vector2):
 	for letter_data in object_data.letters:
