@@ -67,7 +67,6 @@ func _start_dragging():
 	letter_rb.gravity_scale = 0.0
 	letter_rb.linear_damp = 5.0
 	
-	#emit_signal("letter_dragged", letter_rb)
 	letter_rb.letter_dragged.emit(letter_rb)
 	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 
@@ -79,6 +78,5 @@ func _stop_dragging():
 	letter_rb.gravity_scale = 0.0
 	letter_rb.linear_damp = 1.0
 	
-	#emit_signal("letter_released", letter_rb)
 	letter_rb.letter_released.emit(letter_rb)
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
