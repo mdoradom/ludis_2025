@@ -8,7 +8,7 @@ var letters: Array[Letter] = []
 
 func _process(delta: float) -> void:
 	# TEST: This code is improvised for testing the viability of using effects
-	var test_effect = false
+	var test_effect = true
 	if test_effect:
 		var time = Engine.get_physics_frames() * delta  # Or accumulate your own time counter
 		for i in range(letters.size()):
