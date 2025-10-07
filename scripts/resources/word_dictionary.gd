@@ -3,6 +3,8 @@ extends Resource
 
 @export var level_name: String = ""
 @export var objects: Array[BreakableObject] = []
+# For our use case is better to use a dict but needs testing
+#@export var objects_dict: Dictionary[String, BreakableObject] = {}
 
 func add_object(breakable_object: BreakableObject):
 	objects.append(breakable_object)
