@@ -6,7 +6,14 @@ extends Node2D
 
 var letters: Array[Letter] = []
 
+var preview_index: int = -1
+
 func _process(delta: float) -> void:
+	
+	print("Preview Index:", preview_index)
+	#if preview_index != -1:
+		#update_letter_positions()
+		
 	# TEST: This code is improvised for testing the viability of using effects
 	var test_effect = false
 	if test_effect:
@@ -53,7 +60,11 @@ func reorder_letter(letter: Letter, new_index: int):
 
 func update_letter_positions():
 	for i in range(letters.size()):
-		var target_pos = Vector2(i * slot_spacing, 0)
+		var offset = 0
+		if i >= preview_index:
+			offset = slot_spacing
+		
+		var target_pos = Vector2(i * slot_spacing + offset, 0)
 		var letter = letters[i]
 
 		# Create a temporary SceneTreeTween and animate
@@ -82,3 +93,7 @@ func merge_group(other: WordGroup):
 		other.remove_letter(letter)
 		add_letter(letter, letters.size())
 	other.queue_free()
+
+func show_preview_at_index(index: int = -1) -> void:
+	preview_index = index
+	update_letter_positions()
