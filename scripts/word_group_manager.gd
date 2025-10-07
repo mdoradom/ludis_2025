@@ -69,3 +69,13 @@ func _snap_to_word(group: WordGroup):
 func _on_letter_letter_released(letter: Variant) -> void:
 	if callable_action.is_valid():
 		callable_action.call()
+	
+	# This is made for make letters not collide when in a group
+	# It should not work but it works :p
+	letter_rb.collision_mask = 1
+
+
+func _on_letter_letter_dragged(letter: Variant) -> void:
+	# This is made for make letters not collide when in a group
+	# It should not work but it works :p
+	letter_rb.collision_mask = 0

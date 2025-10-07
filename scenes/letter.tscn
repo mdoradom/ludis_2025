@@ -97,6 +97,7 @@ shape = SubResource("CircleShape2D_gdeoo")
 
 [connection signal="input_event" from="." to="InputController" method="_on_letter_input_event"]
 [connection signal="letter_dragged" from="." to="Sprite" method="_on_letter_letter_dragged"]
+[connection signal="letter_dragged" from="." to="WordGroupManager" method="_on_letter_letter_dragged"]
 [connection signal="letter_dragged" from="." to="LetterWordDetector" method="_on_letter_letter_dragged"]
 [connection signal="letter_released" from="." to="Sprite" method="_on_letter_letter_released"]
 [connection signal="letter_released" from="." to="WordGroupManager" method="_on_letter_letter_released"]
