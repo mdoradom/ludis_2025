@@ -5,47 +5,9 @@ signal word_formed(word, letters)
 
 var letter_scene = preload("res://scenes/letter.tscn")
 var active_letters = []
-var word_area: Area2D
-var word_area_rect: Rect2
 var current_word = []
 var valid_words_dictionary = {}
 var available_objects = {}
-
-func _ready():
-	_setup_word_area()
-
-
-# Sets up the word area where players can drop letters to form words.
-func _setup_word_area():
-	word_area = Area2D.new()
-	var collision = CollisionShape2D.new()
-	var rect_shape = RectangleShape2D.new()
-	
-	var viewport_size = get_viewport_rect().size
-	var area_height = 100
-	
-	rect_shape.size = Vector2(viewport_size.x, area_height)
-	collision.shape = rect_shape
-	word_area.add_child(collision)
-	
-	word_area.position = Vector2(viewport_size.x / 2, viewport_size.y - area_height / 2)
-	word_area_rect = Rect2(0, viewport_size.y - area_height, viewport_size.x, area_height)
-	
-	var bg = ColorRect.new()
-	bg.color = Color(0.2, 0.2, 0.2, 0.3)
-	bg.size = Vector2(viewport_size.x, area_height)
-	bg.position = Vector2(-viewport_size.x / 2, -area_height / 2)
-	word_area.add_child(bg)
-	
-	var label = Label.new()
-	label.text = "Drop letters here to form words"
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.position = Vector2(-viewport_size.x / 2, -50)
-	label.size = Vector2(viewport_size.x, 40)
-	word_area.add_child(label)
-	
-	#add_child(word_area)
 
 func spawn_letters_from_object(object_data: BreakableObject, pos: Vector2):
 	for letter_data in object_data.letters:
@@ -64,45 +26,6 @@ func spawn_letters_from_object(object_data: BreakableObject, pos: Vector2):
 
 func _on_letter_dragged(letter):
 	letter.z_index = 10
-
-func _on_letter_released(letter):
-	letter.z_index = 0
-	
-	if word_area_rect.has_point(letter.global_position):
-		if not current_word.has(letter):
-			current_word.append(letter)
-			letter.is_in_word_area = true
-			
-			_arrange_word_letters()
-			
-			_check_current_word()
-	else:
-		if current_word.has(letter):
-			current_word.erase(letter)
-			letter.is_in_word_area = false
-			
-			letter.linear_velocity = letter.float_direction * letter.float_speed
-			letter.is_floating = true
-			
-			_arrange_word_letters()
-
-func _arrange_word_letters():
-	var viewport_size = get_viewport_rect().size
-	var letter_count = current_word.size()
-	
-	if letter_count == 0:
-		return
-	
-	var total_width = letter_count * 50
-	var start_x = (viewport_size.x - total_width) / 2 + 25
-	var y_pos = viewport_size.y - 50
-	
-	for i in range(letter_count):
-		var letter = current_word[i]
-		var target_pos = Vector2(start_x + i * 50, y_pos)
-		
-		var tween = create_tween()
-		tween.tween_property(letter, "global_position", target_pos, 0.2)
 
 func _check_current_word():
 	if current_word.size() == 0:
