@@ -10,7 +10,7 @@ var valid_words_dictionary = {}
 var available_objects = {}
 
 func spawn_letters_from_object(object_data: BreakableObject, pos: Vector2):
-	for letter_data in object_data.letters:
+	for letter_data in object_data.get_letters():
 		var letter_instance = letter_scene.instantiate()
 		
 		var spawn_angle = randf_range(0, 2 * PI)
