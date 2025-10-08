@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WordDictionary" load_steps=7 format=3 uid="uid://clwe7ppeedrco"]
 
-[ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/brekable_object.gd" id="1_kadpu"]
+[ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object.gd" id="1_kadpu"]
 [ext_resource type="Script" uid="uid://c6oapo0myuruh" path="res://scripts/resources/word_dictionary.gd" id="2_2x2qx"]
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_5fp1f"]
 
