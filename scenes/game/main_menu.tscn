@@ -38,7 +38,7 @@ text = "Options"
 
 [node name="VersionLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "ver  123"
+text = "ver  0.1.0"
 script = ExtResource("2_ngy02")
 
 [node name="StudioLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
