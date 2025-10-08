@@ -24,6 +24,10 @@ func _process(delta: float) -> void:
 		candidate_target.show_preview_at_index(candidate_target.get_nearest_slot_index(letter_rb.global_position))
 	
 func _on_candidate_found(target):
+	if !target:
+		candidate_target = null
+		return
+	
 	if target is not Letter: return
 	
 	if !target.WGM.word_group:
@@ -64,6 +68,11 @@ func _snap_to_word(group: WordGroup):
 	snap_to_group(group, slot_index)
 
 func _on_letter_letter_released(letter: Variant) -> void:
+	if !candidate_target:
+		if word_group:
+			detach_from_group()
+		return
+	
 	if candidate_target is WordGroup:
 		_snap_to_word(candidate_target)
 		candidate_target.show_preview_at_index()
@@ -81,5 +90,5 @@ func _on_letter_letter_dragged(letter: Variant) -> void:
 	# It should not work but it works :p
 	letter_rb.collision_mask = 0
 	
-	if word_group != null:
+	if word_group:
 		detach_from_group()

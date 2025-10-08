@@ -10,7 +10,7 @@ var preview_index: int = -1
 
 func _process(delta: float) -> void:
 	
-	print("Preview Index:", preview_index)
+	#print("Preview Index:", preview_index)
 	#if preview_index != -1:
 		#update_letter_positions()
 		
