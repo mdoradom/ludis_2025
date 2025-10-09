@@ -56,6 +56,10 @@ func spawn_object(object_data: BreakableObject, pos: Vector2 = Vector2.ZERO):
 	add_child(object)
 	return object
 
+func spawn_breakable_object(word: String, pos: Vector2 = Vector2.ZERO):
+	if available_objects.has(word):
+		spawn_object(available_objects[word], pos)
+
 func _on_object_broken(object_data: BreakableObject, pos: Vector2):
 	letter_manager.spawn_letters_from_object(object_data, pos)
 

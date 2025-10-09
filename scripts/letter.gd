@@ -12,3 +12,6 @@ func spawn(letter_char: String, start_pos: Vector2):
 	name = letter_char
 	text_label.text = letter_char
 	input_controller.setup(start_pos)
+
+func _to_string() -> String:
+	return text_label.text

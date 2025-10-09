@@ -9,7 +9,7 @@ var letters: Array[Letter] = []
 var preview_index: int = -1
 
 func _process(delta: float) -> void:
-	
+
 	#print("Preview Index:", preview_index)
 	#if preview_index != -1:
 		#update_letter_positions()
@@ -42,6 +42,12 @@ func add_letter(letter: Letter, slot_index: int):
 		letter.reparent($Letters)
 
 	update_letter_positions()
+	
+	var word_string = get_string_from_letters_array()
+	if check_completed_word(word_string):
+		spawn_breakable_object_temporal(word_string, global_position)
+		queue_free()
+		
 
 func remove_letter(letter: Letter):
 	if letter in letters:
@@ -97,3 +103,21 @@ func merge_group(other: WordGroup):
 func show_preview_at_index(index: int = -1) -> void:
 	preview_index = index
 	update_letter_positions()
+
+func spawn_breakable_object_temporal(word: String, pos: Vector2):
+	get_parent().get_node("Main").spawn_breakable_object(word, pos)
+
+func check_completed_word(word: String) -> bool:
+	var word_string = word.to_upper()
+	
+	if word_string == "GODOT":
+		return true
+	else:
+		return false
+	
+func get_string_from_letters_array() -> String:
+	var s = ""
+	for letter in letters:
+		s += str(letter)
+	
+	return s
