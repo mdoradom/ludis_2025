@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgv0vuaf5t0jb"]
+[gd_scene load_steps=3 format=3 uid="uid://dgv0vuaf5t0jb"]
 
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="1_7bl6s"]
+[ext_resource type="Script" uid="uid://d2cnsvihgg1ur" path="res://scripts/ui/sticker_book.gd" id="1_xrkbs"]
 
 [node name="StickerBook" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xrkbs")
 
 [node name="BackgroundPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -551,72 +553,4 @@ text = "???"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StickerSlot8" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="SlotBackground" type="NinePatchRect" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/StickerSlot8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-
-[node name="SpriteContainer" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/StickerSlot8"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -25.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SilhouetteSprite" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/StickerSlot8/SpriteContainer"]
-modulate = Color(0.3, 0.3, 0.3, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_7bl6s")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="DiscoveredSprite" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/StickerSlot8/SpriteContainer"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_7bl6s")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="WordLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer/StickerSlot8"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "???"
-horizontal_alignment = 1
-vertical_alignment = 1
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Header/CloseButton" to="." method="_on_close_button_pressed"]

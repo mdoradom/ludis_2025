@@ -34,6 +34,10 @@ size_flags_vertical = 6
 layout_mode = 2
 text = "Play"
 
+[node name="BookButton" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+text = "Sticker Book"
+
 [node name="OptionsButton" type="Button" parent="HBoxContainer/VBoxContainer/MenuOptions"]
 layout_mode = 2
 text = "Options"
@@ -59,6 +63,7 @@ texture = ExtResource("1_sbiqi")
 stretch_mode = 3
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/BookButton" to="." method="_on_book_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/MenuOptions/QuitButton" to="." method="_on_options_button_pressed"]
