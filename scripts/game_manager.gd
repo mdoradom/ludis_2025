@@ -62,6 +62,7 @@ func spawn_breakable_object(word: String, pos: Vector2 = Vector2.ZERO):
 
 func _on_object_broken(object_data: BreakableObject, pos: Vector2):
 	letter_manager.spawn_letters_from_object(object_data, pos)
+	SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
 
 func _on_word_formed(word: String, letters: Array):
 	print("Word formed: ", word)
