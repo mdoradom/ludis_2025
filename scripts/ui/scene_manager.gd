@@ -14,6 +14,7 @@ enum SCENE_LEVEL {
 	NONE,      ## No scene loaded
 	MAIN_MENU, ## Main menu scene
 	GAME,      ## Game scene (main.tscn)
+	OPTIONS,   ## Options menu scene
 	# ... add other scenes
 }
 
@@ -21,6 +22,7 @@ enum SCENE_LEVEL {
 var scene_paths = {
 	SCENE_LEVEL.MAIN_MENU: "res://scenes/ui/main_menu.tscn",
 	SCENE_LEVEL.GAME: "res://scenes/game/main.tscn",
+	SCENE_LEVEL.OPTIONS: "res://scenes/ui/options_menu.tscn",
 	# ... add other scene paths
 }
 

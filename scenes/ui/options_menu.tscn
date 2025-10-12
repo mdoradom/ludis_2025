@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://b27nit2lokfdr"]
+
+[ext_resource type="Script" uid="uid://cyujy42beahi8" path="res://scripts/ui/options_menu.gd" id="1_options"]
+
+[node name="OptionsMenu" type="Popup"]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(947, 540)
+visible = true
+script = ExtResource("1_options")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Video" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Video/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="TabContainer/Video/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="Label2" type="CheckButton" parent="TabContainer/Video/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Audio" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Gameplay" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Accesibilidad" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
