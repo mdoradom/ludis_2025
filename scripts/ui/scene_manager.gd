@@ -5,7 +5,8 @@ extends Node
 ## This autoload manages scene lifecycle by pre-instantiating all scenes for fast switching
 ## and handling proper cleanup during transitions. Supports both scene switching and reloading.
 ##
-## @tutorial(Scene Management): https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html
+## @tutorial(Godot Docs singletons autoload): https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html
+## @tutorial(Godot Docs change scenes manually): https://docs.godotengine.org/en/latest/tutorials/scripting/change_scenes_manually.html
 ## @tutorial(Godot Forum): https://forum.godotengine.org/t/what-is-the-best-way-to-handle-menu-navigation-in-gdscript-scene-layout/24711/2
 
 ## Enumeration of available scene levels in the game.
