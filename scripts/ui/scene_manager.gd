@@ -22,7 +22,7 @@ enum SCENE_LEVEL {
 ## Mapping of scene levels to their respective .tscn file paths.
 var scene_paths = {
 	SCENE_LEVEL.MAIN_MENU: "res://scenes/ui/main_menu.tscn",
-	SCENE_LEVEL.GAME: "res://scenes/game/main.tscn",
+	SCENE_LEVEL.GAME: "res://scenes/game/level.tscn",
 	SCENE_LEVEL.OPTIONS: "res://scenes/ui/options_menu.tscn",
 	SCENE_LEVEL.STICKER_BOOK: "res://scenes/ui/sticker_book.tscn"
 	# ... add other scene paths

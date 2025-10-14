@@ -8,7 +8,7 @@ signal letter_clicked(letter)
 @export var WGM: LetterWordGroupManager
 @export var text_label: Label
 
-func spawn(letter_char: String, start_pos: Vector2):
+func setup(letter_char: String, start_pos: Vector2):
 	name = letter_char
 	text_label.text = letter_char
 	input_controller.setup(start_pos)

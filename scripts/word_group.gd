@@ -45,6 +45,7 @@ func add_letter(letter: Letter, slot_index: int):
 	
 	var word_string = get_string_from_letters_array()
 	if check_completed_word(word_string):
+		# TODO: Think if would be better to use a signal instead of using that function
 		spawn_breakable_object_temporal(word_string, global_position)
 		queue_free()
 		
@@ -104,8 +105,11 @@ func show_preview_at_index(index: int = -1) -> void:
 	preview_index = index
 	update_letter_positions()
 
+# TODO: Do that in a better way please :/
 func spawn_breakable_object_temporal(word: String, pos: Vector2):
-	get_parent().get_node("Main").spawn_breakable_object(word, pos)
+	var BOF: BreakableObjectFactory = get_tree().get_current_scene().breakable_object_factory
+	BOF.spawn_breakable_object_from_string(word, pos)
+	#get_parent().get_node("Main").spawn_breakable_object(word, pos)
 
 func check_completed_word(word: String) -> bool:
 	var word_string = word.to_upper()
