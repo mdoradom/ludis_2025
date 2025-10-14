@@ -8,9 +8,6 @@ var start_anchor: float
 func _ready() -> void:
 	anchor_top = 0.9
 
-func _on_close_button_pressed() -> void:
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
-
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
