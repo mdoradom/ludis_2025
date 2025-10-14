@@ -2,14 +2,14 @@ class_name WordDictionary
 extends Resource
 
 @export var level_name: String = ""
-@export var objects: Array[BreakableObject] = []
+@export var objects: Array[BreakableObjectData] = []
 # For our use case is better to use a dict but needs testing
-#@export var objects_dict: Dictionary[String, BreakableObject] = {}
+#@export var objects_dict: Dictionary[String, BreakableObjectData] = {}
 
-func add_object(breakable_object: BreakableObject):
+func add_object(breakable_object: BreakableObjectData):
 	objects.append(breakable_object)
 
-func get_object_by_word(word: String) -> BreakableObject:
+func get_object_by_word(word: String) -> BreakableObjectData:
 	for obj in objects:
 		if obj.item_name == word:
 			return obj

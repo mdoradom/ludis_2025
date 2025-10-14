@@ -9,7 +9,7 @@ var current_word = []
 var valid_words_dictionary = {}
 var available_objects = {}
 
-func spawn_letters_from_object(object_data: BreakableObject, pos: Vector2):
+func spawn_letters_from_object(object_data: BreakableObjectData, pos: Vector2):
 	for letter_data in object_data.get_letters():
 		var letter_instance = letter_scene.instantiate()
 		

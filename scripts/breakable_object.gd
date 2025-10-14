@@ -1,9 +1,9 @@
-class_name BreakableSprite
+class_name BreakableObject
 extends Area2D
 
 signal broken(object_data, position)
 
-@export var object_data: BreakableObject
+@export var object_data: BreakableObjectData
 var tap_count: int = 0
 var tap_timer: Timer
 

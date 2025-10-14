@@ -1,6 +1,6 @@
 extends Node2D
 
-var breakable_object_scene = preload("res://scenes/object.tscn")
+var breakable_object_scene = preload("res://scenes/breakable_object.tscn")
 var letter_manager: LetterManager
 var current_dictionary: WordDictionary
 var available_objects = {}
@@ -42,7 +42,7 @@ func change_level(new_dictionary_path: String, starting_word: String = ""):
 	if available_objects.has(start_word):
 		spawn_object(available_objects[start_word])
 
-func spawn_object(object_data: BreakableObject, pos: Vector2 = Vector2.ZERO):
+func spawn_object(object_data: BreakableObjectData, pos: Vector2 = Vector2.ZERO):
 	var object = breakable_object_scene.instantiate()
 	
 	if pos == Vector2.ZERO:
@@ -60,7 +60,7 @@ func spawn_breakable_object(word: String, pos: Vector2 = Vector2.ZERO):
 	if available_objects.has(word):
 		spawn_object(available_objects[word], pos)
 
-func _on_object_broken(object_data: BreakableObject, pos: Vector2):
+func _on_object_broken(object_data: BreakableObjectData, pos: Vector2):
 	letter_manager.spawn_letters_from_object(object_data, pos)
 
 func _on_word_formed(word: String, letters: Array):

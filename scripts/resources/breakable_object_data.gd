@@ -1,4 +1,4 @@
-class_name BreakableObject
+class_name BreakableObjectData
 extends Resource
 
 @export var item_name: String = ""
