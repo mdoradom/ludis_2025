@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="WordDictionary" load_steps=25 format=3 uid="uid://bnieedqkubedd"]
+
+[ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="1_gxdfp"]
+[ext_resource type="Script" uid="uid://c6oapo0myuruh" path="res://scripts/resources/word_dictionary.gd" id="2_lkq3i"]
+
+[sub_resource type="Resource" id="Resource_hnem3"]
+script = ExtResource("1_gxdfp")
+item_name = "PAPALLONA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_tle86"]
+script = ExtResource("1_gxdfp")
+item_name = "ABELLA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_cpafp"]
+script = ExtResource("1_gxdfp")
+item_name = "GRANOTA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_remde"]
+script = ExtResource("1_gxdfp")
+item_name = "TRITÓ"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_4oixa"]
+script = ExtResource("1_gxdfp")
+item_name = "ESCURÇÓ"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_gd6hy"]
+script = ExtResource("1_gxdfp")
+item_name = "LLANGARDAIX"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_gw4m4"]
+script = ExtResource("1_gxdfp")
+item_name = "TORTUGA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_jtehg"]
+script = ExtResource("1_gxdfp")
+item_name = "COLOM"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_13s74"]
+script = ExtResource("1_gxdfp")
+item_name = "GAVINA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_17uo1"]
+script = ExtResource("1_gxdfp")
+item_name = "ÒLIBA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_nicrk"]
+script = ExtResource("1_gxdfp")
+item_name = "TRENCALÒS"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_kj57b"]
+script = ExtResource("1_gxdfp")
+item_name = "VOLTOR"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_uyoxv"]
+script = ExtResource("1_gxdfp")
+item_name = "LLOP"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_emml8"]
+script = ExtResource("1_gxdfp")
+item_name = "LLÚDRIGA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_ggm5f"]
+script = ExtResource("1_gxdfp")
+item_name = "ÓS"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_nkiyb"]
+script = ExtResource("1_gxdfp")
+item_name = "RATPENAT"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_sh2r2"]
+script = ExtResource("1_gxdfp")
+item_name = "ERIÇÓ"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_btrem"]
+script = ExtResource("1_gxdfp")
+item_name = "SENGLAR"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_0adjo"]
+script = ExtResource("1_gxdfp")
+item_name = "GUINEU"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_bv8bj"]
+script = ExtResource("1_gxdfp")
+item_name = "CONILL"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_bdfuu"]
+script = ExtResource("1_gxdfp")
+item_name = "ESQUIROL"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_7sqmx"]
+script = ExtResource("1_gxdfp")
+item_name = "SARGANTANA"
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[resource]
+script = ExtResource("2_lkq3i")
+level_name = "Animals"
+objects = Array[ExtResource("1_gxdfp")]([SubResource("Resource_hnem3"), SubResource("Resource_tle86"), SubResource("Resource_cpafp"), SubResource("Resource_remde"), SubResource("Resource_4oixa"), SubResource("Resource_gd6hy"), SubResource("Resource_gw4m4"), SubResource("Resource_jtehg"), SubResource("Resource_13s74"), SubResource("Resource_17uo1"), SubResource("Resource_nicrk"), SubResource("Resource_kj57b"), SubResource("Resource_uyoxv"), SubResource("Resource_emml8"), SubResource("Resource_ggm5f"), SubResource("Resource_nkiyb"), SubResource("Resource_sh2r2"), SubResource("Resource_btrem"), SubResource("Resource_0adjo"), SubResource("Resource_bv8bj"), SubResource("Resource_bdfuu"), SubResource("Resource_7sqmx")])
+metadata/_custom_type_script = "uid://c6oapo0myuruh"
