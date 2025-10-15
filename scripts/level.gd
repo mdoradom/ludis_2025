@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var starting_dictionary_path: String = "res://resources/animals_dictionary.tres"
-@export var starting_object_word: String = "GODOT"
 
 var breakable_object_factory: BreakableObjectFactory
 var letter_factory: LetterFactory
@@ -14,14 +13,27 @@ func _ready():
 	
 	load_dictionary(starting_dictionary_path)
 	
-	if available_objects.has(starting_object_word):
+	var starting_words: Array = current_dictionary.get_random_words(4)
+
+	for word in starting_words:
+		if !available_objects.has(word):
+			print("Warning: Starting object '", word, "' not found in dictionary")
+			return
+			
 		var viewport_size = get_viewport_rect().size
+		
+		# Base spawn position in the center
 		var spawn_pos = Vector2(viewport_size.x / 2, viewport_size.y / 2)
+		
+		# Random offset (adjust max_offset as needed)
+		var max_offset = 250  # pixels
+		spawn_pos.x += randf_range(-max_offset, max_offset)
+		spawn_pos.y += randf_range(-max_offset, max_offset)
+		
 		breakable_object_factory.spawn_breakable_object_from_data(
-									available_objects[starting_object_word],
-									spawn_pos)
-	else:
-		print("Warning: Starting object '", starting_object_word, "' not found in dictionary")
+			available_objects[word],
+			spawn_pos
+		)
 
 func load_dictionary(dictionary_path: String):
 	current_dictionary = load(dictionary_path) as WordDictionary

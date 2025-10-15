@@ -31,3 +31,16 @@ func get_all_words() -> Array[String]:
 		words.append(key)
 	
 	return words
+
+func get_random_words(number: int) -> Array:
+	var result: Array = []
+	if objects.is_empty():
+		return result
+	
+	var keys := objects.keys()
+	keys.shuffle()  # Randomize order
+	
+	for i in range(min(number, keys.size())):
+		result.append(keys[i])
+	
+	return result
