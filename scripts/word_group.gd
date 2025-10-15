@@ -114,10 +114,9 @@ func spawn_breakable_object_temporal(word: String, pos: Vector2):
 func check_completed_word(word: String) -> bool:
 	var word_string = word.to_upper()
 	
-	if word_string == "GODOT":
-		return true
-	else:
-		return false
+	var level_dictionary: WordDictionary = get_tree().current_scene.current_dictionary
+	
+	return level_dictionary.has_word(word)
 	
 func get_string_from_letters_array() -> String:
 	var s = ""

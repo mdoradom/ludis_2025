@@ -2,30 +2,32 @@ class_name WordDictionary
 extends Resource
 
 @export var level_name: String = ""
-@export var objects: Array[BreakableObjectData] = []
+# Only to make easier to add objects to the dictionary
+@export var objects_array: Array[BreakableObjectData] = []
 # For our use case is better to use a dict but needs testing
-#@export var objects_dict: Dictionary[String, BreakableObjectData] = {}
+var objects: Dictionary[String, BreakableObjectData] = {}
+
+func load_words():
+	for object in objects_array:
+		objects[object.item_name] = object
+	
+	objects_array.clear()
 
 func add_object(breakable_object: BreakableObjectData):
-	objects.append(breakable_object)
+	objects[breakable_object.item_name] = breakable_object
 
 func get_object_by_word(word: String) -> BreakableObjectData:
-	for obj in objects:
-		if obj.item_name == word:
-			return obj
-	return null
+	return objects.get(word, null)
 
-func get_available_objects() -> Dictionary:
-	var result = {}
-	for obj in objects:
-		result[obj.item_name] = obj
-	return result
+func get_all_objects() -> Dictionary:
+	return objects
 
-func is_valid_word(word: String) -> bool:
+func has_word(word: String) -> bool:
 	return get_object_by_word(word) != null
 
 func get_all_words() -> Array[String]:
 	var words: Array[String] = []
-	for obj in objects:
-		words.append(obj.item_name)
+	for key in objects.keys():
+		words.append(key)
+	
 	return words

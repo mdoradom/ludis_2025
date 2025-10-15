@@ -1,6 +1,8 @@
 class_name BreakableObject
 extends Area2D
 
+@onready var default_icon = preload("res://icon.svg")
+
 signal broken(object_data, position)
 
 @export var object_data: BreakableObjectData
@@ -8,6 +10,9 @@ var tap_count: int = 0
 var tap_timer: Timer
 
 func _ready():
+	if !object_data.sprite:
+		object_data.sprite = default_icon
+	
 	$Sprite2D.texture = object_data.sprite
 	
 	# Set up timer for tap detection
