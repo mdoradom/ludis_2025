@@ -11,6 +11,14 @@ extends Resource
 @export var letter_spawn_force: float = 100.0
 @export var letter_spawn_rotation: float = PI/4
 
+enum Type {
+	NONE,
+	STICKER,
+	OBJECT
+}
+
+@export var type: Type
+
 func _init(p_name: String = "", p_sprite: Texture2D = null):
 	item_name = p_name
 	sprite = p_sprite
