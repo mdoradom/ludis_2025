@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/level.gd" id="1_khnyk"]
 [ext_resource type="Script" uid="uid://c4n457xse28h1" path="res://scripts/mouse_body.gd" id="2_dtmi3"]
-[ext_resource type="Script" uid="uid://k2pe8wm87p8h" path="res://scenes/game/breakable_object_factory.gd" id="3_dtmi3"]
+[ext_resource type="Script" uid="uid://k2pe8wm87p8h" path="res://scripts/breakable_object_factory.gd" id="3_dtmi3"]
 [ext_resource type="Script" uid="uid://b7awot0i7fnfu" path="res://scripts/letter_factory.gd" id="4_rhpan"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
