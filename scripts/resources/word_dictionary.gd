@@ -44,3 +44,6 @@ func get_random_words(number: int) -> Array:
 		result.append(keys[i])
 	
 	return result
+
+func difference(word_dict: WordDictionary) -> Array[String]:
+	return objects.keys().filter(func(w): return not word_dict.has_word(w))

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://scripts/ui/scene_manager.gd"
+UserData="*res://scripts/user_data.gd"
 
 [rendering]
 

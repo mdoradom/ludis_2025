@@ -7,13 +7,16 @@ var letter_factory: LetterFactory
 var current_dictionary: WordDictionary
 var available_objects = {}
 
+var available_letters_in_level: Dictionary[String, int] = {} # {"A", 3}
+
 func _ready():
 	breakable_object_factory = get_node("BreakableObjectFactory")
 	letter_factory = get_node("LetterFactory")
 	
 	load_dictionary(starting_dictionary_path)
 	
-	var starting_words: Array = current_dictionary.get_random_words(4)
+	var starting_words: Array = UserData.unlocked_stickers.get_all_words()
+	print("Starting Words:", starting_words)
 
 	for word in starting_words:
 		if !available_objects.has(word):
@@ -34,6 +37,7 @@ func _ready():
 			available_objects[word],
 			spawn_pos
 		)
+		
 
 func load_dictionary(dictionary_path: String):
 	current_dictionary = load(dictionary_path) as WordDictionary
@@ -51,3 +55,13 @@ func load_dictionary(dictionary_path: String):
 
 func _on_object_broken(object_data: BreakableObjectData, pos: Vector2):
 	letter_factory.spawn_letters_from_object(object_data, pos)
+
+
+func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableObject) -> void:
+	var object_name: String = b_object.object_data.item_name
+	
+	for char in object_name:
+		available_letters_in_level[char] = available_letters_in_level.get(char, 0) + 1
+	
+	print(available_letters_in_level)
+	get_node("WordChecker").check_formable_words_test()
