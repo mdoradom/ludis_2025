@@ -63,5 +63,10 @@ func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableOb
 	for char in object_name:
 		available_letters_in_level[char] = available_letters_in_level.get(char, 0) + 1
 	
+	UserData.unlocked_stickers.add_object(b_object.object_data)
+	
 	print(available_letters_in_level)
-	get_node("WordChecker").check_formable_words_test()
+	var game_finished: bool = get_node("WordChecker").check_formable_words_test()
+	
+	if game_finished:
+		SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
