@@ -8,7 +8,7 @@ signal clicked(object)
 @export var slot_spacing := 64.0
 @export var move_duration := 0.2
 @export var preview_color := Color(1, 1, 1, 0.3)
-@export var preview_size := Vector2(50, 50)
+@export var preview_size := Vector2(50, 65)
 
 var letters: Array[Letter] = []
 var preview_index: int = -1
@@ -39,7 +39,7 @@ func _draw() -> void:
 	var preview_pos = Vector2(center_offset + preview_index * slot_spacing, 0)
 	
 	var rect = Rect2(preview_pos - preview_size / 2, preview_size)
-	draw_rect(rect, preview_color, false, 2.0)
+	draw_rect(rect, preview_color, true, 2.0)
 
 func add_letter(letter: Letter, slot_index: int):
 	slot_index = clamp(slot_index, 0, letters.size())
