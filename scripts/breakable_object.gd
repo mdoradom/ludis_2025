@@ -1,7 +1,11 @@
 class_name BreakableObject
-extends Area2D
+extends RigidBody2D
 
 @onready var default_icon = preload("res://icon.svg")
+
+signal dragged(object)
+signal released(object)
+signal clicked(object)
 
 signal broken(object_data, position)
 
@@ -39,23 +43,24 @@ func _on_input_event(_viewport, event, _shape_idx):
 
 func _on_tap_timer_timeout():
 	tap_count = 0
-
+	
 func _break_object():
-	# Play break animation or sound if available
+	$CollisionShape2D.disabled = true
+
+	var tween = create_tween()
+
+	tween.tween_property(self, "modulate:a", 0.0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
 	if object_data.break_sound:
 		var audio_player = AudioStreamPlayer.new()
 		audio_player.stream = object_data.break_sound
 		audio_player.autoplay = true
+
 		audio_player.connect("finished", Callable(audio_player, "queue_free"))
 		get_parent().add_child(audio_player)
-	
-	# Emit signal with object data
+
 	emit_signal("broken", object_data, global_position)
-	
-	# Hide sprite (optional: could animate breaking instead)
-	$Sprite2D.visible = false
-	
-	# Queue for deletion after small delay (gives time for animation)
+
 	var timer = Timer.new()
 	timer.wait_time = 0.2
 	timer.one_shot = true

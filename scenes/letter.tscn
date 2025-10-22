@@ -91,11 +91,10 @@ script = ExtResource("3_antxc")
 letter_rb = NodePath("..")
 LWD = NodePath("../LetterWordDetector")
 
-[node name="InputController" type="Node" parent="." node_paths=PackedStringArray("letter_rb", "spring_joint", "text_label")]
+[node name="InputController" type="Node" parent="." node_paths=PackedStringArray("rb", "spring_joint")]
 script = ExtResource("4_rprtv")
-letter_rb = NodePath("..")
+rb = NodePath("..")
 spring_joint = NodePath("../DampedSpringJoint2D")
-text_label = NodePath("../Sprite/Label")
 
 [node name="LetterWordDetector" type="Node2D" parent="."]
 script = ExtResource("5_8y6hk")
@@ -107,14 +106,14 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LetterWordDetector/MagnetAreaSensor"]
 shape = SubResource("CircleShape2D_gdeoo")
 
-[connection signal="input_event" from="." to="InputController" method="_on_letter_input_event"]
-[connection signal="letter_dragged" from="." to="Sprite" method="_on_letter_letter_dragged"]
-[connection signal="letter_dragged" from="." to="WordGroupManager" method="_on_letter_letter_dragged"]
-[connection signal="letter_dragged" from="." to="LetterWordDetector" method="_on_letter_letter_dragged"]
-[connection signal="letter_released" from="." to="Sprite" method="_on_letter_letter_released"]
-[connection signal="letter_released" from="." to="WordGroupManager" method="_on_letter_letter_released"]
-[connection signal="letter_released" from="." to="LetterWordDetector" method="_on_letter_letter_released"]
+[connection signal="dragged" from="." to="Sprite" method="_on_letter_dragged"]
+[connection signal="dragged" from="." to="WordGroupManager" method="_on_letter_dragged"]
+[connection signal="dragged" from="." to="LetterWordDetector" method="_on_letter_dragged"]
+[connection signal="input_event" from="." to="InputController" method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="Sprite" method="_on_letter_mouse_entered"]
 [connection signal="mouse_exited" from="." to="Sprite" method="_on_letter_mouse_exited"]
+[connection signal="released" from="." to="Sprite" method="_on_letter_released"]
+[connection signal="released" from="." to="WordGroupManager" method="_on_letter_released"]
+[connection signal="released" from="." to="LetterWordDetector" method="_on_letter_released"]
 [connection signal="body_entered" from="LetterWordDetector/MagnetAreaSensor" to="LetterWordDetector" method="_on_magnet_area_sensor_body_entered"]
 [connection signal="body_exited" from="LetterWordDetector/MagnetAreaSensor" to="LetterWordDetector" method="_on_magnet_area_sensor_body_exited"]

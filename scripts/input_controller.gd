@@ -1,7 +1,7 @@
-class_name LetterInputManager extends Node
+class_name PhysicalInputManager extends Node
 
 @export_group("Required References")
-@export var letter_rb: RigidBody2D
+@export var rb: RigidBody2D
 @export var spring_joint: DampedSpringJoint2D
 
 @export_group("Physics Configuration")
@@ -13,9 +13,6 @@ class_name LetterInputManager extends Node
 @export var spring_damping: float = 8.0
 @export var spring_length: int = 1
 
-@export var text_label: Label
-
-var is_floating: bool = false
 var is_dragging: bool = false
 var is_in_word_area: bool = false
 var initial_position: Vector2
@@ -26,36 +23,40 @@ var time_passed: float = 0
 var mouse_body: StaticBody2D
 
 func _ready():
-	letter_rb.gravity_scale = 0.0
-	letter_rb.input_pickable = true
+	rb.gravity_scale = 0.0
+	rb.input_pickable = true
 	
 	spring_joint.stiffness = spring_stiffness
 	spring_joint.damping = spring_damping
 	spring_joint.length = spring_length
 	spring_joint.node_b = NodePath()
 	
-	mouse_body = get_tree().current_scene.get_node("MouseBody")
+	mouse_body = get_tree().get_nodes_in_group("mouse_body")[0]
 
-func setup(start_pos: Vector2):
-	letter_rb.global_position = start_pos
-	initial_position = letter_rb.global_position
-	
+func setup_letter(start_pos: Vector2, radius: float = 1.0):
+		
 	var random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-	letter_rb.apply_central_impulse(random_direction * impulse_strength)
-	
-	is_floating = true
+	var random_distance = sqrt(randf()) * radius
+
+	var spawn_position = start_pos + (random_direction * random_distance)
+
+	rb.global_position = spawn_position
+	initial_position = rb.global_position
+
+	var random_impulse_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
+	rb.apply_central_impulse(random_impulse_direction * impulse_strength)
 
 func _process(delta):
 	time_passed += delta
 	if is_dragging and mouse_body:
 		
-		if letter_rb.linear_velocity.length() > 100:
-			letter_rb.linear_velocity *= 0.9
+		if rb.linear_velocity.length() > 100:
+			rb.linear_velocity *= 0.9
 	
 	if is_dragging and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		_stop_dragging()
 
-func _on_letter_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		_start_dragging()
 
@@ -64,10 +65,10 @@ func _start_dragging():
 	
 	spring_joint.node_b = mouse_body.get_path()
 	
-	letter_rb.gravity_scale = 0.0
-	letter_rb.linear_damp = 5.0
+	rb.gravity_scale = 0.0
+	rb.linear_damp = 5.0
 	
-	letter_rb.letter_dragged.emit(letter_rb)
+	rb.dragged.emit(rb)
 	Input.set_default_cursor_shape(Input.CURSOR_DRAG)
 
 func _stop_dragging():
@@ -75,8 +76,8 @@ func _stop_dragging():
 	
 	spring_joint.node_b = NodePath()
 	
-	letter_rb.gravity_scale = 0.0
-	letter_rb.linear_damp = 1.0
+	rb.gravity_scale = 0.0
+	rb.linear_damp = 1.0
 	
-	letter_rb.letter_released.emit(letter_rb)
+	rb.released.emit(rb)
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)

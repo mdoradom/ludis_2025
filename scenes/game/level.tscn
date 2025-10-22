@@ -31,7 +31,7 @@ shape = SubResource("SegmentShape2D_oekm8")
 position = Vector2(1152, 0)
 shape = SubResource("SegmentShape2D_oekm8")
 
-[node name="MouseBody" type="StaticBody2D" parent="."]
+[node name="MouseBody" type="StaticBody2D" parent="." groups=["mouse_body"]]
 script = ExtResource("2_dtmi3")
 
 [node name="BreakableObjectFactory" type="Node" parent="."]

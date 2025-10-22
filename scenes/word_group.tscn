@@ -1,9 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxidsp63cu587"]
+[gd_scene load_steps=5 format=3 uid="uid://bxidsp63cu587"]
 
 [ext_resource type="Script" uid="uid://dusi20t30h8mk" path="res://scripts/word_group.gd" id="1_nbuqr"]
+[ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="2_2hk67"]
+[ext_resource type="Script" uid="uid://djj3a23vttirr" path="res://scripts/word_group_grab_bar.gd" id="3_ksb4t"]
 
-[node name="WordGroup" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuqr"]
+size = Vector2(265, 20)
+
+[node name="WordGroup" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_nbuqr")
 slot_spacing = 48.0
+move_duration = null
+preview_color = null
+preview_size = null
 
 [node name="Letters" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 54)
+shape = SubResource("RectangleShape2D_nbuqr")
+
+[node name="InputManager" type="Node" parent="." node_paths=PackedStringArray("rb", "spring_joint")]
+script = ExtResource("2_2hk67")
+rb = NodePath("..")
+spring_joint = NodePath("../DampedSpringJoint2D")
+metadata/_custom_type_script = "uid://biflpoikd3r3r"
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("..")
+length = 1.0
+
+[node name="GrabBar" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.999985
+offset_top = 47.000004
+offset_right = 74.000015
+offset_bottom = 62.000004
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.24, 1)
+mouse_filter = 1
+script = ExtResource("3_ksb4t")
+
+[connection signal="dragged" from="." to="GrabBar" method="_on_word_group_dragged"]
+[connection signal="input_event" from="." to="InputManager" method="_on_input_event"]
+[connection signal="released" from="." to="GrabBar" method="_on_word_group_released"]
+[connection signal="mouse_entered" from="GrabBar" to="GrabBar" method="_on_mouse_entered"]
