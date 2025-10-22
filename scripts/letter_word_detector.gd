@@ -44,7 +44,8 @@ func _on_magnet_area_sensor_body_entered(body: Node2D) -> void:
 		pass
 
 func _on_magnet_area_sensor_body_exited(body: Node2D) -> void:
-	pass
+	if body is WordGroup:
+		body.show_preview_at_index()
 
 func _on_letter_dragged(letter: Variant) -> void:
 	area.visible = true
