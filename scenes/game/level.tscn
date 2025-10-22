@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2hdqh1mihrjm"]
+[gd_scene load_steps=10 format=3 uid="uid://b2hdqh1mihrjm"]
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/level.gd" id="1_khnyk"]
 [ext_resource type="Resource" uid="uid://bnieedqkubedd" path="res://resources/animals_dictionary.tres" id="2_65r54"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://k2pe8wm87p8h" path="res://scripts/breakable_object_factory.gd" id="3_dtmi3"]
 [ext_resource type="Script" uid="uid://b7awot0i7fnfu" path="res://scripts/letter_factory.gd" id="4_rhpan"]
 [ext_resource type="Script" uid="uid://g86ro4cswpl3" path="res://scripts/word_checker.gd" id="5_ji7po"]
+[ext_resource type="Texture2D" uid="uid://cegyg1nfs32pf" path="res://assets/textures/in_game_background.jpg" id="7_mxnjv"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
 b = Vector2(1152, 0)
@@ -44,5 +45,10 @@ script = ExtResource("4_rhpan")
 
 [node name="WordChecker" type="Node" parent="."]
 script = ExtResource("5_ji7po")
+
+[node name="InGameBackground" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(597, 513)
+texture = ExtResource("7_mxnjv")
 
 [connection signal="breakable_object_spawned" from="BreakableObjectFactory" to="." method="_on_breakable_object_factory_breakable_object_spawned"]

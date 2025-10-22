@@ -24,11 +24,13 @@ func _on_letter_mouse_entered() -> void:
 	if not is_dragged:
 		tween_scale(DEFAULT_SCALE * hovered_scale_multiplier)
 	is_hovered = true
+	z_index += 1
 
 func _on_letter_mouse_exited() -> void:
 	if not is_dragged:
 		tween_scale(DEFAULT_SCALE)
 	is_hovered = false
+	z_index -= 1
 
 func _on_letter_dragged(letter: Variant) -> void:
 	tween_scale(DEFAULT_SCALE * dragged_scale_multiplier)

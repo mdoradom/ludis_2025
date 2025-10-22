@@ -12,7 +12,7 @@
 bounce = 0.7
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg060"]
-size = Vector2(81.63265, 60)
+size = Vector2(59.773, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdeoo"]
 radius = 120.0
@@ -37,6 +37,25 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("2_s3w0n")
+
+[node name="background2" type="TextureRect" parent="Sprite"]
+modulate = Color(1, 0.77918017, 0.67961574, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -33.0
+offset_right = 30.0
+offset_bottom = 37.35005
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_053ud")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="background" type="TextureRect" parent="Sprite"]
 layout_mode = 1
@@ -78,8 +97,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.7683716e-07, -9.536743e-07)
-scale = Vector2(0.735, 1)
 shape = SubResource("RectangleShape2D_kg060")
 
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
@@ -98,6 +115,7 @@ spring_joint = NodePath("../DampedSpringJoint2D")
 
 [node name="LetterWordDetector" type="Node2D" parent="."]
 script = ExtResource("5_8y6hk")
+search_debug_lines = true
 
 [node name="MagnetAreaSensor" type="Area2D" parent="LetterWordDetector"]
 visible = false
