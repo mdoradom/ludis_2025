@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var starting_dictionary: WordDictionary
-@export var custom_starting_words: Array[String] = []
 
 var breakable_object_factory: BreakableObjectFactory
 var letter_factory: LetterFactory
@@ -17,10 +16,7 @@ func _ready():
 	load_dictionary(starting_dictionary)
 	
 	var starting_words: Array
-	if custom_starting_words.size() > 0:
-		starting_words = custom_starting_words
-	else:
-		starting_words = UserData.unlocked_stickers.get_all_words()
+	starting_words = UserData.unlocked_stickers.get_all_words()
 	
 	print("Starting Words:", starting_words)
 
