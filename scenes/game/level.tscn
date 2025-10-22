@@ -37,10 +37,6 @@ shape = SubResource("SegmentShape2D_oekm8")
 [node name="MouseBody" type="StaticBody2D" parent="." groups=["mouse_body"]]
 script = ExtResource("2_dtmi3")
 
-[node name="ColorRect" type="ColorRect" parent="MouseBody"]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="BreakableObjectFactory" type="Node" parent="."]
 script = ExtResource("3_dtmi3")
 
