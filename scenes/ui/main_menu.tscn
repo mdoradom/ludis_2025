@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3yw8vxrncpoa"]
+[gd_scene load_steps=11 format=3 uid="uid://c3yw8vxrncpoa"]
 
 [ext_resource type="Script" uid="uid://qbuqbppdeaur" path="res://scripts/ui/main_menu.gd" id="1_e66b0"]
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="2_fe2o3"]
 [ext_resource type="Script" uid="uid://c4n457xse28h1" path="res://scripts/mouse_body.gd" id="3_1g8jr"]
+[ext_resource type="Texture2D" uid="uid://lv61x8f11npe" path="res://assets/textures/main_menu_background.png" id="4_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://c0wk6ddfc5jcj" path="res://assets/textures/jugar_button.png" id="5_uhagc"]
+[ext_resource type="Texture2D" uid="uid://dsrtpj6cstm10" path="res://assets/textures/album_button.png" id="6_btxxm"]
 
 [sub_resource type="Resource" id="Resource_1g8jr"]
 script = ExtResource("2_fe2o3")
@@ -11,6 +14,22 @@ letter_spawn_radius = 0.0
 letter_spawn_force = 0.0
 letter_spawn_rotation = 0.0
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Gradient" id="Gradient_uhagc"]
+colors = PackedColorArray(0.95686275, 0.7490196, 0.58431375, 1, 0.8627451, 0.6156863, 0.4627451, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_btxxm"]
+frequency = 0.167
+fractal_lacunarity = 8.465
+fractal_gain = 13.115
+fractal_weighted_strength = 0.64
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uhagc"]
+width = 1152
+height = 648
+noise = SubResource("FastNoiseLite_btxxm")
+color_ramp = SubResource("Gradient_uhagc")
+seamless = true
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("title_spawn_point")]
 layout_mode = 3
@@ -28,3 +47,35 @@ script = ExtResource("3_1g8jr")
 
 [node name="TitleSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(562, 80)
+
+[node name="MainMenuBackground" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 576.00006)
+scale = Vector2(0.5629883, 0.5629883)
+texture = ExtResource("4_m1kxf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("NoiseTexture2D_uhagc")
+
+[node name="JugarButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 85.99998
+offset_top = 444.0
+offset_right = 502.99997
+offset_bottom = 528.0
+rotation = -0.2858435
+texture_normal = ExtResource("5_uhagc")
+
+[node name="AlbumButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 687.0
+offset_top = 280.0
+offset_right = 1083.0
+offset_bottom = 485.0
+texture_normal = ExtResource("6_btxxm")
+
+[connection signal="pressed" from="JugarButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="AlbumButton" to="." method="_on_book_button_pressed"]

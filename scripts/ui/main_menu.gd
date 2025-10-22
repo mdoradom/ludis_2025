@@ -8,6 +8,16 @@ extends Control
 func _ready() -> void:
 	spawn_title()
 
+func _on_play_button_pressed() -> void:
+	SceneManager.load_scene(SceneManager.SCENE_LEVEL.GAME)
+	
+func _on_book_button_pressed() -> void:
+	SceneManager.load_scene(SceneManager.SCENE_LEVEL.STICKER_BOOK)
+
+func _on_options_button_pressed() -> void:
+	SceneManager.load_scene(SceneManager.SCENE_LEVEL.OPTIONS)
+	pass
+	
 func spawn_title():
 	
 	var title_node: Control = Control.new()
@@ -71,16 +81,3 @@ func spawn_title():
 		title_node.add_child(letter_instance, true)
 		
 		idx += 1
-
-func _on_play_button_pressed() -> void:
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.GAME)
-	
-func _on_book_button_pressed() -> void:
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.STICKER_BOOK)
-
-func _on_options_button_pressed() -> void:
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.OPTIONS)
-	pass
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
