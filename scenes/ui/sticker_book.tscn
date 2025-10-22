@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://daqk8s0ifhmrn"]
+[gd_scene load_steps=3 format=3 uid="uid://daqk8s0ifhmrn"]
 
 [ext_resource type="PackedScene" uid="uid://dgv0vuaf5t0jb" path="res://scenes/ui/sticker_list.tscn" id="1_7bl6s"]
+[ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_xrkbs"]
 
 [node name="StickerBook" type="Control"]
 layout_mode = 3
@@ -18,6 +19,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(4.813075e-07, 0.28834754, 0.2898171, 1)
+
+[node name="Icon" type="Sprite2D" parent="Background"]
+position = Vector2(590, 396)
+texture = ExtResource("2_xrkbs")
 
 [node name="StickerBook" parent="Background" instance=ExtResource("1_7bl6s")]
 layout_mode = 1

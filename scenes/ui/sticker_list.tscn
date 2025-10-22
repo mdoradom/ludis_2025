@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgv0vuaf5t0jb"]
+[gd_scene load_steps=6 format=3 uid="uid://dgv0vuaf5t0jb"]
 
 [ext_resource type="Script" uid="uid://d2cnsvihgg1ur" path="res://scripts/ui/sticker_book.gd" id="1_x3sfj"]
+[ext_resource type="Shader" uid="uid://dgh34u7x3h1tp" path="res://assets/shaders/blur.gdshader" id="2_lraoj"]
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_y7cfg"]
+[ext_resource type="Texture2D" uid="uid://1ihus2yxfypu" path="res://assets/textures/plastic.png" id="3_lraoj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lraoj"]
+shader = ExtResource("2_lraoj")
+shader_parameter/blur_amount = 3.0000001425
+shader_parameter/samples = 32
 
 [node name="StickerBook" type="Control"]
 clip_contents = true
@@ -13,24 +20,33 @@ grow_vertical = 2
 script = ExtResource("1_x3sfj")
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BlurShader" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lraoj")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.16924527, 0.1692453, 0.16924521, 0.69600004)
+texture = ExtResource("3_lraoj")
+expand_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.23700002)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lraoj")
+expand_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 13.0
-offset_right = -15.0
-offset_bottom = -8.975555
 grow_horizontal = 2
 grow_vertical = 2
 
