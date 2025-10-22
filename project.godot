@@ -21,6 +21,12 @@ config/icon="res://icon.svg"
 SceneManager="*res://scripts/ui/scene_manager.gd"
 UserData="*res://scripts/user_data.gd"
 
+[display]
+
+window/size/viewport_width=1194
+window/size/viewport_height=934
+window/stretch/mode="viewport"
+
 [global_group]
 
 mouse_body=""

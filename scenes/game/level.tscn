@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cegyg1nfs32pf" path="res://assets/textures/in_game_background.jpg" id="7_mxnjv"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
-b = Vector2(1152, 0)
+b = Vector2(1194, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_oekm8"]
-b = Vector2(0, 648)
+b = Vector2(0, 934)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_khnyk")
@@ -24,18 +24,22 @@ starting_dictionary = ExtResource("2_65r54")
 shape = SubResource("SegmentShape2D_llaio")
 
 [node name="Bottom" type="CollisionShape2D" parent="ViewportBorders"]
-position = Vector2(0, 648)
+position = Vector2(0, 934)
 shape = SubResource("SegmentShape2D_llaio")
 
 [node name="Left" type="CollisionShape2D" parent="ViewportBorders"]
 shape = SubResource("SegmentShape2D_oekm8")
 
 [node name="Right" type="CollisionShape2D" parent="ViewportBorders"]
-position = Vector2(1152, 0)
+position = Vector2(1193, 0)
 shape = SubResource("SegmentShape2D_oekm8")
 
 [node name="MouseBody" type="StaticBody2D" parent="." groups=["mouse_body"]]
 script = ExtResource("2_dtmi3")
+
+[node name="ColorRect" type="ColorRect" parent="MouseBody"]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="BreakableObjectFactory" type="Node" parent="."]
 script = ExtResource("3_dtmi3")
@@ -48,7 +52,7 @@ script = ExtResource("5_ji7po")
 
 [node name="InGameBackground" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(597, 513)
+position = Vector2(597, 512)
 texture = ExtResource("7_mxnjv")
 
 [connection signal="breakable_object_spawned" from="BreakableObjectFactory" to="." method="_on_breakable_object_factory_breakable_object_spawned"]

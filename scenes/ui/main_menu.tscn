@@ -25,8 +25,8 @@ fractal_gain = 13.115
 fractal_weighted_strength = 0.64
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uhagc"]
-width = 1152
-height = 648
+width = 1194
+height = 934
 noise = SubResource("FastNoiseLite_btxxm")
 color_ramp = SubResource("Gradient_uhagc")
 seamless = true
@@ -62,19 +62,20 @@ texture = SubResource("NoiseTexture2D_uhagc")
 
 [node name="JugarButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 85.99998
-offset_top = 444.0
-offset_right = 502.99997
-offset_bottom = 528.0
+offset_left = 77.0
+offset_top = 588.0
+offset_right = 494.0
+offset_bottom = 672.0
 rotation = -0.2858435
 texture_normal = ExtResource("5_uhagc")
 
 [node name="AlbumButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 687.0
-offset_top = 280.0
-offset_right = 1083.0
-offset_bottom = 485.0
+offset_left = 612.0
+offset_top = 516.0
+offset_right = 1384.0
+offset_bottom = 1314.0
+rotation = -0.21770908
 texture_normal = ExtResource("6_btxxm")
 
 [connection signal="pressed" from="JugarButton" to="." method="_on_play_button_pressed"]

@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lraoj"]
 shader = ExtResource("2_lraoj")
 shader_parameter/blur_amount = 3.0000001425
-shader_parameter/samples = 32
+shader_parameter/samples = 16
 
 [node name="StickerBook" type="Control"]
 clip_contents = true
