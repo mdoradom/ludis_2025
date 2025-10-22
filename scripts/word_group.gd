@@ -30,17 +30,6 @@ func _process(delta: float) -> void:
 			
 			l.position = base_pos + Vector2(0, y_offset)
 
-func _draw() -> void:
-	if preview_index == -1:
-		return
-	
-	var total_width = (letters.size() - 1) * slot_spacing
-	var center_offset = -total_width / 2.0
-	var preview_pos = Vector2(center_offset + preview_index * slot_spacing, 0)
-	
-	var rect = Rect2(preview_pos - preview_size / 2, preview_size)
-	draw_rect(rect, preview_color, true, 2.0)
-
 func add_letter(letter: Letter, slot_index: int):
 	slot_index = clamp(slot_index, 0, letters.size())
 	letters.insert(slot_index, letter)
@@ -71,9 +60,29 @@ func reorder_letter(letter: Letter, new_index: int):
 		letters.insert(new_index, letter)
 		update_letter_positions()
 
+func _draw() -> void:
+	if preview_index == -1:
+		return
+	
+	var total_width = (letters.size() - 1) * slot_spacing
+	var center_offset = -total_width / 2.0
+	
+	# Adjust center offset if preview is at the end
+	if preview_index == letters.size():
+		center_offset -= slot_spacing / 2.0
+	
+	var preview_pos = Vector2(center_offset + preview_index * slot_spacing, 0)
+	
+	var rect = Rect2(preview_pos - preview_size / 2, preview_size)
+	draw_rect(rect, preview_color, true, 2.0)
+
 func update_letter_positions():
 	var total_width = (letters.size() - 1) * slot_spacing
 	var center_offset = -total_width / 2.0
+	
+	# Adjust center offset if preview is at the end
+	if preview_index == letters.size():
+		center_offset -= slot_spacing / 2.0
 	
 	for i in range(letters.size()):
 		var offset = 0
@@ -89,8 +98,12 @@ func update_letter_positions():
 func get_slot_position(index: int) -> Vector2:
 	var total_width = (letters.size() - 1) * slot_spacing
 	var center_offset = -total_width / 2.0
+	
+	# Adjust center offset if preview is at the end
+	if preview_index == letters.size():
+		center_offset -= slot_spacing / 2.0
+	
 	return global_position + Vector2(center_offset + index * slot_spacing, 0)
-
 func get_nearest_slot_index(pos: Vector2) -> int:
 	var best_index = 0
 	var min_dist_sq = INF
