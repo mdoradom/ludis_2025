@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b27nit2lokfdr"]
+[gd_scene load_steps=5 format=3 uid="uid://b27nit2lokfdr"]
 
 [ext_resource type="Script" uid="uid://cyujy42beahi8" path="res://scripts/ui/options_menu.gd" id="1_options"]
+[ext_resource type="Shader" uid="uid://dgh34u7x3h1tp" path="res://assets/shaders/blur.gdshader" id="2_wj2x4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imaij"]
+shader = ExtResource("2_wj2x4")
+shader_parameter/blur_amount = 2.0
+shader_parameter/samples = 16
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ta2k2"]
 
 [node name="OptionsMenu" type="Popup"]
 oversampling_override = 1.0
@@ -9,55 +17,91 @@ size = Vector2i(947, 540)
 visible = true
 script = ExtResource("1_options")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_imaij")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -319.17395
+offset_top = -182.0
+offset_right = 319.17395
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_ta2k2")
+
 [node name="BackgroundPanel" type="Panel" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+custom_minimum_size = Vector2(400, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="TabContainer" type="TabContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-current_tab = 0
-
-[node name="Video" type="TabBar" parent="TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Video"]
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Video/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundPanel/MarginContainer"]
 layout_mode = 2
-columns = 2
+theme_override_constants/separation = 60
 
-[node name="Label" type="Label" parent="TabContainer/Video/MarginContainer/GridContainer"]
+[node name="CloseButton" type="Button" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Vsync"
+size_flags_horizontal = 8
+text = "X"
 
-[node name="Label2" type="CheckButton" parent="TabContainer/Video/MarginContainer/GridContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Audio" type="TabBar" parent="TabContainer"]
-visible = false
+[node name="MusicaLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-metadata/_tab_index = 1
+theme_override_font_sizes/font_size = 32
+text = "Música"
 
-[node name="Gameplay" type="TabBar" parent="TabContainer"]
-visible = false
+[node name="MusicaSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-metadata/_tab_index = 2
 
-[node name="Accesibilidad" type="TabBar" parent="TabContainer"]
-visible = false
+[node name="VBoxContainer3" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-metadata/_tab_index = 3
+
+[node name="EfectesLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Efectes"
+
+[node name="EfectesSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DislexiaLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mode dislèxia"
+
+[node name="DislexiaCheckBox" type="CheckBox" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "
+"
+alignment = 1
+icon_alignment = 1
+expand_icon = true
