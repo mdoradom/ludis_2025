@@ -63,9 +63,16 @@ func _process(delta):
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		_start_dragging()
+	# Add touch support
+	elif event is InputEventScreenTouch and event.pressed:
+		_start_dragging()
 
 func _start_dragging():
 	is_dragging = true
+	
+	# Update mouse_body position immediately to current touch/click position
+	if mouse_body:
+		mouse_body.global_position = mouse_body.get_global_mouse_position()
 	
 	spring_joint.node_b = mouse_body.get_path()
 	
