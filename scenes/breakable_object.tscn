@@ -1,16 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwwdbqmpwexyj"]
+[gd_scene load_steps=5 format=3 uid="uid://bwwdbqmpwexyj"]
 
 [ext_resource type="Script" uid="uid://ckod5718fs73" path="res://scripts/breakable_object.gd" id="1_okf3a"]
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_gxnd6"]
+[ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="3_gxnd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbfvs"]
 size = Vector2(128, 128)
 
-[node name="Object" type="Area2D"]
+[node name="Object" type="RigidBody2D"]
+lock_rotation = true
 script = ExtResource("1_okf3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cbfvs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gxnd6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cbfvs")
+[node name="InputManager" type="Node" parent="." node_paths=PackedStringArray("rb", "spring_joint")]
+script = ExtResource("3_gxnd6")
+rb = NodePath("..")
+spring_joint = NodePath("../DampedSpringJoint2D")
+metadata/_custom_type_script = "uid://biflpoikd3r3r"
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("..")
+length = 1.0
+
+[connection signal="input_event" from="." to="InputManager" method="_on_input_event"]

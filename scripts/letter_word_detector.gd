@@ -46,12 +46,12 @@ func _on_magnet_area_sensor_body_entered(body: Node2D) -> void:
 func _on_magnet_area_sensor_body_exited(body: Node2D) -> void:
 	pass
 
-func _on_letter_letter_dragged(letter: Variant) -> void:
+func _on_letter_dragged(letter: Variant) -> void:
 	area.visible = true
 	area.monitoring = true
 	search_candidates = true
 
-func _on_letter_letter_released(letter: Variant) -> void:
+func _on_letter_released(letter: Variant) -> void:
 	area.visible = false
 	area.monitoring = false
 	search_candidates = false

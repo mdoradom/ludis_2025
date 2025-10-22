@@ -67,7 +67,7 @@ func _snap_to_word(group: WordGroup):
 	var slot_index = group.get_nearest_slot_index(letter_rb.global_position)
 	snap_to_group(group, slot_index)
 
-func _on_letter_letter_released(letter: Variant) -> void:
+func _on_letter_released(letter: Variant) -> void:
 	if !candidate_target:
 		if word_group:
 			detach_from_group()
@@ -85,7 +85,7 @@ func _on_letter_letter_released(letter: Variant) -> void:
 	letter_rb.collision_mask = 1
 
 
-func _on_letter_letter_dragged(letter: Variant) -> void:
+func _on_letter_dragged(letter: Variant) -> void:
 	# This is made for make letters not collide when in a group
 	# It should not work but it works :p
 	letter_rb.collision_mask = 0

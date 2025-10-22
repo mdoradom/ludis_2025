@@ -21,6 +21,10 @@ config/icon="res://icon.svg"
 SceneManager="*res://scripts/ui/scene_manager.gd"
 UserData="*res://scripts/user_data.gd"
 
+[global_group]
+
+mouse_body=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
