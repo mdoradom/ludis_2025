@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var starting_dictionary_path: String = "res://resources/animals_dictionary.tres"
+@export var starting_dictionary: WordDictionary
+@export var custom_starting_words: Array[String] = []
 
 var breakable_object_factory: BreakableObjectFactory
 var letter_factory: LetterFactory
@@ -13,9 +14,14 @@ func _ready():
 	breakable_object_factory = get_node("BreakableObjectFactory")
 	letter_factory = get_node("LetterFactory")
 	
-	load_dictionary(starting_dictionary_path)
+	load_dictionary(starting_dictionary)
 	
-	var starting_words: Array = UserData.unlocked_stickers.get_all_words()
+	var starting_words: Array
+	if custom_starting_words.size() > 0:
+		starting_words = custom_starting_words
+	else:
+		starting_words = UserData.unlocked_stickers.get_all_words()
+	
 	print("Starting Words:", starting_words)
 
 	for word in starting_words:
@@ -39,13 +45,13 @@ func _ready():
 		)
 		
 
-func load_dictionary(dictionary_path: String):
-	current_dictionary = load(dictionary_path) as WordDictionary
+func load_dictionary(dictionary: WordDictionary):
+	current_dictionary = dictionary
 	
 	current_dictionary.load_words()
 	
 	if not current_dictionary:
-		print("Error: Could not load dictionary from ", dictionary_path)
+		print("Error: Could not load dictionary")
 		return
 	
 	available_objects = current_dictionary.get_all_objects()
