@@ -33,6 +33,7 @@ func _on_letter_mouse_exited() -> void:
 func _on_letter_dragged(letter: Variant) -> void:
 	tween_scale(DEFAULT_SCALE * dragged_scale_multiplier)
 	is_dragged = true
+	z_index += 1
 
 func _on_letter_released(letter: Variant) -> void:
 	if is_hovered:
@@ -40,3 +41,4 @@ func _on_letter_released(letter: Variant) -> void:
 	else:
 		tween_scale(DEFAULT_SCALE)
 	is_dragged = false
+	z_index -= 1
