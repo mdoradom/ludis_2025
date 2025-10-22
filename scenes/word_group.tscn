@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://djj3a23vttirr" path="res://scripts/word_group_grab_bar.gd" id="3_ksb4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbuqr"]
-size = Vector2(330, 50)
+size = Vector2(330, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksb4t"]
 bg_color = Color(7.219613e-08, 0.37266645, 0.43281913, 1)
@@ -23,14 +23,12 @@ gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_nbuqr")
 slot_spacing = 63.0
-move_duration = null
-preview_color = null
 preview_size = Vector2(60, 60)
 
 [node name="Letters" type="Node2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 54)
+position = Vector2(-1, 47)
 shape = SubResource("RectangleShape2D_nbuqr")
 
 [node name="InputManager" type="Node" parent="." node_paths=PackedStringArray("rb", "spring_joint")]
