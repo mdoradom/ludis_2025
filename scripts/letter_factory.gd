@@ -13,4 +13,4 @@ func spawn_letters_from_object(object_data: BreakableObjectData, pos: Vector2):
 		
 		letter_instance.setup(letter_data, spawn_pos)
 		
-		add_child(letter_instance)
+		add_child(letter_instance, true)

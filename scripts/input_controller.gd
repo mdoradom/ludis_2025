@@ -33,8 +33,12 @@ func _ready():
 	
 	mouse_body = get_tree().get_nodes_in_group("mouse_body")[0]
 
-func setup_letter(start_pos: Vector2, radius: float = 1.0):
-		
+func setup_letter(start_pos: Vector2, randomness: bool = true, radius: float = 1.0):
+	
+	if !randomness:
+		rb.global_position = start_pos
+		return
+	
 	var random_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	var random_distance = sqrt(randf()) * radius
 

@@ -51,8 +51,11 @@ func remove_letter(letter: Letter):
 		update_letter_positions()
 	
 	# BUG: Here there is a bug that causes the letter to move to the 0.0
-	letter.reparent(get_tree().current_scene.get_node("LetterFactory"))
-		
+	var old_pos = letter.global_position
+	$Letters.remove_child(letter)
+	letter.global_position = old_pos
+	get_tree().current_scene.get_node("LetterFactory").add_child(letter)
+	
 	if letters.size() == 1:
 		letters[0].WGM.detach_from_group()
 	
