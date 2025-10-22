@@ -97,7 +97,8 @@ func update_letter_positions():
 		var target_pos = Vector2(center_offset + i * slot_spacing + offset, 0)
 		var letter = letters[i]
 		
-		$Letters.move_child(letter, letters.size() - 1 - i)
+		if letter.get_parent() == $Letters:
+			$Letters.move_child(letter, letters.size() - 1 - i)
 
 		var tween = create_tween()
 		tween.tween_property(letter, "position", target_pos, move_duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
