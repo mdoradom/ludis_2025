@@ -49,7 +49,13 @@ func remove_letter(letter: Letter):
 	if letter in letters:
 		letters.erase(letter)
 		update_letter_positions()
-
+	
+	# BUG: Here there is a bug that causes the letter to move to the 0.0
+	letter.reparent(get_tree().current_scene.get_node("LetterFactory"))
+		
+	if letters.size() == 1:
+		letters[0].WGM.detach_from_group()
+	
 	if letters.is_empty():
 		queue_free()
 
@@ -74,7 +80,7 @@ func _draw() -> void:
 	var preview_pos = Vector2(center_offset + preview_index * slot_spacing, 0)
 	
 	var rect = Rect2(preview_pos - preview_size / 2, preview_size)
-	draw_rect(rect, preview_color, true, 2.0)
+	draw_rect(rect, preview_color, true)
 
 func update_letter_positions():
 	var total_width = (letters.size() - 1) * slot_spacing
