@@ -2,6 +2,7 @@ class_name BreakableObject
 extends RigidBody2D
 
 @onready var default_icon = preload("res://icon.svg")
+@onready var sprite_material: ShaderMaterial = $Sprite2D.material
 
 signal dragged(object)
 signal released(object)
@@ -67,3 +68,27 @@ func _break_object():
 	timer.connect("timeout", Callable(self, "queue_free"))
 	add_child(timer)
 	timer.start()
+
+func _on_mouse_entered() -> void:
+	# Create a new tween
+	var tween = create_tween()
+	# Animate the 'outline_amount' property from its current value to 1.0 over 0.2 seconds
+	tween.tween_property(sprite_material, "shader_parameter/outline_amount", 1.0, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+
+func _on_mouse_exited() -> void:
+	var tween = create_tween()
+	# Animate 'outline_amount' back to 0.0
+	tween.tween_property(sprite_material, "shader_parameter/outline_amount", 0.0, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+
+func _on_dragged(object: Variant) -> void:
+	var tween = create_tween()
+	# Animate 'shadow_amount' to 1.0
+	tween.tween_property(sprite_material, "shader_parameter/shadow_amount", 1.0, 0.2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+
+
+func _on_released(object: Variant) -> void:
+	var tween = create_tween()
+	# Animate 'shadow_amount' back to 0.0
+	tween.tween_property(sprite_material, "shader_parameter/shadow_amount", 0.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)

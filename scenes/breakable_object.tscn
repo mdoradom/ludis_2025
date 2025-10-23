@@ -1,11 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwwdbqmpwexyj"]
+[gd_scene load_steps=9 format=3 uid="uid://bwwdbqmpwexyj"]
 
 [ext_resource type="Script" uid="uid://ckod5718fs73" path="res://scripts/breakable_object.gd" id="1_okf3a"]
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_gxnd6"]
+[ext_resource type="Shader" uid="uid://cg3ge3h5qolvr" path="res://shaders/canvas_group_outline.gdshader" id="2_hjx5d"]
+[ext_resource type="Shader" uid="uid://bnffvvk6df7hr" path="res://shaders/canvas_item_shadow.gdshader" id="2_xwhwo"]
 [ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="3_gxnd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxnd6"]
 radius = 122.88
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mvacj"]
+resource_local_to_scene = true
+shader = ExtResource("2_xwhwo")
+shader_parameter/shadow_amount = 0.0
+shader_parameter/outline_amount = 0.0
+shader_parameter/debug = false
+shader_parameter/canvas_scale = 0.905
+shader_parameter/shadow_offset = Vector2(20, -20)
+shader_parameter/shadow_color = Color(0.95686275, 0.42352942, 0, 0.40392157)
+shader_parameter/shadow_blur = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/shadow_disable_rotating = false
+shader_parameter/sprite_lift_offset = Vector2(16, -16)
+shader_parameter/outline_color = Color(1, 0.5498333, 0.26999998, 1)
+shader_parameter/outline_width = 5.1290002436275
+shader_parameter/outline_pattern = 2
+shader_parameter/outline_inside = true
+shader_parameter/outline_sprite_sheet_size = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjx5d"]
+shader = ExtResource("2_hjx5d")
+shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_offset_x = -0.004999997908430032
+shader_parameter/shadow_offset_y = 0.0050000025665700165
+shader_parameter/shadow_rotation = 0.0
+shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
+shader_parameter/shadow_blur_strength = 2.0
+shader_parameter/shadow_blur_samples = 4
+shader_parameter/_blur_scale_factor = 1.0
 
 [node name="Object" type="RigidBody2D"]
 lock_rotation = true
@@ -15,7 +47,12 @@ script = ExtResource("1_okf3a")
 shape = SubResource("CircleShape2D_gxnd6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mvacj")
 texture = ExtResource("2_gxnd6")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+material = SubResource("ShaderMaterial_hjx5d")
+position = Vector2(-20, 0)
 
 [node name="InputManager" type="Node" parent="." node_paths=PackedStringArray("rb", "spring_joint")]
 script = ExtResource("3_gxnd6")
@@ -27,4 +64,8 @@ metadata/_custom_type_script = "uid://biflpoikd3r3r"
 node_a = NodePath("..")
 length = 1.0
 
+[connection signal="dragged" from="." to="." method="_on_dragged"]
 [connection signal="input_event" from="." to="InputManager" method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="released" from="." to="." method="_on_released"]
