@@ -1,49 +1,71 @@
-[gd_resource type="Resource" script_class="WordDictionary" load_steps=26 format=3 uid="uid://bnieedqkubedd"]
+[gd_resource type="Resource" script_class="WordDictionary" load_steps=43 format=3 uid="uid://bnieedqkubedd"]
 
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="1_gxdfp"]
 [ext_resource type="Script" uid="uid://c6oapo0myuruh" path="res://scripts/resources/word_dictionary.gd" id="2_lkq3i"]
+[ext_resource type="Texture2D" uid="uid://bcg8slhn5bgiv" path="res://assets/textures/animals/papallona.png" id="2_sh2r2"]
+[ext_resource type="Texture2D" uid="uid://2h2wpubl6e6w" path="res://assets/textures/animals/abella.png" id="3_btrem"]
+[ext_resource type="Texture2D" uid="uid://bgak6nbotwjrw" path="res://assets/textures/animals/trito.png" id="4_0adjo"]
+[ext_resource type="Texture2D" uid="uid://bl7swa18yd2p6" path="res://assets/textures/animals/escurco.png" id="5_bv8bj"]
+[ext_resource type="Texture2D" uid="uid://r0g1jfj4q6o1" path="res://assets/textures/animals/llangardaix.png" id="6_bdfuu"]
+[ext_resource type="Texture2D" uid="uid://idk3gcspej4s" path="res://assets/textures/animals/tortuga.png" id="7_7sqmx"]
+[ext_resource type="Texture2D" uid="uid://bskxjtp282cyw" path="res://assets/textures/animals/colom.png" id="8_jtmsh"]
+[ext_resource type="Texture2D" uid="uid://b5fb2a052lgnf" path="res://assets/textures/animals/oliba.png" id="9_d2qmb"]
+[ext_resource type="Texture2D" uid="uid://df54mrgdx3m8y" path="res://assets/textures/animals/trencalos.png" id="10_hq3qa"]
+[ext_resource type="Texture2D" uid="uid://dm1jhqg7sxl4s" path="res://assets/textures/animals/llop.png" id="11_3jhqn"]
+[ext_resource type="Texture2D" uid="uid://cd00gkghlcnqg" path="res://assets/textures/animals/os.png" id="12_gequf"]
+[ext_resource type="Texture2D" uid="uid://dwyfsqtjnly4s" path="res://assets/textures/animals/ratpenat.png" id="13_cl11f"]
+[ext_resource type="Texture2D" uid="uid://bc8dbh06ku00n" path="res://assets/textures/animals/erico.png" id="14_uoope"]
+[ext_resource type="Texture2D" uid="uid://cexq8rx8t6o7g" path="res://assets/textures/animals/senglar.png" id="15_bf3yr"]
+[ext_resource type="Texture2D" uid="uid://dd8c7modq8hqs" path="res://assets/textures/animals/guineu.png" id="16_jxjxp"]
+[ext_resource type="Texture2D" uid="uid://364u51157lw3" path="res://assets/textures/animals/conill.png" id="17_o130n"]
+[ext_resource type="Texture2D" uid="uid://b0p2236hc2k2j" path="res://assets/textures/animals/esquirol.png" id="18_0iyak"]
+[ext_resource type="Texture2D" uid="uid://dijga3xt27tyh" path="res://assets/textures/animals/sargantana.png" id="19_1jdc5"]
 
 [sub_resource type="Resource" id="Resource_gxdfp"]
 script = ExtResource("1_gxdfp")
 item_name = "PAPALLONA"
+sprite = ExtResource("2_sh2r2")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_lkq3i"]
 script = ExtResource("1_gxdfp")
 item_name = "ABELLA"
+sprite = ExtResource("3_btrem")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hnem3"]
 
 [sub_resource type="Resource" id="Resource_tle86"]
 script = ExtResource("1_gxdfp")
 item_name = "GRANOTA"
-sprite = SubResource("PlaceholderTexture2D_hnem3")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_cpafp"]
 script = ExtResource("1_gxdfp")
 item_name = "TRITÓ"
+sprite = ExtResource("4_0adjo")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_remde"]
 script = ExtResource("1_gxdfp")
 item_name = "ESCURÇÓ"
+sprite = ExtResource("5_bv8bj")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_4oixa"]
 script = ExtResource("1_gxdfp")
 item_name = "LLANGARDAIX"
+sprite = ExtResource("6_bdfuu")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_gd6hy"]
 script = ExtResource("1_gxdfp")
 item_name = "TORTUGA"
+sprite = ExtResource("7_7sqmx")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_gw4m4"]
 script = ExtResource("1_gxdfp")
 item_name = "COLOM"
+sprite = ExtResource("8_jtmsh")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_jtehg"]
@@ -54,11 +76,13 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 [sub_resource type="Resource" id="Resource_13s74"]
 script = ExtResource("1_gxdfp")
 item_name = "ÒLIBA"
+sprite = ExtResource("9_d2qmb")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_17uo1"]
 script = ExtResource("1_gxdfp")
 item_name = "TRENCALÒS"
+sprite = ExtResource("10_hq3qa")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_nicrk"]
@@ -69,6 +93,7 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 [sub_resource type="Resource" id="Resource_kj57b"]
 script = ExtResource("1_gxdfp")
 item_name = "LLOP"
+sprite = ExtResource("11_3jhqn")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_uyoxv"]
@@ -79,41 +104,49 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 [sub_resource type="Resource" id="Resource_emml8"]
 script = ExtResource("1_gxdfp")
 item_name = "ÓS"
+sprite = ExtResource("12_gequf")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_ggm5f"]
 script = ExtResource("1_gxdfp")
 item_name = "RATPENAT"
+sprite = ExtResource("13_cl11f")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_nkiyb"]
 script = ExtResource("1_gxdfp")
 item_name = "ERIÇÓ"
+sprite = ExtResource("14_uoope")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_sh2r2"]
 script = ExtResource("1_gxdfp")
 item_name = "SENGLAR"
+sprite = ExtResource("15_bf3yr")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_btrem"]
 script = ExtResource("1_gxdfp")
 item_name = "GUINEU"
+sprite = ExtResource("16_jxjxp")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_0adjo"]
 script = ExtResource("1_gxdfp")
 item_name = "CONILL"
+sprite = ExtResource("17_o130n")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_bv8bj"]
 script = ExtResource("1_gxdfp")
 item_name = "ESQUIROL"
+sprite = ExtResource("18_0iyak")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_bdfuu"]
 script = ExtResource("1_gxdfp")
 item_name = "SARGANTANA"
+sprite = ExtResource("19_1jdc5")
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [resource]
