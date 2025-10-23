@@ -1,12 +1,16 @@
 class_name StickerList
 extends Control
 
+@export var sticker_factory: StickerFactory
+
 var is_dragging: bool = false
 var drag_start_pos: Vector2
 var start_anchor: float
 
 func _ready() -> void:
 	anchor_top = 0.9
+	
+	spawn_stickers()
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -31,3 +35,11 @@ func _snap_to_position() -> void:
 	var target = 0.9 if anchor_top > 0.55 else 0.2
 	var tween = create_tween()
 	tween.tween_property(self, "anchor_top", target, 0.3)
+
+func spawn_stickers():
+	var unlocked_sticker_dict: WordDictionary = UserData.unlocked_stickers
+	
+	for data in unlocked_sticker_dict.get_all_objects().values():
+		var sticker = sticker_factory.spawn_sticker_from_data(data, Vector2.ZERO)
+		
+		sticker.reparent($MarginContainer/VBoxContainer/ScrollContainer/GridContainer)
