@@ -46,7 +46,7 @@ title_spawn_point = NodePath("TitleSpawnPoint")
 script = ExtResource("3_1g8jr")
 
 [node name="TitleSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(562, 80)
+position = Vector2(960, 256)
 
 [node name="MainMenuBackground" type="Sprite2D" parent="."]
 visible = false
@@ -55,26 +55,40 @@ scale = Vector2(0.5629883, 0.5629883)
 texture = ExtResource("4_m1kxf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("NoiseTexture2D_uhagc")
 
 [node name="JugarButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 77.0
-offset_top = 588.0
-offset_right = 494.0
-offset_bottom = 672.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 144.00005
+offset_top = -272.0
+offset_right = 561.00006
+offset_bottom = -188.0
+grow_vertical = 0
 rotation = -0.2858435
 texture_normal = ExtResource("5_uhagc")
 
 [node name="AlbumButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 612.0
-offset_top = 516.0
-offset_right = 1384.0
-offset_bottom = 1314.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -680.0
+offset_top = -568.0
+offset_right = 92.0
+offset_bottom = 230.0
+grow_horizontal = 0
+grow_vertical = 0
 rotation = -0.21770908
 texture_normal = ExtResource("6_btxxm")
 
