@@ -16,6 +16,6 @@ func _ready() -> void:
 	var breakable_objects_data: Dictionary[String, BreakableObjectData] = debug_word_dictionary.get_all_objects()
 	var values = breakable_objects_data.values()
 	for i in range(4):
-		unlocked_stickers.add_object(values[i])
+		unlocked_stickers.add_object(values[randi_range(0, values.size() - 1)])
 	
 	print("Unlocked Stickers:", unlocked_stickers.get_all_words())

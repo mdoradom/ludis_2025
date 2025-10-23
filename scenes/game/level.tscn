@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2hdqh1mihrjm"]
+[gd_scene load_steps=11 format=3 uid="uid://b2hdqh1mihrjm"]
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/level.gd" id="1_khnyk"]
 [ext_resource type="Resource" uid="uid://bnieedqkubedd" path="res://resources/animals_dictionary.tres" id="2_65r54"]
 [ext_resource type="Script" uid="uid://c4n457xse28h1" path="res://scripts/mouse_body.gd" id="2_dtmi3"]
 [ext_resource type="Script" uid="uid://k2pe8wm87p8h" path="res://scripts/breakable_object_factory.gd" id="3_dtmi3"]
+[ext_resource type="Resource" uid="uid://clwe7ppeedrco" path="res://resources/level_1_objects.tres" id="3_irnlk"]
 [ext_resource type="Script" uid="uid://b7awot0i7fnfu" path="res://scripts/letter_factory.gd" id="4_rhpan"]
 [ext_resource type="Script" uid="uid://g86ro4cswpl3" path="res://scripts/word_checker.gd" id="5_ji7po"]
 [ext_resource type="Texture2D" uid="uid://cegyg1nfs32pf" path="res://assets/textures/in_game_background.jpg" id="7_mxnjv"]
@@ -17,6 +18,7 @@ b = Vector2(0, 1080)
 [node name="Level" type="Node2D"]
 script = ExtResource("1_khnyk")
 starting_dictionary = ExtResource("2_65r54")
+objects_dictionary = ExtResource("3_irnlk")
 
 [node name="ViewportBorders" type="StaticBody2D" parent="."]
 
