@@ -24,7 +24,7 @@ UserData="*res://scripts/user_data.gd"
 [display]
 
 window/size/viewport_width=1920
-window/size/viewport_height=1200
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [global_group]

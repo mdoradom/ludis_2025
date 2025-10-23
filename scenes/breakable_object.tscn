@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_gxnd6"]
 [ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="3_gxnd6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbfvs"]
-size = Vector2(128, 128)
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxnd6"]
+radius = 122.88
 
 [node name="Object" type="RigidBody2D"]
 lock_rotation = true
 script = ExtResource("1_okf3a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cbfvs")
+shape = SubResource("CircleShape2D_gxnd6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gxnd6")

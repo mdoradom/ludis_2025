@@ -12,7 +12,7 @@
 b = Vector2(1920, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_oekm8"]
-b = Vector2(0, 1200)
+b = Vector2(0, 1080)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_khnyk")
@@ -24,7 +24,7 @@ starting_dictionary = ExtResource("2_65r54")
 shape = SubResource("SegmentShape2D_llaio")
 
 [node name="Bottom" type="CollisionShape2D" parent="ViewportBorders"]
-position = Vector2(0, 1200)
+position = Vector2(0, 1080)
 shape = SubResource("SegmentShape2D_llaio")
 
 [node name="Left" type="CollisionShape2D" parent="ViewportBorders"]
