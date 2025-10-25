@@ -22,6 +22,7 @@ func spawn_title():
 	
 	var title_node: Control = Control.new()
 	title_node.name = "TitleNode"
+	title_node.mouse_filter = Control.MOUSE_FILTER_PASS
 	add_child(title_node)
 	
 	# This is the center and peak/valley of the arc
