@@ -57,14 +57,22 @@ position = Vector2(742, 515)
 scale = Vector2(1.7199999, 1.7199999)
 texture = ExtResource("4_ufra2")
 
-[node name="Sticker" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_j3cq4")]
+[node name="Stickers" type="Control" parent="SubViewportContainer/SubViewport"]
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sticker" parent="SubViewportContainer/SubViewport/Stickers" instance=ExtResource("4_j3cq4")]
+layout_mode = 1
 offset_left = 342.0
 offset_top = 137.0
-offset_right = -649.0
-offset_bottom = -532.0
+offset_right = 302.0
+offset_bottom = 97.0
 texture_size = 1.0
 
-[node name="StickerBook" parent="." instance=ExtResource("1_7bl6s")]
+[node name="StickerList" parent="." instance=ExtResource("1_7bl6s")]
 layout_mode = 1
 anchor_left = 0.16753472
 anchor_top = 0.91358024

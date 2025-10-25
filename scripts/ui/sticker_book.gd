@@ -43,3 +43,14 @@ func spawn_stickers():
 		var sticker = sticker_factory.spawn_sticker_from_data(data, Vector2.ZERO)
 		
 		sticker.reparent($MarginContainer/VBoxContainer/ScrollContainer/GridContainer)
+		sticker.sticker_picked.connect(_on_sticker_picked)
+
+func _on_sticker_picked(sticker: Sticker) -> void:
+	# Slide down the sticker list
+	var tween = create_tween()
+	tween.tween_property(self, "anchor_top", 0.95, 0.2)
+	
+	# Reparent sticker to viewport
+	# FIXME: PLEASE DO THIS BETTER, IS ONLY FOR TESTING!
+	var sticker_list = $"../SubViewportContainer/SubViewport/Stickers"
+	sticker.reparent(sticker_list)

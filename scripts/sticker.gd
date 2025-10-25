@@ -12,6 +12,7 @@ var object_data: BreakableObjectData
 var is_dragging: bool = false
 var drag_offset: Vector2 = Vector2.ZERO
 var target_position: Vector2 = Vector2.ZERO
+var first_drag_frame: bool = false
 
 func spawn(object_data: BreakableObjectData):
 	self.object_data = object_data
@@ -29,6 +30,7 @@ func _gui_input(event: InputEvent):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
 				is_dragging = true
+				first_drag_frame = true
 				drag_offset = get_global_mouse_position() - global_position
 				sticker_picked.emit(self)
 				_on_dragged(self)
@@ -38,8 +40,20 @@ func _gui_input(event: InputEvent):
 
 func _process(delta):
 	if is_dragging:
+		# Check if mouse button is released (global check for after reparenting)
+		if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			is_dragging = false
+			_on_released(self)
+			return
+		
 		target_position = get_global_mouse_position() - drag_offset
-		global_position = global_position.lerp(target_position, drag_lerp_speed * delta)
+		
+		# On first frame after reparenting, snap to target position to avoid jump
+		if first_drag_frame:
+			global_position = target_position
+			first_drag_frame = false
+		else:
+			global_position = global_position.lerp(target_position, drag_lerp_speed * delta)
 
 func _on_mouse_entered() -> void:
 	var tween = create_tween()
