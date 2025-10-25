@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://daqk8s0ifhmrn"]
+[gd_scene load_steps=6 format=3 uid="uid://daqk8s0ifhmrn"]
 
+[ext_resource type="Texture2D" uid="uid://dnrengerdr6fg" path="res://assets/textures/album_background.jpg" id="1_3ymkm"]
 [ext_resource type="PackedScene" uid="uid://dgv0vuaf5t0jb" path="res://scenes/ui/sticker_list.tscn" id="1_7bl6s"]
-[ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_xrkbs"]
+[ext_resource type="PackedScene" uid="uid://d3vobsvnw3xwq" path="res://scenes/sticker.tscn" id="4_j3cq4"]
+[ext_resource type="Texture2D" uid="uid://bxy1d6cqo427v" path="res://assets/textures/album_opened.png" id="4_ldfw4"]
+[ext_resource type="Texture2D" uid="uid://dew0q8hf242l8" path="res://assets/textures/test-zoo.png" id="4_ufra2"]
 
 [node name="StickerBook" type="Control"]
 layout_mode = 3
@@ -11,20 +14,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(4.813075e-07, 0.28834754, 0.2898171, 1)
+texture = ExtResource("1_3ymkm")
+stretch_mode = 6
 
-[node name="Icon" type="Sprite2D" parent="Background"]
-position = Vector2(590, 396)
-texture = ExtResource("2_xrkbs")
+[node name="AlbumOpened" type="Sprite2D" parent="."]
+position = Vector2(847.16846, 533)
+scale = Vector2(1.5558072, 1.4075714)
+texture = ExtResource("4_ldfw4")
 
-[node name="StickerBook" parent="Background" instance=ExtResource("1_7bl6s")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 71.0
+offset_right = 1798.0
+offset_bottom = 1001.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1550, 930)
+render_target_update_mode = 4
+
+[node name="BackgroundImagePlaceholder" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7607843, 0.8, 0.57254905, 1)
+
+[node name="TestZoo" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(742, 515)
+scale = Vector2(1.7199999, 1.7199999)
+texture = ExtResource("4_ufra2")
+
+[node name="Sticker" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_j3cq4")]
+offset_left = 342.0
+offset_top = 137.0
+offset_right = -649.0
+offset_bottom = -532.0
+texture_size = 1.0
+
+[node name="StickerBook" parent="." instance=ExtResource("1_7bl6s")]
 layout_mode = 1
 anchor_left = 0.16753472
 anchor_top = 0.91358024

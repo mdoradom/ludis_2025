@@ -1,17 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3vobsvnw3xwq"]
+[gd_scene load_steps=5 format=3 uid="uid://d3vobsvnw3xwq"]
 
 [ext_resource type="Script" uid="uid://b3lnv2i3hw42v" path="res://scripts/sticker.gd" id="1_mpens"]
+[ext_resource type="Shader" uid="uid://bnffvvk6df7hr" path="res://shaders/canvas_item_shadow.gdshader" id="2_0slot"]
+[ext_resource type="Texture2D" uid="uid://bskxjtp282cyw" path="res://assets/textures/animals/colom.png" id="2_imf23"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vt752"]
+resource_local_to_scene = true
+shader = ExtResource("2_0slot")
+shader_parameter/shadow_amount = 0.0
+shader_parameter/outline_amount = 0.0
+shader_parameter/debug = false
+shader_parameter/canvas_scale = 0.68
+shader_parameter/shadow_offset = Vector2(-30, -15)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.5)
+shader_parameter/shadow_blur = 0.0
+shader_parameter/shadow_scale = 1.5
+shader_parameter/shadow_disable_rotating = false
+shader_parameter/sprite_lift_offset = Vector2(8, -8)
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 6.4690003072775
+shader_parameter/outline_pattern = 2
+shader_parameter/outline_inside = true
+shader_parameter/outline_sprite_sheet_size = Vector2(1, 1)
 
 [node name="Sticker" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_mpens")
+texture_size = 0.5
+drag_lerp_speed = 15.0
 
 [node name="Texture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_vt752")
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 338.0
+offset_bottom = 319.0
+texture = ExtResource("2_imf23")

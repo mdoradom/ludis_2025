@@ -25,9 +25,14 @@ metadata/_edit_use_anchors_ = true
 [node name="BlurShader" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_lraoj")
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.059000004
+anchor_right = 0.943
 anchor_bottom = 1.0
+offset_left = -0.6666641
+offset_top = -3.0
+offset_right = 0.66674805
+offset_bottom = -1.666626
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_lraoj")
@@ -39,18 +44,25 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = -2.333252
+offset_bottom = 4.333374
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_lraoj")
-expand_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_right = 0.947
 anchor_bottom = 1.0
+offset_right = 0.33337402
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -63,11 +75,11 @@ vertical_scroll_mode = 3
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_constants/h_separation = 60
-theme_override_constants/v_separation = 60
-columns = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 167
+theme_override_constants/v_separation = 205
+columns = 7
 
 [node name="StickerFactory" type="Node" parent="."]
 script = ExtResource("5_01x8y")

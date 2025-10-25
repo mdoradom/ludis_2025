@@ -119,7 +119,7 @@ func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 			return candidate_words
 	
 	# Fallback: return last attempt if we hit max attempts
-	push_warning("Could not find ideal starting words after ", max_attempts, " attempts. Using last set.")
+	push_error("Could not find ideal starting words after ", max_attempts, " attempts. Using last set.")
 	return objects_dictionary.get_random_objects(initial_objects_number)
 
 
