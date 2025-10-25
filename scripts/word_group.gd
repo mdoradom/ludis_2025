@@ -143,7 +143,7 @@ func show_preview_at_index(index: int = -1) -> void:
 # TODO: Do that in a better way please :/
 func spawn_breakable_object_temporal(word: String, pos: Vector2):
 	var BOF: BreakableObjectFactory = get_tree().get_current_scene().breakable_object_factory
-	BOF.spawn_breakable_object_from_string(word, pos)
+	BOF.spawn_breakable_object_from_string(word, pos, false)
 
 func check_completed_word(word: String) -> bool:
 	var word_string = word.to_upper()

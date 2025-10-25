@@ -4,6 +4,7 @@ extends Node2D
 @export var objects_dictionary: WordDictionary
 
 @export var initial_objects_number: int = 4
+@export var max_spawned_objects = 3
 
 var breakable_object_factory: BreakableObjectFactory
 var letter_factory: LetterFactory
@@ -13,6 +14,8 @@ var available_objects = {}
 var available_letters_in_level: Dictionary[String, int] = {} # {"A", 3}
 
 var level_started: bool = false
+
+var spawned_objects: int = 0
 
 func _ready():
 	breakable_object_factory = get_node("BreakableObjectFactory")
@@ -70,9 +73,13 @@ func _on_object_broken(object_data: BreakableObjectData, pos: Vector2):
 	letter_factory.spawn_letters_from_object(object_data, pos)
 
 
-func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableObject) -> void:
+func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableObject, is_new: bool) -> void:
+	if !level_started:
+		return
 	
-	#_update_available_letters(b_object.object_data)
+	if is_new: 
+		_update_available_letters(b_object.object_data)
+	
 	UserData.unlocked_stickers.add_object(b_object.object_data)
 	
 	print(available_letters_in_level)
@@ -85,8 +92,6 @@ func _update_available_letters(b_object_data: BreakableObjectData) -> void:
 		available_letters_in_level[char] = available_letters_in_level.get(char, 0) + 1
 
 func _check_game_completion() -> void:
-	if !level_started:
-		return
 	
 	var game_finished: bool = get_node("WordChecker").check_formable_words_test()
 	
@@ -116,3 +121,23 @@ func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 	# Fallback: return last attempt if we hit max attempts
 	push_warning("Could not find ideal starting words after ", max_attempts, " attempts. Using last set.")
 	return objects_dictionary.get_random_objects(initial_objects_number)
+
+
+func _on_timer_timeout() -> void:
+	if spawned_objects >= max_spawned_objects:
+		$Timer.stop()
+	
+	var viewport_size = get_viewport_rect().size
+	var spawn_pos = Vector2(viewport_size.x / 2, viewport_size.y / 2)
+	
+	# Random offset (adjust max_offset as needed)
+	var max_offset = 250  # pixels
+	spawn_pos.x += randf_range(-max_offset, max_offset)
+	spawn_pos.y += randf_range(-max_offset, max_offset)
+
+	breakable_object_factory.spawn_breakable_object_from_data(
+	objects_dictionary.get_random_objects(1)[0],
+	spawn_pos
+	)
+	
+	spawned_objects += 1
