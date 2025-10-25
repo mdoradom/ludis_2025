@@ -28,7 +28,7 @@ preview_size = Vector2(60, 60)
 [node name="Letters" type="Node2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 47)
+position = Vector2(-1, 60)
 shape = SubResource("RectangleShape2D_nbuqr")
 
 [node name="InputManager" type="Node" parent="." node_paths=PackedStringArray("rb", "spring_joint")]

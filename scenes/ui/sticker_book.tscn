@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://daqk8s0ifhmrn"]
+[gd_scene load_steps=8 format=3 uid="uid://daqk8s0ifhmrn"]
 
 [ext_resource type="Texture2D" uid="uid://dnrengerdr6fg" path="res://assets/textures/album_background.jpg" id="1_3ymkm"]
 [ext_resource type="PackedScene" uid="uid://dgv0vuaf5t0jb" path="res://scenes/ui/sticker_list.tscn" id="1_7bl6s"]
 [ext_resource type="PackedScene" uid="uid://d3vobsvnw3xwq" path="res://scenes/sticker.tscn" id="4_j3cq4"]
 [ext_resource type="Texture2D" uid="uid://bxy1d6cqo427v" path="res://assets/textures/album_opened.png" id="4_ldfw4"]
 [ext_resource type="Texture2D" uid="uid://dew0q8hf242l8" path="res://assets/textures/test-zoo.png" id="4_ufra2"]
+[ext_resource type="Script" uid="uid://dlav677dmw25q" path="res://scripts/ui/level_gui.gd" id="6_4kd1d"]
+[ext_resource type="PackedScene" uid="uid://bndtg65o8diio" path="res://scenes/ui/pausa_menu.tscn" id="7_p7ys4"]
 
 [node name="StickerBook" type="Control"]
 layout_mode = 3
@@ -80,3 +82,18 @@ anchor_right = 0.8615348
 anchor_bottom = 1.5305803
 offset_right = 0.5119629
 offset_bottom = 0.18395996
+
+[node name="LevelGUI" type="CanvasLayer" parent="."]
+script = ExtResource("6_4kd1d")
+
+[node name="PauseButton" type="Button" parent="LevelGUI"]
+offset_left = 145.0
+offset_top = 56.0
+offset_right = 203.0
+offset_bottom = 114.0
+text = "Pausa"
+
+[node name="PausaMenu" parent="LevelGUI" instance=ExtResource("7_p7ys4")]
+visible = false
+
+[connection signal="pressed" from="LevelGUI/PauseButton" to="LevelGUI" method="_on_pause_button_pressed"]

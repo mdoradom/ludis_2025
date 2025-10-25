@@ -15,19 +15,20 @@ func _on_options_ui_visibility_changed() -> void:
 
 
 func _on_visibility_changed() -> void:
-	if get_tree() and !paused:
-		get_tree().paused = !get_tree().paused
+	# Check if the node is in the tree before accessing get_tree()
+	if is_inside_tree() and visible and !paused:
+		get_tree().paused = true
 		paused = true
 
 
 func _on_continuar_button_pressed() -> void:
 	self.visible = false
 	paused = false
-	get_tree().paused = !get_tree().paused
+	get_tree().paused = false
 
 
 func _on_sortir_button_pressed() -> void:
 	self.visible = false
 	paused = false
-	get_tree().paused = !get_tree().paused
+	get_tree().paused = false
 	SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
