@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://bndtg65o8diio"]
+
+[ext_resource type="Script" uid="uid://dcvs42aq4w0tb" path="res://scripts/ui/pausa_menu.gd" id="1_uh6bv"]
+[ext_resource type="Shader" uid="uid://dgh34u7x3h1tp" path="res://assets/shaders/blur.gdshader" id="2_384ev"]
+[ext_resource type="PackedScene" uid="uid://b27nit2lokfdr" path="res://scenes/ui/options_menu.tscn" id="2_da8wt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kyvj5"]
+shader = ExtResource("2_384ev")
+shader_parameter/blur_amount = 2.0
+shader_parameter/samples = 16
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oygwm"]
+
+[node name="PausaMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_uh6bv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_kyvj5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_oygwm")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.5
+offset_top = -218.875
+offset_right = 226.5
+offset_bottom = 218.875
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 39
+
+[node name="ContinuarButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continuar"
+
+[node name="OpcionsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Opcions
+"
+
+[node name="SortirButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sortir
+"
+
+[node name="OptionsUI" parent="." instance=ExtResource("2_da8wt")]
+visible = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ContinuarButton" to="." method="_on_continuar_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/OpcionsButton" to="." method="_on_opcions_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/SortirButton" to="." method="_on_sortir_button_pressed"]
+[connection signal="visibility_changed" from="OptionsUI" to="." method="_on_options_ui_visibility_changed"]

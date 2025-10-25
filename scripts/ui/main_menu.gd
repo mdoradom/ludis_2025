@@ -81,3 +81,7 @@ func spawn_title():
 		title_node.add_child(letter_instance, true)
 		
 		idx += 1
+
+
+func _on_opcions_button_pressed() -> void:
+	$OptionsUI.visible = true

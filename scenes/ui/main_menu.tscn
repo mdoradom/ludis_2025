@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3yw8vxrncpoa"]
+[gd_scene load_steps=12 format=3 uid="uid://c3yw8vxrncpoa"]
 
 [ext_resource type="Script" uid="uid://qbuqbppdeaur" path="res://scripts/ui/main_menu.gd" id="1_e66b0"]
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="2_fe2o3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://lv61x8f11npe" path="res://assets/textures/main_menu_background.png" id="4_m1kxf"]
 [ext_resource type="Texture2D" uid="uid://c0wk6ddfc5jcj" path="res://assets/textures/jugar_button.png" id="5_uhagc"]
 [ext_resource type="Texture2D" uid="uid://dsrtpj6cstm10" path="res://assets/textures/album_button.png" id="6_btxxm"]
+[ext_resource type="PackedScene" uid="uid://b27nit2lokfdr" path="res://scenes/ui/options_menu.tscn" id="7_btxxm"]
 
 [sub_resource type="Resource" id="Resource_1g8jr"]
 script = ExtResource("2_fe2o3")
@@ -85,12 +86,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -680.0
 offset_top = -568.0
-offset_right = 92.0
-offset_bottom = 230.0
+offset_right = -121.0
+offset_bottom = 16.0
 grow_horizontal = 0
 grow_vertical = 0
 rotation = -0.21770908
 texture_normal = ExtResource("6_btxxm")
 
+[node name="OpcionsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -79.0
+offset_right = 445.0
+offset_bottom = -25.0
+grow_vertical = 0
+text = "Opcions
+"
+
+[node name="OptionsUI" parent="." instance=ExtResource("7_btxxm")]
+visible = false
+
 [connection signal="pressed" from="JugarButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="AlbumButton" to="." method="_on_book_button_pressed"]
+[connection signal="pressed" from="OpcionsButton" to="." method="_on_opcions_button_pressed"]
