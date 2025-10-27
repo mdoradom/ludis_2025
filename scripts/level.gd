@@ -81,6 +81,9 @@ func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableOb
 		_update_available_letters(b_object.object_data)
 	
 	UserData.unlocked_stickers.add_object(b_object.object_data)
+	var object_letter_number: int = b_object.name.length()
+	UserData.gomets += object_letter_number * 8 # Change the 8 with the correct multiplier
+	print(UserData.gomets)
 	
 	print(available_letters_in_level)
 	_check_game_completion()

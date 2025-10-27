@@ -3,6 +3,8 @@ extends Node
 # Think if is the better container for that manner
 var unlocked_stickers: WordDictionary
 
+var gomets: int
+
 # === DEBUG ===
 var debug_word_dictionary: WordDictionary = load("res://resources/animals_dictionary.tres")
 
