@@ -1,6 +1,27 @@
-[gd_scene format=3 uid="uid://0hc5taivg5yn"]
+[gd_scene load_steps=5 format=3 uid="uid://0hc5taivg5yn"]
+
+[ext_resource type="Shader" uid="uid://dgh34u7x3h1tp" path="res://assets/shaders/blur.gdshader" id="1_7qero"]
+[ext_resource type="Script" uid="uid://be601c1bnqnld" path="res://scripts/ui/end_game_ui.gd" id="1_75kds"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_75kds"]
+shader = ExtResource("1_7qero")
+shader_parameter/blur_amount = 2.0
+shader_parameter/samples = 16
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_36ok1"]
 
 [node name="EndGameUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_75kds")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_75kds")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_36ok1")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 8
@@ -46,3 +67,6 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
+text = "Torna a provar"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]

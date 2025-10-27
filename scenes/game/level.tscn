@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b2hdqh1mihrjm"]
+[gd_scene load_steps=14 format=3 uid="uid://b2hdqh1mihrjm"]
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/level.gd" id="1_khnyk"]
 [ext_resource type="Resource" uid="uid://bnieedqkubedd" path="res://resources/animals_dictionary.tres" id="2_65r54"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cegyg1nfs32pf" path="res://assets/textures/in_game_background.jpg" id="7_mxnjv"]
 [ext_resource type="PackedScene" uid="uid://bndtg65o8diio" path="res://scenes/ui/pausa_menu.tscn" id="9_eyudv"]
 [ext_resource type="Script" uid="uid://dlav677dmw25q" path="res://scripts/ui/level_gui.gd" id="9_p2ltr"]
+[ext_resource type="PackedScene" uid="uid://0hc5taivg5yn" path="res://scenes/ui/end_game_ui.tscn" id="11_aakys"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
 b = Vector2(1920, 0)
@@ -61,18 +62,23 @@ wait_time = 30.0
 autostart = true
 
 [node name="LevelGUI" type="CanvasLayer" parent="."]
+layer = 0
 script = ExtResource("9_p2ltr")
 
-[node name="PauseButton" type="Button" parent="LevelGUI"]
-offset_left = 29.0
-offset_top = 35.0
-offset_right = 87.0
-offset_bottom = 93.0
-text = "Pausa"
+[node name="EndGameUI" parent="LevelGUI" instance=ExtResource("11_aakys")]
+visible = false
 
 [node name="PausaMenu" parent="LevelGUI" instance=ExtResource("9_eyudv")]
 visible = false
 
+[node name="PauseButton" type="Button" parent="LevelGUI"]
+offset_left = 29.0
+offset_top = 35.0
+offset_right = 128.0
+offset_bottom = 93.0
+text = "Pausa"
+
+[connection signal="game_finished" from="." to="LevelGUI/EndGameUI" method="_on_level_game_finished"]
 [connection signal="breakable_object_spawned" from="BreakableObjectFactory" to="." method="_on_breakable_object_factory_breakable_object_spawned"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="LevelGUI/PauseButton" to="LevelGUI" method="_on_pause_button_pressed"]

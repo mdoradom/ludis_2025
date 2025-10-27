@@ -1,5 +1,7 @@
 extends Node2D
 
+signal game_finished
+
 @export var starting_dictionary: WordDictionary
 @export var objects_dictionary: WordDictionary
 
@@ -99,7 +101,8 @@ func _check_game_completion() -> void:
 	var game_finished: bool = get_node("WordChecker").check_formable_words_test()
 	
 	if game_finished:
-		SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
+		emit_signal("game_finished")
+		#SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
 
 func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 	var max_attempts: int = 100  # Prevent infinite loop
