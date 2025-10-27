@@ -60,6 +60,19 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "X"
 
+[node name="VBoxContainer4" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer4"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -70,6 +83,8 @@ text = "Música"
 
 [node name="MusicaSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+max_value = 1.0
+step = 0.05
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -81,9 +96,14 @@ text = "Efectes"
 
 [node name="EfectesSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
+max_value = 1.0
+step = 0.05
 
 [node name="CheckButton" type="CheckButton" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Mode dislèxia"
 
 [connection signal="pressed" from="BackgroundPanel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer4/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer2/MusicaSlider" to="." method="_on_musica_slider_value_changed"]
+[connection signal="value_changed" from="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3/EfectesSlider" to="." method="_on_efectes_slider_value_changed"]

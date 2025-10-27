@@ -51,14 +51,8 @@ func _break_object():
 	var tween = create_tween()
 
 	tween.tween_property(self, "modulate:a", 0.0, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
 	if object_data.break_sound:
-		var audio_player = AudioStreamPlayer.new()
-		audio_player.stream = object_data.break_sound
-		audio_player.autoplay = true
-
-		audio_player.connect("finished", Callable(audio_player, "queue_free"))
-		get_parent().add_child(audio_player)
+		AudioManager.play_sound_effect(object_data.break_sound, -5.0, randf_range(0.9, 1.1))
 
 	emit_signal("broken", object_data, global_position)
 
