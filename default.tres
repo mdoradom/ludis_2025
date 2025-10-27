@@ -51,7 +51,7 @@ expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7ndg"]
 content_margin_left = 4.0
-content_margin_top = 16.0
+content_margin_top = 48.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.84313726, 0.49411765, 0.21568628, 1)
@@ -63,7 +63,7 @@ corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3a8jl"]
 content_margin_left = 4.0
-content_margin_top = 16.0
+content_margin_top = 48.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(1, 0.69411767, 0, 1)
@@ -75,7 +75,7 @@ corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb6pw"]
 content_margin_left = 4.0
-content_margin_top = 16.0
+content_margin_top = 48.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.60784316, 0.39607844, 0.22745098, 1)
@@ -92,40 +92,43 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.60784316, 0.39607844, 0.22745098, 1)
-border_blend = true
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
 shadow_color = Color(0.84313726, 0.6156863, 0.43529412, 0.3529412)
 shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nixot"]
 content_margin_left = 4.0
-content_margin_top = 32.0
+content_margin_top = 96.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(0.8666667, 0.54509807, 0, 1)
 border_width_left = 4
 border_width_bottom = 4
 border_color = Color(0.61786735, 0.38310432, 5.7756904e-07, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 expand_margin_left = 4.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsgte"]
 content_margin_left = 4.0
-content_margin_top = 32.0
+content_margin_top = 96.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
 bg_color = Color(1, 0.69411767, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [resource]
 default_font = ExtResource("1_nixot")
@@ -152,11 +155,11 @@ HSlider/styles/grabber_area = SubResource("StyleBoxFlat_y7ndg")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_3a8jl")
 HSlider/styles/slider = SubResource("StyleBoxFlat_mb6pw")
 Label/colors/font_color = Color(0.4758439, 0.17662159, 9.62615e-08, 1)
-Label/font_sizes/font_size = 30
-MarginContainer/constants/margin_bottom = 32
-MarginContainer/constants/margin_left = 32
-MarginContainer/constants/margin_right = 32
-MarginContainer/constants/margin_top = 32
+Label/font_sizes/font_size = 36
+MarginContainer/constants/margin_bottom = 64
+MarginContainer/constants/margin_left = 64
+MarginContainer/constants/margin_right = 64
+MarginContainer/constants/margin_top = 64
 Panel/styles/panel = SubResource("StyleBoxFlat_dqhm0")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_nixot")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_jsgte")
