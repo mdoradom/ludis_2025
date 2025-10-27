@@ -31,6 +31,10 @@ window/stretch/mode="viewport"
 
 mouse_body=""
 
+[gui]
+
+theme/custom="uid://chc4u7qbnn5xb"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

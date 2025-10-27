@@ -82,21 +82,8 @@ text = "Efectes"
 [node name="EfectesSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
+[node name="CheckButton" type="CheckButton" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="DislexiaLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
 text = "Mode dislèxia"
-
-[node name="DislexiaCheckBox" type="CheckBox" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "
-"
-alignment = 1
-icon_alignment = 1
-expand_icon = true
 
 [connection signal="pressed" from="BackgroundPanel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
