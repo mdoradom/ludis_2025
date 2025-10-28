@@ -14,7 +14,7 @@ enum SFX {
 	COMPLETE_WORD,	# done
 
 	# Album Sounds
-	SLIDE_PLASTIC,	# not done
+	SLIDE_PLASTIC,	# done
 	STICK_STICKER,	# done
 }
 
@@ -35,6 +35,7 @@ var music_volume: float = 0.6
 var music_player: AudioStreamPlayer
 var sound_effects: Dictionary = {}
 var music_tracks: Dictionary = {}
+var playing_sfx: Dictionary = {}
 
 const AUDIO_SETTINGS_PATH = "user://audio_settings.cfg"
 
@@ -49,13 +50,14 @@ func _ready() -> void:
 	_apply_volumes()
 
 func _preload_sound_effects() -> void:
-	sound_effects[SFX.BUTTON_CLICK] = preload("res://assets/audio/effects/switch_006.ogg")
-	sound_effects[SFX.STICK_STICKER] = preload("res://assets/audio/effects/sfx_stickerripper_foil_05.wav")
-	sound_effects[SFX.LETTER_SNAP_1] = preload("res://assets/audio/effects/letter_snap_1.wav")
-	sound_effects[SFX.LETTER_SNAP_2] = preload("res://assets/audio/effects/letter_snap_2.wav")
-	sound_effects[SFX.COMPLETE_WORD] = preload("res://assets/audio/effects/confirmation_004.ogg")
-	sound_effects[SFX.BREAK_SOUND] = preload("res://assets/audio/effects/break_sound.wav")
-	sound_effects[SFX.TAP_SOUND] = preload("res://assets/audio/effects/bong_001.ogg")
+	sound_effects[SFX.BUTTON_CLICK] 	= preload("res://assets/audio/effects/switch_006.ogg")
+	sound_effects[SFX.STICK_STICKER] 	= preload("res://assets/audio/effects/sfx_stickerripper_foil_05.wav")
+	sound_effects[SFX.LETTER_SNAP_1] 	= preload("res://assets/audio/effects/letter_snap_1.wav")
+	sound_effects[SFX.LETTER_SNAP_2] 	= preload("res://assets/audio/effects/letter_snap_2.wav")
+	sound_effects[SFX.COMPLETE_WORD] 	= preload("res://assets/audio/effects/confirmation_004.ogg")
+	sound_effects[SFX.BREAK_SOUND] 		= preload("res://assets/audio/effects/break_sound.wav")
+	sound_effects[SFX.TAP_SOUND] 		= preload("res://assets/audio/effects/bong_001.ogg")
+	sound_effects[SFX.SLIDE_PLASTIC] 	= preload("res://assets/audio/effects/plastic-sheet.wav")
 	# Add more sound effects here as needed
 
 func _preload_music_tracks() -> void:
@@ -72,6 +74,33 @@ func play_sfx(sfx_type: SFX, volume_db: float = 0.0, pitch_scale: float = 1.0) -
 		player.volume_db = volume_db
 		player.pitch_scale = pitch_scale
 		player.finished.connect(player.queue_free)
+		add_child(player)
+		player.play()
+	else:
+		push_error("Sound effect not found: " + str(sfx_type))
+
+func play_sfx_once(sfx_type: SFX, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
+	# Check if this sound effect is already playing
+	if sfx_type in playing_sfx and is_instance_valid(playing_sfx[sfx_type]) and playing_sfx[sfx_type].playing:
+		return
+	
+	if sfx_type in sound_effects:
+		var player = AudioStreamPlayer.new()
+		player.stream = sound_effects[sfx_type]
+		player.bus = "Effects"
+		player.volume_db = volume_db
+		player.pitch_scale = pitch_scale
+		
+		# Store reference to track this playing sound
+		playing_sfx[sfx_type] = player
+		
+		# Clean up when finished
+		player.finished.connect(func():
+			if sfx_type in playing_sfx and playing_sfx[sfx_type] == player:
+				playing_sfx.erase(sfx_type)
+			player.queue_free()
+		)
+		
 		add_child(player)
 		player.play()
 	else:
