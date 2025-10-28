@@ -12,8 +12,17 @@ func _on_level_game_finished() -> void:
 	$Panel/MarginContainer/VBoxContainer/WinGomets.text = str(UserData.new_gomets_earned)
 
 func _on_retry_button_pressed() -> void:
+	finish_game()
+
+	SceneManager.reload_current_scene()
+
+func _on_go_to_main_menu_button_pressed() -> void:
+	finish_game()
+	
+	SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
+
+func finish_game():
 	UserData.total_gomets += UserData.new_gomets_earned
 	UserData.new_gomets_earned = 0
 	
 	get_tree().paused = false
-	SceneManager.reload_current_scene()

@@ -29,154 +29,154 @@
 script = ExtResource("1_gxdfp")
 item_name = "PAPALLONA"
 sprite = ExtResource("2_sh2r2")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_lkq3i"]
 script = ExtResource("1_gxdfp")
 item_name = "ABELLA"
 sprite = ExtResource("3_btrem")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_tle86"]
 script = ExtResource("1_gxdfp")
 item_name = "GRANOTA"
 sprite = ExtResource("4_bdfuu")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_cpafp"]
 script = ExtResource("1_gxdfp")
 item_name = "TRITÓ"
 sprite = ExtResource("4_0adjo")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_remde"]
 script = ExtResource("1_gxdfp")
 item_name = "ESCURÇÓ"
 sprite = ExtResource("5_bv8bj")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_4oixa"]
 script = ExtResource("1_gxdfp")
 item_name = "LLANGARDAIX"
 sprite = ExtResource("6_bdfuu")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_gd6hy"]
 script = ExtResource("1_gxdfp")
 item_name = "TORTUGA"
 sprite = ExtResource("7_7sqmx")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_gw4m4"]
 script = ExtResource("1_gxdfp")
 item_name = "COLOM"
 sprite = ExtResource("8_jtmsh")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_jtehg"]
 script = ExtResource("1_gxdfp")
 item_name = "GAVINA"
 sprite = ExtResource("10_7sqmx")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_13s74"]
 script = ExtResource("1_gxdfp")
 item_name = "ÒLIBA"
 sprite = ExtResource("9_d2qmb")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_17uo1"]
 script = ExtResource("1_gxdfp")
 item_name = "TRENCALÒS"
 sprite = ExtResource("10_hq3qa")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_nicrk"]
 script = ExtResource("1_gxdfp")
 item_name = "VOLTOR"
 sprite = ExtResource("13_jtmsh")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_kj57b"]
 script = ExtResource("1_gxdfp")
 item_name = "LLOP"
 sprite = ExtResource("11_3jhqn")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_uyoxv"]
 script = ExtResource("1_gxdfp")
 item_name = "LLÚDRIGA"
 sprite = ExtResource("15_d2qmb")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_emml8"]
 script = ExtResource("1_gxdfp")
 item_name = "ÓS"
 sprite = ExtResource("12_gequf")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_ggm5f"]
 script = ExtResource("1_gxdfp")
 item_name = "RATPENAT"
 sprite = ExtResource("13_cl11f")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_nkiyb"]
 script = ExtResource("1_gxdfp")
 item_name = "ERIÇÓ"
 sprite = ExtResource("14_uoope")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_sh2r2"]
 script = ExtResource("1_gxdfp")
 item_name = "SENGLAR"
 sprite = ExtResource("15_bf3yr")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_btrem"]
 script = ExtResource("1_gxdfp")
 item_name = "GUINEU"
 sprite = ExtResource("16_jxjxp")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_0adjo"]
 script = ExtResource("1_gxdfp")
 item_name = "CONILL"
 sprite = ExtResource("17_o130n")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_bv8bj"]
 script = ExtResource("1_gxdfp")
 item_name = "ESQUIROL"
 sprite = ExtResource("18_0iyak")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [sub_resource type="Resource" id="Resource_bdfuu"]
 script = ExtResource("1_gxdfp")
 item_name = "SARGANTANA"
 sprite = ExtResource("19_1jdc5")
-taps_to_break = 2
+type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
 [resource]

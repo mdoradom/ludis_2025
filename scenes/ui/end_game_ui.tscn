@@ -44,11 +44,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_top = -35
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 61
+theme_override_constants/separation = 36
 
 [node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -79,4 +79,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Torna a provar"
 
+[node name="GoToMainMenuButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Anar al Menú Principal"
+
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/GoToMainMenuButton" to="." method="_on_go_to_main_menu_button_pressed"]
