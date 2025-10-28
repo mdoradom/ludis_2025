@@ -65,63 +65,108 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.7607843, 0.8, 0.57254905, 1)
 
-[node name="AlbumZooBackground" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
-visible = false
-modulate = Color(1, 1, 1, 0.73333335)
-position = Vector2(710.4759, 459.99997)
-scale = Vector2(0.62224376, 0.5942308)
-texture = ExtResource("3_p7ys4")
-
 [node name="TestZoo" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
 visible = false
 position = Vector2(742, 515)
 scale = Vector2(1.7199999, 1.7199999)
 texture = ExtResource("4_ufra2")
 
-[node name="Background" type="Node2D" parent="SubViewportContainer/SubViewport"]
+[node name="Background" type="Control" parent="SubViewportContainer/SubViewport"]
 y_sort_enabled = true
-position = Vector2(194, 153)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -818.0
+offset_top = -519.0
+offset_right = -818.0
+offset_bottom = -519.0
 scale = Vector2(0.57, 0.57)
 
-[node name="MenuAlbumPag_31" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_31" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("3_q7v6d")
 
-[node name="MenuAlbumPag_32" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_32" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("4_52hiy")
 
-[node name="MenuAlbumPag_33" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_33" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("5_yxdf3")
 
-[node name="MenuAlbumPag_34" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_34" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("6_febnm")
 
-[node name="MenuAlbumPag_35" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_35" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("7_vjb7m")
 
-[node name="MenuAlbumPag_36" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_36" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("8_vqsua")
 
-[node name="MenuAlbumPag_37" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_37" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("9_dupl5")
 
-[node name="MenuAlbumPag_38" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_38" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("10_jc0b7")
 
-[node name="MenuAlbumPag_39" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_39" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("11_0tdej")
 
-[node name="MenuAlbumPag_310" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
-position = Vector2(986, 703)
+[node name="MenuAlbumPag_310" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
 texture = ExtResource("12_u7adg")
+
+[node name="AlbumZooBackground" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+visible = false
+modulate = Color(1, 1, 1, 0.73333335)
+position = Vector2(710.4759, 459.99997)
+scale = Vector2(0.62224376, 0.5942308)
+texture = ExtResource("3_p7ys4")
 
 [node name="Stickers" type="Control" parent="SubViewportContainer/SubViewport"]
 y_sort_enabled = true
