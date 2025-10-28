@@ -68,6 +68,8 @@ func _snap_to_word(group: WordGroup):
 	snap_to_group(group, slot_index)
 
 func _on_letter_released(letter: Variant) -> void:
+	letter_rb.collision_mask = 1
+	
 	if get_tree().current_scene is not Level:
 		return
 	
@@ -82,10 +84,6 @@ func _on_letter_released(letter: Variant) -> void:
 		candidate_target = null
 	else:
 		snap_to_letter(candidate_target)
-	
-	# This is made for make letters not collide when in a group
-	# It should not work but it works :p
-	letter_rb.collision_mask = 1
 
 
 func _on_letter_dragged(letter: Variant) -> void:
