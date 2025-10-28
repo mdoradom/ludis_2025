@@ -1,13 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://daqk8s0ifhmrn"]
+[gd_scene load_steps=19 format=3 uid="uid://daqk8s0ifhmrn"]
 
 [ext_resource type="Texture2D" uid="uid://dnrengerdr6fg" path="res://assets/textures/album_background.jpg" id="1_3ymkm"]
 [ext_resource type="PackedScene" uid="uid://dgv0vuaf5t0jb" path="res://scenes/ui/sticker_list.tscn" id="1_7bl6s"]
 [ext_resource type="Texture2D" uid="uid://bg7r1h73nmhwr" path="res://assets/textures/album_zoo_background.png" id="3_p7ys4"]
+[ext_resource type="Texture2D" uid="uid://px7afsa1w0mh" path="res://assets/textures/album_background/Menu_album_pag._3-1.png" id="3_q7v6d"]
+[ext_resource type="Texture2D" uid="uid://cgfifedq2dplr" path="res://assets/textures/album_background/Menu_album_pag._3-2.png" id="4_52hiy"]
 [ext_resource type="PackedScene" uid="uid://d3vobsvnw3xwq" path="res://scenes/sticker.tscn" id="4_j3cq4"]
 [ext_resource type="Texture2D" uid="uid://bxy1d6cqo427v" path="res://assets/textures/album_opened.png" id="4_ldfw4"]
 [ext_resource type="Texture2D" uid="uid://dew0q8hf242l8" path="res://assets/textures/test-zoo.png" id="4_ufra2"]
+[ext_resource type="Texture2D" uid="uid://pks8434k888y" path="res://assets/textures/album_background/Menu_album_pag._3-3.png" id="5_yxdf3"]
 [ext_resource type="Script" uid="uid://dlav677dmw25q" path="res://scripts/ui/level_gui.gd" id="6_4kd1d"]
+[ext_resource type="Texture2D" uid="uid://cmv03l4s1ablj" path="res://assets/textures/album_background/Menu_album_pag._3-4.png" id="6_febnm"]
 [ext_resource type="PackedScene" uid="uid://bndtg65o8diio" path="res://scenes/ui/pausa_menu.tscn" id="7_p7ys4"]
+[ext_resource type="Texture2D" uid="uid://dn38kayueyftf" path="res://assets/textures/album_background/Menu_album_pag._3-5.png" id="7_vjb7m"]
+[ext_resource type="Texture2D" uid="uid://cduoiggc43njh" path="res://assets/textures/album_background/Menu_album_pag._3-6.png" id="8_vqsua"]
+[ext_resource type="Texture2D" uid="uid://3gudeyg4ks0y" path="res://assets/textures/album_background/Menu_album_pag._3-7.png" id="9_dupl5"]
+[ext_resource type="Texture2D" uid="uid://djlc13r56f43o" path="res://assets/textures/album_background/Menu_album_pag._3-8.png" id="10_jc0b7"]
+[ext_resource type="Texture2D" uid="uid://b3q20tgderse" path="res://assets/textures/album_background/Menu_album_pag._3-9.png" id="11_0tdej"]
+[ext_resource type="Texture2D" uid="uid://dg8572ryirw8v" path="res://assets/textures/album_background/Menu_album_pag._3-10.png" id="12_u7adg"]
 
 [node name="StickerBook" type="Control"]
 layout_mode = 3
@@ -56,6 +66,8 @@ grow_vertical = 2
 color = Color(0.7607843, 0.8, 0.57254905, 1)
 
 [node name="AlbumZooBackground" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+visible = false
+modulate = Color(1, 1, 1, 0.73333335)
 position = Vector2(710.4759, 459.99997)
 scale = Vector2(0.62224376, 0.5942308)
 texture = ExtResource("3_p7ys4")
@@ -65,6 +77,51 @@ visible = false
 position = Vector2(742, 515)
 scale = Vector2(1.7199999, 1.7199999)
 texture = ExtResource("4_ufra2")
+
+[node name="Background" type="Node2D" parent="SubViewportContainer/SubViewport"]
+y_sort_enabled = true
+position = Vector2(194, 153)
+scale = Vector2(0.57, 0.57)
+
+[node name="MenuAlbumPag_31" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("3_q7v6d")
+
+[node name="MenuAlbumPag_32" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("4_52hiy")
+
+[node name="MenuAlbumPag_33" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("5_yxdf3")
+
+[node name="MenuAlbumPag_34" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("6_febnm")
+
+[node name="MenuAlbumPag_35" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("7_vjb7m")
+
+[node name="MenuAlbumPag_36" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("8_vqsua")
+
+[node name="MenuAlbumPag_37" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("9_dupl5")
+
+[node name="MenuAlbumPag_38" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("10_jc0b7")
+
+[node name="MenuAlbumPag_39" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("11_0tdej")
+
+[node name="MenuAlbumPag_310" type="Sprite2D" parent="SubViewportContainer/SubViewport/Background"]
+position = Vector2(986, 703)
+texture = ExtResource("12_u7adg")
 
 [node name="Stickers" type="Control" parent="SubViewportContainer/SubViewport"]
 y_sort_enabled = true
