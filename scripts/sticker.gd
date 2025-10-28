@@ -75,7 +75,6 @@ func _on_released(object: Variant) -> void:
 	var tween = create_tween()
 	tween.tween_property(sprite_material, "shader_parameter/shadow_amount", 0.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
-
 func _on_next_page_button_pressed() -> void:
 	pass
 
@@ -92,7 +91,7 @@ func _hover_effect(button: Control, hover_in: bool) -> void:
 		hover_tween.tween_property(button, "scale", Vector2(1.3, 1.3), 0.1)
 	else:
 		hover_tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.1)
-		
+
 func _on_next_page_button_mouse_entered() -> void:
 	_hover_effect($"../../../../NextPageButton", true)
 
