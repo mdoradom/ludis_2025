@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfrai2unt6xcu"
-path="res://.godot/imported/herb.png-2520121384f73af33b4a5650cb318fdd.ctex"
+uid="uid://dvvvnroy233bm"
+path="res://.godot/imported/bosc.png-5d66f5977efaad41c56d4bbdb84c42b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/herb.png"
-dest_files=["res://.godot/imported/herb.png-2520121384f73af33b4a5650cb318fdd.ctex"]
+source_file="res://assets/textures/objects/bosc.png"
+dest_files=["res://.godot/imported/bosc.png-5d66f5977efaad41c56d4bbdb84c42b3.ctex"]
 
 [params]
 

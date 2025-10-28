@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nh4fpkhlb6wf"
-path="res://.godot/imported/cockroach.png-376763ba8fda01f9aef936d892c96d24.ctex"
+uid="uid://ce5th7ibla6n5"
+path="res://.godot/imported/gespa.png-4279964eaf11dc941ffd2beac03d24c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/cockroach.png"
-dest_files=["res://.godot/imported/cockroach.png-376763ba8fda01f9aef936d892c96d24.ctex"]
+source_file="res://assets/textures/objects/gespa.png"
+dest_files=["res://.godot/imported/gespa.png-4279964eaf11dc941ffd2beac03d24c6.ctex"]
 
 [params]
 

@@ -29,12 +29,13 @@ anchors_preset = -1
 anchor_left = 0.059000004
 anchor_right = 0.943
 anchor_bottom = 1.0
-offset_left = -0.6666641
-offset_top = -3.0
-offset_right = 0.66674805
-offset_bottom = -1.666626
+offset_left = -51.666664
+offset_top = 18.0
+offset_right = -82.555664
+offset_bottom = 499.11096
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.1212974, 1.1451695)
 texture = ExtResource("3_lraoj")
 expand_mode = 4
 

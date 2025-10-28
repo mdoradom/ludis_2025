@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ic1rb3qtqg2"
-path="res://.godot/imported/cloud.png-84bbfe0f1f64dcd96ffd465216353bc3.ctex"
+uid="uid://cuxjq4qwdr6h4"
+path="res://.godot/imported/Ilustración_sin_título-7.png-608a18faed18fe458d2c7e467ca955f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/cloud.png"
-dest_files=["res://.godot/imported/cloud.png-84bbfe0f1f64dcd96ffd465216353bc3.ctex"]
+source_file="res://assets/textures/objects/drive-download-20251028T193245Z-1-001/Ilustración_sin_título-7.png"
+dest_files=["res://.godot/imported/Ilustración_sin_título-7.png-608a18faed18fe458d2c7e467ca955f8.ctex"]
 
 [params]
 

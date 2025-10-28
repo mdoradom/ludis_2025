@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="1_2x2qx"]
 [ext_resource type="Script" uid="uid://c6oapo0myuruh" path="res://scripts/resources/word_dictionary.gd" id="2_2x2qx"]
-[ext_resource type="Texture2D" uid="uid://ca64wn1g8f43r" path="res://assets/textures/objects/feather.png" id="2_ujv74"]
-[ext_resource type="Texture2D" uid="uid://bdw6xp6bif8n4" path="res://assets/textures/objects/deciduous_tree.png" id="3_03c6g"]
-[ext_resource type="Texture2D" uid="uid://cfrai2unt6xcu" path="res://assets/textures/objects/herb.png" id="4_6wis4"]
-[ext_resource type="Texture2D" uid="uid://bqwbb3fkxucsd" path="res://assets/textures/objects/basket.png" id="5_jfgbb"]
-[ext_resource type="Texture2D" uid="uid://nh4fpkhlb6wf" path="res://assets/textures/objects/cockroach.png" id="6_fcb7s"]
-[ext_resource type="Texture2D" uid="uid://b7ic1rb3qtqg2" path="res://assets/textures/objects/cloud.png" id="7_yrs8v"]
-[ext_resource type="Texture2D" uid="uid://bevinyv7ige13" path="res://assets/textures/objects/rock.png" id="8_hr58j"]
+[ext_resource type="Texture2D" uid="uid://cdvipnbnrrg7y" path="res://assets/textures/objects/ploma.png" id="2_ujv74"]
+[ext_resource type="Texture2D" uid="uid://dvvvnroy233bm" path="res://assets/textures/objects/bosc.png" id="3_03c6g"]
+[ext_resource type="Texture2D" uid="uid://ce5th7ibla6n5" path="res://assets/textures/objects/gespa.png" id="4_6wis4"]
+[ext_resource type="Texture2D" uid="uid://dm1r2f2gbeeex" path="res://assets/textures/objects/cistell.png" id="5_jfgbb"]
+[ext_resource type="Texture2D" uid="uid://dy3ulstcirifr" path="res://assets/textures/objects/puça.png" id="6_fcb7s"]
+[ext_resource type="Texture2D" uid="uid://baff8a55r7lgt" path="res://assets/textures/objects/nuvol.png" id="7_yrs8v"]
+[ext_resource type="Texture2D" uid="uid://d12ymkfpn4sa3" path="res://assets/textures/objects/pedra.png" id="8_hr58j"]
 
 [sub_resource type="Resource" id="Resource_61mpd"]
 script = ExtResource("1_2x2qx")

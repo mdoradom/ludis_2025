@@ -71,96 +71,6 @@ position = Vector2(742, 515)
 scale = Vector2(1.7199999, 1.7199999)
 texture = ExtResource("4_ufra2")
 
-[node name="Background" type="Control" parent="SubViewportContainer/SubViewport"]
-y_sort_enabled = true
-layout_mode = 3
-anchors_preset = 0
-offset_left = -818.0
-offset_top = -519.0
-offset_right = -818.0
-offset_bottom = -519.0
-scale = Vector2(0.57, 0.57)
-
-[node name="MenuAlbumPag_31" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("3_q7v6d")
-
-[node name="MenuAlbumPag_32" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("4_52hiy")
-
-[node name="MenuAlbumPag_33" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("5_yxdf3")
-
-[node name="MenuAlbumPag_34" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("6_febnm")
-
-[node name="MenuAlbumPag_35" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("7_vjb7m")
-
-[node name="MenuAlbumPag_36" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("8_vqsua")
-
-[node name="MenuAlbumPag_37" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("9_dupl5")
-
-[node name="MenuAlbumPag_38" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("10_jc0b7")
-
-[node name="MenuAlbumPag_39" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("11_0tdej")
-
-[node name="MenuAlbumPag_310" type="TextureRect" parent="SubViewportContainer/SubViewport/Background"]
-layout_mode = 0
-offset_left = 986.0
-offset_top = 703.0
-offset_right = 4542.0
-offset_bottom = 3080.0
-texture = ExtResource("12_u7adg")
-
 [node name="AlbumZooBackground" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
 visible = false
 modulate = Color(1, 1, 1, 0.73333335)
@@ -174,6 +84,102 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Background" type="Control" parent="SubViewportContainer/SubViewport/Stickers"]
+y_sort_enabled = true
+anchors_preset = 0
+offset_left = -818.0
+offset_top = -519.0
+offset_right = -818.0
+offset_bottom = -519.0
+scale = Vector2(0.57, 0.57)
+
+[node name="MenuAlbumPag_31" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
+texture = ExtResource("3_q7v6d")
+
+[node name="MenuAlbumPag_32" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 986.0
+offset_top = 703.0
+offset_right = 4542.0
+offset_bottom = 3080.0
+texture = ExtResource("4_52hiy")
+
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+anchors_preset = 0
+offset_left = 3317.544
+offset_top = 1340.3508
+offset_right = 3357.544
+offset_bottom = 1380.3508
+
+[node name="MenuAlbumPag_33" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background/Control"]
+layout_mode = 0
+offset_left = -115.78955
+offset_top = -207.01744
+offset_right = 214.21045
+offset_bottom = 272.98254
+texture = ExtResource("5_yxdf3")
+
+[node name="MenuAlbumPag_34" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 2585.965
+offset_top = 1235.0878
+offset_right = 2808.965
+offset_bottom = 1486.0878
+texture = ExtResource("6_febnm")
+
+[node name="MenuAlbumPag_35" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 2601.7544
+offset_top = 1600.0
+offset_right = 2713.7544
+offset_bottom = 1717.0
+texture = ExtResource("7_vjb7m")
+
+[node name="MenuAlbumPag_36" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 2271.93
+offset_top = 1092.9824
+offset_right = 2513.93
+offset_bottom = 1166.9824
+texture = ExtResource("8_vqsua")
+
+[node name="MenuAlbumPag_37" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 1366.6666
+offset_top = 1678.9474
+offset_right = 1706.6666
+offset_bottom = 1938.9474
+texture = ExtResource("9_dupl5")
+
+[node name="MenuAlbumPag_38" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 1624.5615
+offset_top = 1850.8772
+offset_right = 2036.5615
+offset_bottom = 2167.8772
+texture = ExtResource("10_jc0b7")
+
+[node name="MenuAlbumPag_39" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 3368.4211
+offset_top = 2082.456
+offset_right = 3623.4211
+offset_bottom = 2289.456
+texture = ExtResource("11_0tdej")
+
+[node name="MenuAlbumPag_310" type="TextureRect" parent="SubViewportContainer/SubViewport/Stickers/Background"]
+layout_mode = 0
+offset_left = 2573.6843
+offset_top = 1817.5438
+offset_right = 2967.6843
+offset_bottom = 2130.544
+texture = ExtResource("12_u7adg")
 
 [node name="Sticker" parent="SubViewportContainer/SubViewport/Stickers" instance=ExtResource("4_j3cq4")]
 layout_mode = 1

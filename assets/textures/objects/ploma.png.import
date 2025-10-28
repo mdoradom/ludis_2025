@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca64wn1g8f43r"
-path="res://.godot/imported/feather.png-469d3f2df74546c0041ff648cd1509f9.ctex"
+uid="uid://cdvipnbnrrg7y"
+path="res://.godot/imported/ploma.png-84796c137cf39e2859a55898cd3ac99e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/feather.png"
-dest_files=["res://.godot/imported/feather.png-469d3f2df74546c0041ff648cd1509f9.ctex"]
+source_file="res://assets/textures/objects/ploma.png"
+dest_files=["res://.godot/imported/ploma.png-84796c137cf39e2859a55898cd3ac99e.ctex"]
 
 [params]
 
