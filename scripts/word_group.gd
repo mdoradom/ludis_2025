@@ -68,6 +68,12 @@ func remove_letter(letter: Letter):
 	if letters.is_empty():
 		queue_free()
 
+	var word_string = get_string_from_letters_array()
+	if check_completed_word(word_string):
+		# TODO: Think if would be better to use a signal instead of using that function
+		spawn_breakable_object_temporal(word_string, global_position)
+		queue_free()
+
 func reorder_letter(letter: Letter, new_index: int):
 	if letter in letters:
 		letters.erase(letter)
