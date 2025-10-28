@@ -11,6 +11,11 @@ This document lists all audio assets used in the game and their respective licen
   - License: CC0 1.0 Universal (Public Domain)
   - Usage: Button clicks, menu navigation
 
+- **confirmation_004.ogg** - Used for confirmation sounds and positive feedback
+  - Source: [Kenney.nl UI Audio Pack](https://www.kenney.nl/assets/interface-sounds)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Word completion, successful actions, positive feedback
+
 ### Game Sounds
 
 - **letter_snap_1.wav** - First letter snap sound (derived from letter_snap.wav)
@@ -82,6 +87,7 @@ assets/
 └── audio/
     ├── effects/
     │   ├── switch_006.ogg
+    │   ├── confirmation_004.ogg
     │   ├── sfx_stickerripper_foil_05.wav
     │   └── letter_snap_1.wav
     │   └── letter_snap_2.wav
