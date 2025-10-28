@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3yw8vxrncpoa"]
+[gd_scene load_steps=16 format=3 uid="uid://c3yw8vxrncpoa"]
 
 [ext_resource type="Script" uid="uid://qbuqbppdeaur" path="res://scripts/ui/main_menu.gd" id="1_e66b0"]
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="2_fe2o3"]
 [ext_resource type="Script" uid="uid://c4n457xse28h1" path="res://scripts/mouse_body.gd" id="3_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://lv61x8f11npe" path="res://assets/textures/main_menu_background.png" id="4_m1kxf"]
+[ext_resource type="Texture2D" uid="uid://bskxjtp282cyw" path="res://assets/textures/animals/colom.png" id="5_7suek"]
 [ext_resource type="Texture2D" uid="uid://c0wk6ddfc5jcj" path="res://assets/textures/jugar_button.png" id="5_uhagc"]
 [ext_resource type="Texture2D" uid="uid://dsrtpj6cstm10" path="res://assets/textures/album_button.png" id="6_btxxm"]
+[ext_resource type="Texture2D" uid="uid://df54mrgdx3m8y" path="res://assets/textures/animals/trencalos.png" id="6_otr3d"]
+[ext_resource type="Texture2D" uid="uid://bgak6nbotwjrw" path="res://assets/textures/animals/trito.png" id="7_8ekit"]
 [ext_resource type="PackedScene" uid="uid://b27nit2lokfdr" path="res://scenes/ui/options_menu.tscn" id="7_btxxm"]
+[ext_resource type="Texture2D" uid="uid://b5fb2a052lgnf" path="res://assets/textures/animals/oliba.png" id="11_n4uci"]
 
 [sub_resource type="Resource" id="Resource_1g8jr"]
 script = ExtResource("2_fe2o3")
@@ -48,7 +52,7 @@ title_spawn_point = NodePath("TitleSpawnPoint")
 script = ExtResource("3_1g8jr")
 
 [node name="TitleSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(960, 256)
+position = Vector2(960, 190)
 
 [node name="MainMenuBackground" type="Sprite2D" parent="."]
 visible = false
@@ -65,18 +69,31 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_uhagc")
 
+[node name="Colom" type="Sprite2D" parent="."]
+position = Vector2(638, 634)
+texture = ExtResource("5_7suek")
+
+[node name="Trencalos" type="Sprite2D" parent="."]
+position = Vector2(570, 824)
+texture = ExtResource("6_otr3d")
+
+[node name="Trito" type="Sprite2D" parent="."]
+position = Vector2(348, 669)
+texture = ExtResource("7_8ekit")
+
 [node name="JugarButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 144.00005
-offset_top = -272.0
-offset_right = 561.00006
-offset_bottom = -188.0
+offset_left = 128.84523
+offset_top = -323.56598
+offset_right = 812.65985
+offset_bottom = -185.81915
 grow_vertical = 0
 rotation = -0.2858435
 texture_normal = ExtResource("5_uhagc")
+stretch_mode = 0
 
 [node name="AlbumButton" type="TextureButton" parent="."]
 layout_mode = 1
@@ -85,14 +102,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -680.0
-offset_top = -568.0
-offset_right = -121.0
-offset_bottom = 16.0
+offset_left = -789.0001
+offset_top = -599.0
+offset_right = -71.4093
+offset_bottom = 150.68335
 grow_horizontal = 0
 grow_vertical = 0
 rotation = -0.21770908
 texture_normal = ExtResource("6_btxxm")
+stretch_mode = 0
 
 [node name="OpcionsButton" type="Button" parent="."]
 layout_mode = 1
@@ -109,6 +127,11 @@ text = "Opcions
 
 [node name="OptionsUI" parent="." instance=ExtResource("7_btxxm")]
 visible = false
+
+[node name="Oliba" type="Sprite2D" parent="."]
+position = Vector2(830, 788)
+scale = Vector2(0.822884, 0.822884)
+texture = ExtResource("11_n4uci")
 
 [connection signal="pressed" from="JugarButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="AlbumButton" to="." method="_on_book_button_pressed"]

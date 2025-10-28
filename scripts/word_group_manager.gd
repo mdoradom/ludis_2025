@@ -68,6 +68,9 @@ func _snap_to_word(group: WordGroup):
 	snap_to_group(group, slot_index)
 
 func _on_letter_released(letter: Variant) -> void:
+	if get_tree().current_scene is not Level:
+		return
+	
 	if !candidate_target:
 		if word_group:
 			detach_from_group()

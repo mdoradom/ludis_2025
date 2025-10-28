@@ -29,10 +29,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -250.0
-offset_right = 216.0
-offset_bottom = 300.0
+offset_left = -208.0
+offset_top = -344.5
+offset_right = 208.0
+offset_bottom = 344.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -107,3 +107,4 @@ text = "Mode dislèxia"
 [connection signal="value_changed" from="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer4/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer2/MusicaSlider" to="." method="_on_musica_slider_value_changed"]
 [connection signal="value_changed" from="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3/EfectesSlider" to="." method="_on_efectes_slider_value_changed"]
+[connection signal="toggled" from="BackgroundPanel/MarginContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

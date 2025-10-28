@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhmja4nfsmdct"]
+[gd_scene load_steps=10 format=3 uid="uid://bhmja4nfsmdct"]
 
 [ext_resource type="Script" uid="uid://b0hbh6c2qvdqx" path="res://scripts/letter.gd" id="1_kg060"]
 [ext_resource type="Script" uid="uid://cm5qjrylere8k" path="res://scripts/letter_effects.gd" id="2_s3w0n"]
 [ext_resource type="Texture2D" uid="uid://cl8s4coibt1vn" path="res://assets/textures/letter_background.png" id="3_053ud"]
 [ext_resource type="Script" uid="uid://b62yroyhyi8d8" path="res://scripts/word_group_manager.gd" id="3_antxc"]
-[ext_resource type="FontFile" uid="uid://ogqp1x4f7sko" path="res://assets/fonts/varela_round/VarelaRound-Regular.ttf" id="3_gdeoo"]
 [ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="4_rprtv"]
 [ext_resource type="Script" uid="uid://dvtsu1b2uvtsg" path="res://scripts/letter_word_detector.gd" id="5_8y6hk"]
 
@@ -90,7 +89,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.13028675, 0.13028678, 0.13028675, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.43529412)
-theme_override_fonts/font = ExtResource("3_gdeoo")
 theme_override_font_sizes/font_size = 46
 text = "A"
 horizontal_alignment = 1
