@@ -60,3 +60,14 @@ func get_random_objects(number: int) -> Array[BreakableObjectData]:
 
 func difference(word_dict: WordDictionary) -> Array[String]:
 	return objects.keys().filter(func(w): return not word_dict.has_word(w))
+
+func get_new() -> Array[BreakableObjectData]:
+	var new_objects: Array[BreakableObjectData] = []
+	for key: BreakableObjectData in objects.keys():
+		if key.is_new:
+			new_objects.append(key)
+	
+	return new_objects
+
+func get_size() -> int:
+	return objects.size()

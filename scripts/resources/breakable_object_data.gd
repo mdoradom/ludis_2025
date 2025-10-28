@@ -3,7 +3,7 @@ extends Resource
 
 @export var item_name: String = ""
 @export var sprite: Texture2D
-@export var taps_to_break: int = 3
+@export var taps_to_break: int = 2
 @export var break_sound: AudioStream
 
 # Physical properties
@@ -18,6 +18,8 @@ enum Type {
 }
 
 @export var type: Type
+
+var is_new: bool = false
 
 func _init(p_name: String = "", p_sprite: Texture2D = null):
 	item_name = p_name

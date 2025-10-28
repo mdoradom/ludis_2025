@@ -14,6 +14,7 @@
 script = ExtResource("1_2x2qx")
 item_name = "PLOMA"
 sprite = ExtResource("2_ujv74")
+taps_to_break = 2
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
@@ -21,6 +22,7 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 script = ExtResource("1_2x2qx")
 item_name = "BOSC"
 sprite = ExtResource("3_03c6g")
+taps_to_break = 2
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
@@ -28,6 +30,7 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 script = ExtResource("1_2x2qx")
 item_name = "GESPA"
 sprite = ExtResource("4_6wis4")
+taps_to_break = 2
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
@@ -35,6 +38,7 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 script = ExtResource("1_2x2qx")
 item_name = "CISTELL"
 sprite = ExtResource("5_jfgbb")
+taps_to_break = 2
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
@@ -42,6 +46,7 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 script = ExtResource("1_2x2qx")
 item_name = "PUÇA"
 sprite = ExtResource("6_fcb7s")
+taps_to_break = 2
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
@@ -49,6 +54,7 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 script = ExtResource("1_2x2qx")
 item_name = "NÚVOL"
 sprite = ExtResource("7_yrs8v")
+taps_to_break = 2
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
@@ -56,6 +62,7 @@ metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 script = ExtResource("1_2x2qx")
 item_name = "PEDRA"
 sprite = ExtResource("8_hr58j")
+taps_to_break = 2
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
