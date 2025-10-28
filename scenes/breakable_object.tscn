@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwwdbqmpwexyj"]
+[gd_scene load_steps=10 format=3 uid="uid://bwwdbqmpwexyj"]
 
 [ext_resource type="Script" uid="uid://ckod5718fs73" path="res://scripts/breakable_object.gd" id="1_okf3a"]
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_gxnd6"]
 [ext_resource type="Shader" uid="uid://cg3ge3h5qolvr" path="res://shaders/canvas_group_outline.gdshader" id="2_hjx5d"]
+[ext_resource type="PackedScene" uid="uid://dgs1kua68o61e" path="res://scenes/ui/name_popup.tscn" id="2_mvacj"]
 [ext_resource type="Shader" uid="uid://bnffvvk6df7hr" path="res://shaders/canvas_item_shadow.gdshader" id="2_xwhwo"]
 [ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="3_gxnd6"]
 
@@ -31,8 +32,8 @@ shader_parameter/outline_sprite_sheet_size = Vector2(1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hjx5d"]
 shader = ExtResource("2_hjx5d")
 shader_parameter/drop_shadow_color = Color(0, 0, 0, 0.5)
-shader_parameter/shadow_offset_x = -0.004999997908430032
-shader_parameter/shadow_offset_y = 0.0050000025665700165
+shader_parameter/shadow_offset_x = -0.00499999790843003
+shader_parameter/shadow_offset_y = 0.00500000256657001
 shader_parameter/shadow_rotation = 0.0
 shader_parameter/rotation_pivot = Vector2(0.5, 0.5)
 shader_parameter/shadow_blur_strength = 2.0
@@ -42,6 +43,7 @@ shader_parameter/_blur_scale_factor = 1.0
 [node name="Object" type="RigidBody2D"]
 lock_rotation = true
 script = ExtResource("1_okf3a")
+name_popup_scene = ExtResource("2_mvacj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gxnd6")
