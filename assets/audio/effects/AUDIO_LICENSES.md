@@ -18,6 +18,13 @@ This document lists all audio assets used in the game and their respective licen
 
 ### Game Sounds
 
+- **break_sound.wav** - Breaking/destruction sound for breakable objects
+  - Source: [Freesound - LloydEvans09](https://freesound.org/s/185846/)
+  - License: Attribution 4.0 International (CC BY 4.0)
+  - Usage: When breakable objects are destroyed by tapping
+  - Author: LloydEvans09
+  - Attribution: "Light wood by LloydEvans09"
+
 - **letter_snap_1.wav** - First letter snap sound (derived from letter_snap.wav)
   - Source: Derived from [Freesound - KVV_Audio](https://freesound.org/s/830221/)
   - License: Attribution 4.0 International (CC BY 4.0)
@@ -79,6 +86,7 @@ We acknowledge the following creators:
 - **Kenney Vleugels** (kenney.nl) for providing high-quality, free game assets to the community
 - **MrFossy** (Freesound.org) for contributing sticker sound effects to the public domain
 - **KVV_Audio** (Freesound.org) for the letter snap sound effect under CC BY 4.0
+- **LloydEvans09** (Freesound.org) for the wood breaking sound effect under CC BY 4.0
 
 
 ## Audio File Locations
@@ -89,7 +97,8 @@ assets/
     │   ├── switch_006.ogg
     │   ├── confirmation_004.ogg
     │   ├── sfx_stickerripper_foil_05.wav
-    │   └── letter_snap_1.wav
+    │   ├── break_sound.wav
+    │   ├── letter_snap_1.wav
     │   └── letter_snap_2.wav
     └── music/
         └── (placeholder for future music files)
