@@ -31,6 +31,12 @@ func _process(delta: float) -> void:
 			l.position = base_pos + Vector2(0, y_offset)
 
 func add_letter(letter: Letter, slot_index: int):
+	# play random audio snap effect
+	if randf() < 0.5:
+		AudioManager.play_sfx(AudioManager.SFX.LETTER_SNAP_1)
+	else:
+		AudioManager.play_sfx(AudioManager.SFX.LETTER_SNAP_2)
+		
 	slot_index = clamp(slot_index, 0, letters.size())
 	letters.insert(slot_index, letter)
 
@@ -60,6 +66,12 @@ func remove_letter(letter: Letter):
 		letters[0].WGM.detach_from_group()
 	
 	if letters.is_empty():
+		queue_free()
+
+	var word_string = get_string_from_letters_array()
+	if check_completed_word(word_string):
+		# TODO: Think if would be better to use a signal instead of using that function
+		spawn_breakable_object_temporal(word_string, global_position)
 		queue_free()
 
 func reorder_letter(letter: Letter, new_index: int):

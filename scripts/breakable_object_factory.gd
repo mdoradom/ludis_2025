@@ -17,6 +17,8 @@ func _ready() -> void:
 	level_node = get_parent()
 
 func spawn_breakable_object_from_data(object_data: BreakableObjectData, pos: Vector2, is_new: bool = true) -> BreakableObject:
+	AudioManager.play_sfx(AudioManager.SFX.COMPLETE_WORD)
+
 	var object = breakable_object_scene.instantiate()
 	
 	object.position = pos

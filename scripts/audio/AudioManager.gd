@@ -2,60 +2,116 @@ extends Node
 
 signal volume_changed(bus_name: String, volume: float)
 
-# Audio buses
+enum SFX {
+	# UI Sounds
+	BUTTON_CLICK,	# done
+
+	# Game Sounds
+	BREAK_SOUND,	# done
+	TAP_SOUND,		# done
+	LETTER_SNAP_1,	# done
+	LETTER_SNAP_2,	# done
+	COMPLETE_WORD,	# done
+
+	# Album Sounds
+	SLIDE_PLASTIC,	# done
+	STICK_STICKER,	# done
+}
+
+enum MUSIC {
+	MAIN_MENU,		# not done
+	GAMEPLAY,		# not done
+	STICKER_BOOK,	# not done
+}
+
 const MASTER_BUS = 0
 const EFFECTS_BUS = 1 
 const MUSIC_BUS = 2
 
-# Default volumes (0.0 to 1.0)
 var master_volume: float = 0.8
 var effects_volume: float = 0.7
 var music_volume: float = 0.6
 
-# Audio players
 var music_player: AudioStreamPlayer
+var sound_effects: Dictionary = {}
+var music_tracks: Dictionary = {}
+var playing_sfx: Dictionary = {}
 
-# Settings file path
 const AUDIO_SETTINGS_PATH = "user://audio_settings.cfg"
 
-func _ready():
+func _ready() -> void:
 	music_player = AudioStreamPlayer.new()
 	music_player.bus = "Music"
 	add_child(music_player)
 	
+	_preload_sound_effects()
+	_preload_music_tracks()
 	_load_audio_settings()
 	_apply_volumes()
 
-func set_master_volume(volume: float):
-	_set_volume(MASTER_BUS, "Master", volume, "master_volume")
+func _preload_sound_effects() -> void:
+	sound_effects[SFX.BUTTON_CLICK] 	= preload("res://assets/audio/effects/switch_006.ogg")
+	sound_effects[SFX.STICK_STICKER] 	= preload("res://assets/audio/effects/sfx_stickerripper_foil_05.wav")
+	sound_effects[SFX.LETTER_SNAP_1] 	= preload("res://assets/audio/effects/letter_snap_1.wav")
+	sound_effects[SFX.LETTER_SNAP_2] 	= preload("res://assets/audio/effects/letter_snap_2.wav")
+	sound_effects[SFX.COMPLETE_WORD] 	= preload("res://assets/audio/effects/confirmation_004.ogg")
+	sound_effects[SFX.BREAK_SOUND] 		= preload("res://assets/audio/effects/break_sound.wav")
+	sound_effects[SFX.TAP_SOUND] 		= preload("res://assets/audio/effects/bong_001.ogg")
+	sound_effects[SFX.SLIDE_PLASTIC] 	= preload("res://assets/audio/effects/plastic-sheet.wav")
+	# Add more sound effects here as needed
 
-func set_effects_volume(volume: float):
-	_set_volume(EFFECTS_BUS, "Effects", volume, "effects_volume")
+func _preload_music_tracks() -> void:
+	# music_tracks[MUSIC.MAIN_MENU] = preload("res://assets/audio/music/main_menu.ogg")
+	# music_tracks[MUSIC.GAMEPLAY] = preload("res://assets/audio/music/gameplay.ogg")
+	# Add more music tracks here as needed
+	pass
 
-func set_music_volume(volume: float):
-	_set_volume(MUSIC_BUS, "Music", volume, "music_volume")
+func play_sfx(sfx_type: SFX, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
+	if sfx_type in sound_effects:
+		var player = AudioStreamPlayer.new()
+		player.stream = sound_effects[sfx_type]
+		player.bus = "Effects"
+		player.volume_db = volume_db
+		player.pitch_scale = pitch_scale
+		player.finished.connect(player.queue_free)
+		add_child(player)
+		player.play()
+	else:
+		push_error("Sound effect not found: " + str(sfx_type))
 
-func _set_volume(bus_index: int, bus_name: String, volume: float, property_name: String):
-	volume = clamp(volume, 0.0, 1.0)
-	set(property_name, volume)
-	AudioServer.set_bus_volume_db(bus_index, linear_to_db(volume))
-	volume_changed.emit(bus_name, volume)
-	_save_audio_settings()
-
-func play_sound_effect(sound: AudioStream, volume_db: float = 0.0, pitch_scale: float = 1.0):
-	if not sound:
+func play_sfx_once(sfx_type: SFX, volume_db: float = 0.0, pitch_scale: float = 1.0) -> void:
+	# Check if this sound effect is already playing
+	if sfx_type in playing_sfx and is_instance_valid(playing_sfx[sfx_type]) and playing_sfx[sfx_type].playing:
 		return
 	
-	var player = AudioStreamPlayer.new()
-	player.stream = sound
-	player.bus = "Effects"
-	player.volume_db = volume_db
-	player.pitch_scale = pitch_scale
-	player.finished.connect(player.queue_free)
-	add_child(player)
-	player.play()
+	if sfx_type in sound_effects:
+		var player = AudioStreamPlayer.new()
+		player.stream = sound_effects[sfx_type]
+		player.bus = "Effects"
+		player.volume_db = volume_db
+		player.pitch_scale = pitch_scale
+		
+		# Store reference to track this playing sound
+		playing_sfx[sfx_type] = player
+		
+		# Clean up when finished
+		player.finished.connect(func():
+			if sfx_type in playing_sfx and playing_sfx[sfx_type] == player:
+				playing_sfx.erase(sfx_type)
+			player.queue_free()
+		)
+		
+		add_child(player)
+		player.play()
+	else:
+		push_error("Sound effect not found: " + str(sfx_type))
 
-func play_music(music: AudioStream, fade_in: bool = true):
+func play_music(music_type: MUSIC, fade_in: bool = true) -> void:
+	if music_type not in music_tracks:
+		push_error("Music track not found: " + str(music_type))
+		return
+		
+	var music = music_tracks[music_type]
 	if music_player.stream == music and music_player.playing:
 		return
 	
@@ -66,7 +122,7 @@ func play_music(music: AudioStream, fade_in: bool = true):
 	else:
 		_start_music(music, fade_in)
 
-func _start_music(music: AudioStream, fade_in: bool):
+func _start_music(music: AudioStream, fade_in: bool) -> void:
 	music_player.stream = music
 	music_player.volume_db = -60.0 if fade_in else 0.0
 	music_player.play()
@@ -75,10 +131,10 @@ func _start_music(music: AudioStream, fade_in: bool):
 		var tween = create_tween()
 		tween.tween_method(_set_music_volume_db, -60.0, 0.0, 0.5)
 
-func _set_music_volume_db(volume_db: float):
+func _set_music_volume_db(volume_db: float) -> void:
 	music_player.volume_db = volume_db
 
-func stop_music(fade_out: bool = true):
+func stop_music(fade_out: bool = true) -> void:
 	if not music_player.playing:
 		return
 	
@@ -89,19 +145,35 @@ func stop_music(fade_out: bool = true):
 	else:
 		music_player.stop()
 
-func _apply_volumes():
+func set_master_volume(volume: float) -> void:
+	_set_volume(MASTER_BUS, "Master", volume, "master_volume")
+
+func set_effects_volume(volume: float) -> void:
+	_set_volume(EFFECTS_BUS, "Effects", volume, "effects_volume")
+
+func set_music_volume(volume: float) -> void:
+	_set_volume(MUSIC_BUS, "Music", volume, "music_volume")
+
+func _set_volume(bus_index: int, bus_name: String, volume: float, property_name: String) -> void:
+	volume = clamp(volume, 0.0, 1.0)
+	set(property_name, volume)
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(volume))
+	volume_changed.emit(bus_name, volume)
+	_save_audio_settings()
+
+func _apply_volumes() -> void:
 	AudioServer.set_bus_volume_db(MASTER_BUS, linear_to_db(master_volume))
 	AudioServer.set_bus_volume_db(EFFECTS_BUS, linear_to_db(effects_volume))
 	AudioServer.set_bus_volume_db(MUSIC_BUS, linear_to_db(music_volume))
 
-func _save_audio_settings():
+func _save_audio_settings() -> void:
 	var config = ConfigFile.new()
 	config.set_value("audio", "master_volume", master_volume)
 	config.set_value("audio", "effects_volume", effects_volume)
 	config.set_value("audio", "music_volume", music_volume)
 	config.save(AUDIO_SETTINGS_PATH)
 
-func _load_audio_settings():
+func _load_audio_settings() -> void:
 	var config = ConfigFile.new()
 	if config.load(AUDIO_SETTINGS_PATH) == OK:
 		master_volume = config.get_value("audio", "master_volume", master_volume)

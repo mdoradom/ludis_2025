@@ -33,6 +33,8 @@ func _ready():
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		AudioManager.play_sfx(AudioManager.SFX.TAP_SOUND)
+
 		tap_count += 1
 		print("Tap count: ", tap_count)
 		
@@ -46,6 +48,8 @@ func _on_tap_timer_timeout():
 	tap_count = 0
 	
 func _break_object():
+	AudioManager.play_sfx(AudioManager.SFX.BREAK_SOUND)
+
 	$CollisionShape2D.disabled = true
 
 	var tween = create_tween()

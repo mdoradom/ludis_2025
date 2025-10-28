@@ -9,12 +9,15 @@ func _ready() -> void:
 	spawn_title()
 
 func _on_play_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
 	SceneManager.load_scene(SceneManager.SCENE_LEVEL.GAME)
 	
 func _on_book_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
 	SceneManager.load_scene(SceneManager.SCENE_LEVEL.STICKER_BOOK)
 
 func _on_options_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
 	SceneManager.load_scene(SceneManager.SCENE_LEVEL.OPTIONS)
 	pass
 	
@@ -85,4 +88,5 @@ func spawn_title():
 
 
 func _on_opcions_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
 	$OptionsUI.visible = true
