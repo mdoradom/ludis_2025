@@ -10,6 +10,12 @@ This document lists all audio assets used in the game and their respective licen
   - License: CC0 1.0 Universal (Public Domain)
   - Usage: Button clicks, menu navigation
 
+- **sfx_stickerripper_foil_05.wav** - Sticker placement sound
+  - Source: [Freesound - MrFossy](https://freesound.org/people/MrFossy/sounds/590323/)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Sticker book interactions, placing stickers
+  - Author: MrFossy
+
 ### Game Sounds
 - **Break Sound** - For when breakable objects are destroyed
   - Status: Not implemented

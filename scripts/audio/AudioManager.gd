@@ -3,15 +3,24 @@ extends Node
 signal volume_changed(bus_name: String, volume: float)
 
 enum SFX {
-	BUTTON_CLICK,
-	BREAK_SOUND,
-	LETTER_SNAP,
+	# UI Sounds
+	BUTTON_CLICK,	# done
+
+	# Game Sounds
+	BREAK_SOUND,	# not done
+	TAP_SOUND,		# not done
+	LETTER_SNAP,	# not done
+	COMPLETE_WORD,	# not done
+
+	# Album Sounds
+	SLIDE_PLASTIC,	# not done
+	STICK_STICKER,	# done
 }
 
 enum MUSIC {
-	MAIN_MENU,
-	GAMEPLAY,
-	STICKER_BOOK,
+	MAIN_MENU,		# not done
+	GAMEPLAY,		# not done
+	STICKER_BOOK,	# not done
 }
 
 const MASTER_BUS = 0
@@ -40,8 +49,7 @@ func _ready() -> void:
 
 func _preload_sound_effects() -> void:
 	sound_effects[SFX.BUTTON_CLICK] = preload("res://assets/audio/effects/switch_006.ogg")
-	sound_effects[SFX.BREAK_SOUND] = preload("res://assets/audio/effects/switch_006.ogg")
-	sound_effects[SFX.LETTER_SNAP] = preload("res://assets/audio/effects/switch_006.ogg")
+	sound_effects[SFX.STICK_STICKER] = preload("res://assets/audio/effects/sfx_stickerripper_foil_05.wav")
 	# Add more sound effects here as needed
 
 func _preload_music_tracks() -> void:

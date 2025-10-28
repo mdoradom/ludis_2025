@@ -31,6 +31,7 @@ func _gui_input(event: InputEvent):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				AudioManager.play_sfx(AudioManager.SFX.STICK_STICKER)
 				is_dragging = true
 				first_drag_frame = true
 				drag_offset = get_global_mouse_position() - global_position
