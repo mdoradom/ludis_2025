@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3vobsvnw3xwq"]
+[gd_scene load_steps=6 format=3 uid="uid://d3vobsvnw3xwq"]
 
 [ext_resource type="Script" uid="uid://b3lnv2i3hw42v" path="res://scripts/sticker.gd" id="1_mpens"]
 [ext_resource type="Shader" uid="uid://bnffvvk6df7hr" path="res://shaders/canvas_item_shadow.gdshader" id="2_0slot"]
-[ext_resource type="Texture2D" uid="uid://bskxjtp282cyw" path="res://assets/textures/animals/colom.png" id="2_imf23"]
+[ext_resource type="Texture2D" uid="uid://ddy6f8th4jav1" path="res://assets/textures/sticker_shadow.png" id="2_vt752"]
+[ext_resource type="Texture2D" uid="uid://cd00gkghlcnqg" path="res://assets/textures/animals/os.png" id="4_vt752"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vt752"]
 resource_local_to_scene = true
@@ -37,9 +38,16 @@ script = ExtResource("1_mpens")
 texture_size = 0.5
 drag_lerp_speed = 15.0
 
+[node name="StickerShadow" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.5686275)
+position = Vector2(180, 224.02386)
+scale = Vector2(1.097656, 0.53143626)
+texture = ExtResource("2_vt752")
+
 [node name="Texture" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_vt752")
 layout_mode = 0
 offset_right = 338.0
 offset_bottom = 319.0
-texture = ExtResource("2_imf23")
+texture = ExtResource("4_vt752")

@@ -19,6 +19,8 @@ func spawn(object_data: BreakableObjectData):
 	name = object_data.item_name
 	$Texture.texture = object_data.sprite
 	$Texture.scale = Vector2(texture_size, texture_size)
+	$StickerShadow.position = $StickerShadow.position * texture_size
+	$StickerShadow.scale = $StickerShadow.scale * texture_size
 
 func _ready():
 	mouse_filter = Control.MOUSE_FILTER_STOP
