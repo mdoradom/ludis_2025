@@ -18,6 +18,11 @@ This document lists all audio assets used in the game and their respective licen
 
 ### Game Sounds
 
+- **bong_001.ogg** - Used for tap sounds and object interactions
+  - Source: [Kenney.nl UI Audio Pack](https://www.kenney.nl/assets/interface-sounds)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Tapping breakable objects, general interaction feedback
+  
 - **break_sound.wav** - Breaking/destruction sound for breakable objects
   - Source: [Freesound - LloydEvans09](https://freesound.org/s/185846/)
   - License: Attribution 4.0 International (CC BY 4.0)

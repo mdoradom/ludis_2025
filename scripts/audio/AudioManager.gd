@@ -8,7 +8,7 @@ enum SFX {
 
 	# Game Sounds
 	BREAK_SOUND,	# done
-	TAP_SOUND,		# not done
+	TAP_SOUND,		# done
 	LETTER_SNAP_1,	# done
 	LETTER_SNAP_2,	# done
 	COMPLETE_WORD,	# done
@@ -55,6 +55,7 @@ func _preload_sound_effects() -> void:
 	sound_effects[SFX.LETTER_SNAP_2] = preload("res://assets/audio/effects/letter_snap_2.wav")
 	sound_effects[SFX.COMPLETE_WORD] = preload("res://assets/audio/effects/confirmation_004.ogg")
 	sound_effects[SFX.BREAK_SOUND] = preload("res://assets/audio/effects/break_sound.wav")
+	sound_effects[SFX.TAP_SOUND] = preload("res://assets/audio/effects/bong_001.ogg")
 	# Add more sound effects here as needed
 
 func _preload_music_tracks() -> void:
