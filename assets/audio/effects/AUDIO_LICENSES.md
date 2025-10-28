@@ -6,7 +6,7 @@ This document lists all audio assets used in the game and their respective licen
 
 ### UI Sounds
 - **switch_006.ogg** - Used for button clicks and UI interactions
-  - Source: [Kenney.nl UI Audio Pack](https://kenney.nl/assets/ui-audio)
+  - Source: [Kenney.nl UI Audio Pack](https://www.kenney.nl/assets/interface-sounds)
   - License: CC0 1.0 Universal (Public Domain)
   - Usage: Button clicks, menu navigation
 
