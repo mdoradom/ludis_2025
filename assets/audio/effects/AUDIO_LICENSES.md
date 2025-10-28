@@ -5,42 +5,35 @@ This document lists all audio assets used in the game and their respective licen
 ## Sound Effects
 
 ### UI Sounds
+
 - **switch_006.ogg** - Used for button clicks and UI interactions
   - Source: [Kenney.nl UI Audio Pack](https://www.kenney.nl/assets/interface-sounds)
   - License: CC0 1.0 Universal (Public Domain)
   - Usage: Button clicks, menu navigation
+
+### Game Sounds
+
+- **letter_snap_1.wav** - First letter snap sound (derived from letter_snap.wav)
+  - Source: Derived from [Freesound - KVV_Audio](https://freesound.org/s/830221/)
+  - License: Attribution 4.0 International (CC BY 4.0)
+  - Usage: Letter snapping mechanics - variant 1
+  - Author: KVV_Audio (original), Modified for game use
+  - Attribution: "SPRTIndor_Billiard Cue Ball Strike 01_KVV AUDIO_FREE by KVV_Audio"
+
+- **letter_snap_2.wav** - Second letter snap sound (derived from letter_snap.wav)
+  - Source: Derived from [Freesound - KVV_Audio](https://freesound.org/s/830221/)
+  - License: Attribution 4.0 International (CC BY 4.0)
+  - Usage: Letter snapping mechanics - variant 2
+  - Author: KVV_Audio (original), Modified for game use
+  - Attribution: "SPRTIndor_Billiard Cue Ball Strike 01_KVV AUDIO_FREE by KVV_Audio"
+
+### Sticker Book Sounds
 
 - **sfx_stickerripper_foil_05.wav** - Sticker placement sound
   - Source: [Freesound - MrFossy](https://freesound.org/people/MrFossy/sounds/590323/)
   - License: CC0 1.0 Universal (Public Domain)
   - Usage: Sticker book interactions, placing stickers
   - Author: MrFossy
-
-### Game Sounds
-- **Break Sound** - For when breakable objects are destroyed
-  - Status: Not implemented
-  - Planned usage: `AudioManager.SFX.BREAK_SOUND`
-
-- **Tap Sound** - For tapping/touching objects
-  - Status: Not implemented
-  - Planned usage: `AudioManager.SFX.TAP_SOUND`
-
-- **Letter Snap** - For when letters snap together
-  - Status: Not implemented
-  - Planned usage: `AudioManager.SFX.LETTER_SNAP`
-
-- **Complete Word** - For successful word formation
-  - Status: Not implemented
-  - Planned usage: `AudioManager.SFX.COMPLETE_WORD`
-
-### Sticker Book Sounds
-- **Slide Plastic** - For page turning in sticker book
-  - Status: Not implemented
-  - Planned usage: `AudioManager.SFX.SLIDE_PLASTIC`
-
-- **Stick Sticker** - For placing stickers
-  - Status: Not implemented
-  - Planned usage: `AudioManager.SFX.STICK_STICKER`
 
 ## Music Tracks
 
@@ -60,23 +53,38 @@ This document lists all audio assets used in the game and their respective licen
 ## License Information
 
 ### CC0 1.0 Universal (Public Domain)
-The Creative Commons CC0 Public Domain Dedication waives copyright interest in a work you've created and dedicates it to the world-wide public domain. Use CC0 to opt out of copyright entirely and ensure your work has the widest reach.
+The Creative Commons CC0 Public Domain Dedication waives copyright interest in a work you've created and dedicates it to the world-wide public domain.
 
 **What this means for our project:**
 - These assets can be used for any purpose, including commercial use
 - No attribution is required (though appreciated)
 - Assets can be modified, distributed, and used without restrictions
 
+### Attribution 4.0 International (CC BY 4.0)
+This license allows reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator.
+
+**What this means for our project:**
+- These assets can be used for any purpose, including commercial use
+- Attribution is required and must be clearly visible
+- Assets can be modified and distributed with proper credit
+
+
 ### Source Attribution
-While not required by the CC0 license, we acknowledge:
+We acknowledge the following creators:
 - **Kenney Vleugels** (kenney.nl) for providing high-quality, free game assets to the community
+- **MrFossy** (Freesound.org) for contributing sticker sound effects to the public domain
+- **KVV_Audio** (Freesound.org) for the letter snap sound effect under CC BY 4.0
+
 
 ## Audio File Locations
 ```
 assets/
 └── audio/
     ├── effects/
-    │   └── switch_006.ogg
+    │   ├── switch_006.ogg
+    │   ├── sfx_stickerripper_foil_05.wav
+    │   └── letter_snap_1.wav
+    │   └── letter_snap_2.wav
     └── music/
         └── (placeholder for future music files)
 ```

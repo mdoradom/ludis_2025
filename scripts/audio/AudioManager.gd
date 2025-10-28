@@ -9,7 +9,8 @@ enum SFX {
 	# Game Sounds
 	BREAK_SOUND,	# not done
 	TAP_SOUND,		# not done
-	LETTER_SNAP,	# not done
+	LETTER_SNAP_1,	# done
+	LETTER_SNAP_2,	# done
 	COMPLETE_WORD,	# not done
 
 	# Album Sounds
@@ -50,6 +51,8 @@ func _ready() -> void:
 func _preload_sound_effects() -> void:
 	sound_effects[SFX.BUTTON_CLICK] = preload("res://assets/audio/effects/switch_006.ogg")
 	sound_effects[SFX.STICK_STICKER] = preload("res://assets/audio/effects/sfx_stickerripper_foil_05.wav")
+	sound_effects[SFX.LETTER_SNAP_1] = preload("res://assets/audio/effects/letter_snap_1.wav")
+	sound_effects[SFX.LETTER_SNAP_2] = preload("res://assets/audio/effects/letter_snap_2.wav")
 	# Add more sound effects here as needed
 
 func _preload_music_tracks() -> void:
