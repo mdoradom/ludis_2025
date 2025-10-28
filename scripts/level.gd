@@ -80,14 +80,22 @@ func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableOb
 	if !level_started:
 		return
 	
-	if is_new: 
+	if is_new:
 		_update_available_letters(b_object.object_data)
 	
 	if (b_object.object_data.type == BreakableObjectData.Type.STICKER):
-		UserData.unlocked_stickers.add_object(b_object.object_data)
 		var object_letter_number: int = b_object.name.length()
 		UserData.new_gomets_earned += object_letter_number * 8 # Change the 8 with the correct multiplier
-		
+		if UserData.unlocked_stickers.has_word(b_object.object_data.item_name):
+			print("Sticker '", b_object.object_data.item_name, "' already unlocked.")
+		else:
+			print("Sticker '", b_object.object_data.item_name, "' unlocked!")
+			UserData.unlocked_stickers.add_object(b_object.object_data)
+			b_object.object_data.is_new = true
+			var StickerPopup = preload("res://scripts/ui/sticker_popup.gd")
+			StickerPopup.create_and_show(b_object.object_data)
+
+	
 	print(available_letters_in_level)
 	_check_game_completion()
 
