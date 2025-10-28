@@ -15,6 +15,7 @@ func _ready() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			AudioManager.play_sfx_once(AudioManager.SFX.SLIDE_PLASTIC)
 			is_dragging = true
 			drag_start_pos = get_global_mouse_position()
 			start_anchor = anchor_top

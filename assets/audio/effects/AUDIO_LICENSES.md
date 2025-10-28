@@ -52,6 +52,14 @@ This document lists all audio assets used in the game and their respective licen
   - Usage: Sticker book interactions, placing stickers
   - Author: MrFossy
 
+- **plastic-sheet.wav** - Page turning and plastic handling sound
+  - Source: [Freesound - SpliceSound](https://freesound.org/s/188220/)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Sticker book page turning, plastic sheet interactions
+  - Author: SpliceSound
+  - Attribution: "Transparency sheet, plastic sheet handling.wav by SpliceSound"
+  - Note: Modified to reduce noise and unwanted artifacts
+
 ## Music Tracks
 
 ### Background Music
@@ -85,14 +93,13 @@ This license allows reusers to distribute, remix, adapt, and build upon the mate
 - Attribution is required and must be clearly visible
 - Assets can be modified and distributed with proper credit
 
-
 ### Source Attribution
 We acknowledge the following creators:
 - **Kenney Vleugels** (kenney.nl) for providing high-quality, free game assets to the community
 - **MrFossy** (Freesound.org) for contributing sticker sound effects to the public domain
 - **KVV_Audio** (Freesound.org) for the letter snap sound effect under CC BY 4.0
 - **LloydEvans09** (Freesound.org) for the wood breaking sound effect under CC BY 4.0
-
+- **SpliceSound** (Freesound.org) for the plastic sheet handling sound effect
 
 ## Audio File Locations
 ```
@@ -101,10 +108,12 @@ assets/
     ├── effects/
     │   ├── switch_006.ogg
     │   ├── confirmation_004.ogg
+    │   ├── bong_001.ogg
     │   ├── sfx_stickerripper_foil_05.wav
     │   ├── break_sound.wav
     │   ├── letter_snap_1.wav
-    │   └── letter_snap_2.wav
+    │   ├── letter_snap_2.wav
+    │   └── plastic-sheet.wav
     └── music/
         └── (placeholder for future music files)
 ```
@@ -115,6 +124,7 @@ assets/
 - Music tracks use the `AudioManager.MUSIC` enum for type-safe access
 - Audio settings are saved to `user://audio_settings.cfg`
 - Three audio buses: Master, Effects, and Music with independent volume controls
+- Modified audio files maintain original attribution requirements where applicable
 
 ---
 
