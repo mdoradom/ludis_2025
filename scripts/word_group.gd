@@ -32,10 +32,7 @@ func _process(delta: float) -> void:
 
 func add_letter(letter: Letter, slot_index: int):
 	# play random audio snap effect
-	if randf() < 0.5:
-		AudioManager.play_sfx(AudioManager.SFX.LETTER_SNAP_1)
-	else:
-		AudioManager.play_sfx(AudioManager.SFX.LETTER_SNAP_2)
+	AudioManager.play_sfx(AudioManager.SFX.LETTER_SNAP)
 		
 	slot_index = clamp(slot_index, 0, letters.size())
 	letters.insert(slot_index, letter)

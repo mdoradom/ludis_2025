@@ -30,19 +30,12 @@ This document lists all audio assets used in the game and their respective licen
   - Author: LloydEvans09
   - Attribution: "Light wood by LloydEvans09"
 
-- **letter_snap_1.wav** - First letter snap sound (derived from letter_snap.wav)
-  - Source: Derived from [Freesound - KVV_Audio](https://freesound.org/s/830221/)
-  - License: Attribution 4.0 International (CC BY 4.0)
-  - Usage: Letter snapping mechanics - variant 1
-  - Author: KVV_Audio (original), Modified for game use
-  - Attribution: "SPRTIndor_Billiard Cue Ball Strike 01_KVV AUDIO_FREE by KVV_Audio"
-
-- **letter_snap_2.wav** - Second letter snap sound (derived from letter_snap.wav)
-  - Source: Derived from [Freesound - KVV_Audio](https://freesound.org/s/830221/)
-  - License: Attribution 4.0 International (CC BY 4.0)
-  - Usage: Letter snapping mechanics - variant 2
-  - Author: KVV_Audio (original), Modified for game use
-  - Attribution: "SPRTIndor_Billiard Cue Ball Strike 01_KVV AUDIO_FREE by KVV_Audio"
+- **letter_snap.wav** - Letter snap sound (derived from CLICK_202.wav)
+  - Source: Derived from [Freesound - Jaszunio15](https://freesound.org/s/421416/)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Letter snapping mechanics
+  - Author: Jaszunio15 (original)
+  - Attribution: "CLICK_202.wav by Jaszunio15"
 
 ### Sticker Book Sounds
 
@@ -97,7 +90,7 @@ This license allows reusers to distribute, remix, adapt, and build upon the mate
 We acknowledge the following creators:
 - **Kenney Vleugels** (kenney.nl) for providing high-quality, free game assets to the community
 - **MrFossy** (Freesound.org) for contributing sticker sound effects to the public domain
-- **KVV_Audio** (Freesound.org) for the letter snap sound effect under CC BY 4.0
+- **Jaszunio15** (Freesound.org) for the letter snap sound effect
 - **LloydEvans09** (Freesound.org) for the wood breaking sound effect under CC BY 4.0
 - **SpliceSound** (Freesound.org) for the plastic sheet handling sound effect
 
