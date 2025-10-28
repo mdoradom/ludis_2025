@@ -26,3 +26,5 @@ func finish_game():
 	UserData.new_gomets_earned = 0
 	
 	get_tree().paused = false
+
+	SceneManager.reload_current_scene()
