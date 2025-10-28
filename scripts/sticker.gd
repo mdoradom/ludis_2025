@@ -7,6 +7,7 @@ signal sticker_picked(sticker: Sticker)
 @export var drag_lerp_speed: float = 20.0
 
 @onready var sprite_material: ShaderMaterial = $Texture.material
+@onready var hover_tween: Tween
 
 var object_data: BreakableObjectData
 var is_dragging: bool = false
@@ -73,3 +74,33 @@ func _on_dragged(object: Variant) -> void:
 func _on_released(object: Variant) -> void:
 	var tween = create_tween()
 	tween.tween_property(sprite_material, "shader_parameter/shadow_amount", 0.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+
+
+func _on_next_page_button_pressed() -> void:
+	pass
+
+func _on_prev_page_button_pressed() -> void:
+	pass
+
+func _hover_effect(button: Control, hover_in: bool) -> void:
+	if hover_tween:
+		hover_tween.kill()
+	
+	hover_tween = create_tween()
+	
+	if hover_in:
+		hover_tween.tween_property(button, "scale", Vector2(1.3, 1.3), 0.1)
+	else:
+		hover_tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.1)
+		
+func _on_next_page_button_mouse_entered() -> void:
+	_hover_effect($"../../../../NextPageButton", true)
+
+func _on_next_page_button_mouse_exited() -> void:
+	_hover_effect($"../../../../NextPageButton", false)
+
+func _on_prev_page_button_mouse_entered() -> void:
+	_hover_effect($"../../../../PrevPageButton", true)
+
+func _on_prev_page_button_mouse_exited() -> void:
+	_hover_effect($"../../../../PrevPageButton", false)
