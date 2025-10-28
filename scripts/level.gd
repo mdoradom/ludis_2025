@@ -128,23 +128,3 @@ func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 	# Fallback: return last attempt if we hit max attempts
 	push_error("Could not find ideal starting words after ", max_attempts, " attempts. Using last set.")
 	return objects_dictionary.get_random_objects(initial_objects_number)
-
-
-func _on_timer_timeout() -> void:
-	if spawned_objects >= max_spawned_objects:
-		$Timer.stop()
-	
-	var viewport_size = get_viewport_rect().size
-	var spawn_pos = Vector2(viewport_size.x / 2, viewport_size.y / 2)
-	
-	# Random offset (adjust max_offset as needed)
-	var max_offset = 250  # pixels
-	spawn_pos.x += randf_range(-max_offset, max_offset)
-	spawn_pos.y += randf_range(-max_offset, max_offset)
-
-	breakable_object_factory.spawn_breakable_object_from_data(
-	objects_dictionary.get_random_objects(1)[0],
-	spawn_pos
-	)
-	
-	spawned_objects += 1
