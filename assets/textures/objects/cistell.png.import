@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdw6xp6bif8n4"
-path="res://.godot/imported/deciduous_tree.png-6a6bf34a1497d25b41890c59057b65c8.ctex"
+uid="uid://dm1r2f2gbeeex"
+path="res://.godot/imported/cistell.png-aa853f9ba00f42341fba959dd838ef9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/objects/deciduous_tree.png"
-dest_files=["res://.godot/imported/deciduous_tree.png-6a6bf34a1497d25b41890c59057b65c8.ctex"]
+source_file="res://assets/textures/objects/cistell.png"
+dest_files=["res://.godot/imported/cistell.png-aa853f9ba00f42341fba959dd838ef9f.ctex"]
 
 [params]
 
