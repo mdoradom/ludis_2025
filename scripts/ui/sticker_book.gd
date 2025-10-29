@@ -50,6 +50,7 @@ func spawn_stickers():
 			var sticker = sticker_factory.spawn_sticker_from_data(data, data.album_position)
 			var sticker_list = $"../SubViewportContainer/SubViewport/Stickers"
 			sticker.reparent(sticker_list)
+			sticker.scale = Vector2.ONE
 			sticker.sticker_picked.connect(_on_sticker_picked)
 
 func _on_sticker_picked(sticker: Sticker) -> void:

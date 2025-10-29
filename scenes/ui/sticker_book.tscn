@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://daqk8s0ifhmrn"]
+[gd_scene load_steps=20 format=3 uid="uid://daqk8s0ifhmrn"]
 
 [ext_resource type="Texture2D" uid="uid://dnrengerdr6fg" path="res://assets/textures/album_background.jpg" id="1_3ymkm"]
 [ext_resource type="PackedScene" uid="uid://dgv0vuaf5t0jb" path="res://scenes/ui/sticker_list.tscn" id="1_7bl6s"]
 [ext_resource type="Texture2D" uid="uid://bg7r1h73nmhwr" path="res://assets/textures/album_zoo_background.png" id="3_p7ys4"]
 [ext_resource type="Texture2D" uid="uid://px7afsa1w0mh" path="res://assets/textures/album_background/Menu_album_pag._3-1.png" id="3_q7v6d"]
 [ext_resource type="Texture2D" uid="uid://cgfifedq2dplr" path="res://assets/textures/album_background/Menu_album_pag._3-2.png" id="4_52hiy"]
-[ext_resource type="PackedScene" uid="uid://d3vobsvnw3xwq" path="res://scenes/sticker.tscn" id="4_j3cq4"]
 [ext_resource type="Texture2D" uid="uid://bxy1d6cqo427v" path="res://assets/textures/album_opened.png" id="4_ldfw4"]
 [ext_resource type="Texture2D" uid="uid://dew0q8hf242l8" path="res://assets/textures/test-zoo.png" id="4_ufra2"]
 [ext_resource type="Texture2D" uid="uid://pks8434k888y" path="res://assets/textures/album_background/Menu_album_pag._3-3.png" id="5_yxdf3"]
@@ -183,14 +182,6 @@ offset_right = 2967.6843
 offset_bottom = 2130.544
 texture = ExtResource("12_u7adg")
 
-[node name="Sticker" parent="SubViewportContainer/SubViewport/Stickers" instance=ExtResource("4_j3cq4")]
-layout_mode = 1
-offset_left = 342.0
-offset_top = 137.0
-offset_right = 302.0
-offset_bottom = 97.0
-texture_size = 1.0
-
 [node name="StickerList" parent="." instance=ExtResource("1_7bl6s")]
 layout_mode = 1
 anchor_left = 0.16753472
@@ -232,9 +223,3 @@ pivot_offset = Vector2(30, 30)
 texture_normal = ExtResource("20_febnm")
 
 [connection signal="pressed" from="LevelGUI/PauseButton" to="LevelGUI" method="_on_pause_button_pressed"]
-[connection signal="mouse_entered" from="NextPageButton" to="SubViewportContainer/SubViewport/Stickers/Sticker" method="_on_next_page_button_mouse_entered"]
-[connection signal="mouse_exited" from="NextPageButton" to="SubViewportContainer/SubViewport/Stickers/Sticker" method="_on_next_page_button_mouse_exited"]
-[connection signal="pressed" from="NextPageButton" to="SubViewportContainer/SubViewport/Stickers/Sticker" method="_on_next_page_button_pressed"]
-[connection signal="mouse_entered" from="PrevPageButton" to="SubViewportContainer/SubViewport/Stickers/Sticker" method="_on_prev_page_button_mouse_entered"]
-[connection signal="mouse_exited" from="PrevPageButton" to="SubViewportContainer/SubViewport/Stickers/Sticker" method="_on_prev_page_button_mouse_exited"]
-[connection signal="pressed" from="PrevPageButton" to="SubViewportContainer/SubViewport/Stickers/Sticker" method="_on_prev_page_button_pressed"]
