@@ -15,7 +15,8 @@ enum SCENE_LEVEL {
 	MAIN_MENU,		## Main menu scene
 	GAME,			## Game scene
 	OPTIONS,		## Options menu scene
-	STICKER_BOOK	## Sticker Book scene
+	STICKER_BOOK,	## Sticker Book scene
+	CREDITS			## Credits scene
 	# ... add other scenes
 }
 
@@ -24,7 +25,8 @@ var scene_paths = {
 	SCENE_LEVEL.MAIN_MENU: "res://scenes/ui/main_menu.tscn",
 	SCENE_LEVEL.GAME: "res://scenes/game/level.tscn",
 	SCENE_LEVEL.OPTIONS: "res://scenes/ui/options_menu.tscn",
-	SCENE_LEVEL.STICKER_BOOK: "res://scenes/ui/sticker_book.tscn"
+	SCENE_LEVEL.STICKER_BOOK: "res://scenes/ui/sticker_book.tscn",
+	SCENE_LEVEL.CREDITS: "res://scenes/ui/credits_menu.tscn"
 	# ... add other scene paths
 }
 
