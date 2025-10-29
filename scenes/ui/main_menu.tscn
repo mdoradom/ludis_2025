@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3yw8vxrncpoa"]
+[gd_scene load_steps=21 format=3 uid="uid://c3yw8vxrncpoa"]
 
 [ext_resource type="Script" uid="uid://qbuqbppdeaur" path="res://scripts/ui/main_menu.gd" id="1_e66b0"]
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="2_fe2o3"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://b5fb2a052lgnf" path="res://assets/textures/animals/oliba.png" id="11_n4uci"]
 [ext_resource type="Texture2D" uid="uid://deevw7fbooan4" path="res://assets/ui/settings_icon.png" id="11_otr3d"]
 [ext_resource type="Texture2D" uid="uid://bk3f6udx2fsj4" path="res://assets/ui/settings_icon_hover.png" id="13_8ekit"]
+[ext_resource type="Script" uid="uid://cmbuofdjw56kx" path="res://scripts/ui/stickers_progress_bar.gd" id="16_y1h5l"]
+[ext_resource type="Script" uid="uid://jvu62j418ji4" path="res://scripts/ui/gomet_counter.gd" id="17_pw24t"]
+[ext_resource type="Texture2D" uid="uid://b0qinbllrtx1n" path="res://assets/ui/gomet.png" id="18_5dct7"]
 
 [sub_resource type="Resource" id="Resource_1g8jr"]
 script = ExtResource("2_fe2o3")
@@ -146,6 +149,41 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
 text = "CRÈDITS"
+
+[node name="StickersProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 297.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 36
+step = 1.0
+script = ExtResource("16_y1h5l")
+
+[node name="GometContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -309.0
+offset_top = 30.0
+offset_right = -41.0
+offset_bottom = 158.0
+grow_horizontal = 0
+script = ExtResource("17_pw24t")
+
+[node name="GometLabel" type="Label" parent="GometContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GometTexture" type="TextureRect" parent="GometContainer"]
+layout_mode = 2
+texture = ExtResource("18_5dct7")
 
 [connection signal="mouse_entered" from="JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="mouse_exited" from="JugarButton" to="." method="_on_jugar_button_mouse_exited"]
