@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcemkxso77td1"]
+[gd_scene load_steps=4 format=3 uid="uid://dcemkxso77td1"]
 
 [ext_resource type="Script" uid="uid://ddu2y3gkbbnan" path="res://scripts/ui/credits_menu.gd" id="1_credits"]
+[ext_resource type="Shader" uid="uid://cph4b630nyvep" path="res://assets/shaders/background_movement.gdshader" id="2_background"]
+[ext_resource type="Texture2D" uid="uid://bii72fujh0fyp" path="res://assets/ui/brown_pattern.png" id="3_pattern"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_credits"]
+shader = ExtResource("2_background")
+shader_parameter/scroll_speed = 0.02
+shader_parameter/scroll_direction = Vector2(1, 0)
 
 [node name="CreditsMenu" type="Control"]
 layout_mode = 3
@@ -11,11 +18,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_credits")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_credits")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_pattern")
+stretch_mode = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -400.0
+offset_right = 480.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -26,52 +50,96 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 24
 
 [node name="CreditsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 96
+theme_override_font_sizes/font_size = 72
 text = "Crèdits"
 horizontal_alignment = 1
 
-[node name="ContentLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 52
-text = "Un joc de"
+size_flags_vertical = 3
+follow_focus = true
+vertical_scroll_mode = 3
 
-[node name="ContentLabel2" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="DevelopersSection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DevelopersTitle" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DevelopersSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Un joc de"
+horizontal_alignment = 1
+
+[node name="DevelopersNames" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/DevelopersSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
 text = "Hugo Planell Moreno
 Mario Dorado Martínez
 Marta Jover Valero
 Alba Silvente Izquierdo"
+horizontal_alignment = 1
 
-[node name="ContentLabel3" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="Spacer1" type="Control" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
-theme_override_font_sizes/font_size = 52
-text = "Agraïm als següents creadors"
 
-[node name="ContentLabel4" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="AttributionSection" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Kenney Vleugels - per proporcionar recursos de joc gratuïts i d'alta qualitat a la comunitat
-MrFossy - per contribuir amb efectes de so d'adhesius al domini públic
-Jaszunio15 - per l'efecte de so de la lletra
-LloydEvans09 - per l'efecte de so de trencament de fusta
-SpliceSound - per l'efecte de so de manipulació de làmines de plàstic
-L'equip de Godot Engine - Per crear, mantenir i compartir un motor de jocs de codi obert tan potent, flexible i accessible."
-autowrap_mode = 1
+theme_override_constants/separation = 8
 
-[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+[node name="AttributionTitle" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AttributionSection"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 42
+text = "Agraïments"
+horizontal_alignment = 1
+
+[node name="AttributionText" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/AttributionSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Kenney Vleugels - Recursos de joc d'alta qualitat
+
+MrFossy - Efectes de so d'adhesius
+
+Jaszunio15 - Efecte de so de lletra
+
+LloydEvans09 - So de trencament de fusta
+
+SpliceSound - So de manipulació de làmines
+
+Equip de Godot Engine - Motor de joc de codi obert"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer2" type="Control" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/ButtonContainer"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Tornar"
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ButtonContainer/BackButton" to="." method="_on_button_pressed"]
