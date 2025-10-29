@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dvtsu1b2uvtsg" path="res://scripts/letter_word_detector.gd" id="5_8y6hk"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8y6hk"]
+friction = 15.0
 bounce = 0.7
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg060"]

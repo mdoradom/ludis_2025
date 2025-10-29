@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bgak6nbotwjrw" path="res://assets/textures/animals/trito.png" id="7_8ekit"]
 [ext_resource type="PackedScene" uid="uid://b27nit2lokfdr" path="res://scenes/ui/options_menu.tscn" id="7_btxxm"]
 [ext_resource type="Texture2D" uid="uid://b5fb2a052lgnf" path="res://assets/textures/animals/oliba.png" id="11_n4uci"]
-[ext_resource type="Texture2D" uid="uid://oekrdxu5hgnj" path="res://assets/ui/settings_icon.png" id="11_otr3d"]
-[ext_resource type="Texture2D" uid="uid://bn3so54vx7g01" path="res://assets/ui/settings_icon_hover.png" id="13_8ekit"]
+[ext_resource type="Texture2D" uid="uid://deevw7fbooan4" path="res://assets/ui/settings_icon.png" id="11_otr3d"]
+[ext_resource type="Texture2D" uid="uid://bk3f6udx2fsj4" path="res://assets/ui/settings_icon_hover.png" id="13_8ekit"]
 
 [sub_resource type="Resource" id="Resource_1g8jr"]
 script = ExtResource("2_fe2o3")
@@ -163,3 +163,4 @@ text = "Crèdits"
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

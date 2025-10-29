@@ -119,3 +119,6 @@ func _on_opcions_button_mouse_entered() -> void:
 
 func _on_opcions_button_mouse_exited() -> void:
 	_hover_effect($OpcionsButton, false)
+
+func _on_credits_button_pressed() -> void:
+	pass # Replace with function body.

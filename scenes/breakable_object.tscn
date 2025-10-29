@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwwdbqmpwexyj"]
+[gd_scene load_steps=11 format=3 uid="uid://bwwdbqmpwexyj"]
 
 [ext_resource type="Script" uid="uid://ckod5718fs73" path="res://scripts/breakable_object.gd" id="1_okf3a"]
 [ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="2_gxnd6"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dgs1kua68o61e" path="res://scenes/ui/name_popup.tscn" id="2_mvacj"]
 [ext_resource type="Shader" uid="uid://bnffvvk6df7hr" path="res://shaders/canvas_item_shadow.gdshader" id="2_xwhwo"]
 [ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="3_gxnd6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mvacj"]
+friction = 15.0
+bounce = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxnd6"]
 radius = 122.88
@@ -41,6 +45,8 @@ shader_parameter/shadow_blur_samples = 4
 shader_parameter/_blur_scale_factor = 1.0
 
 [node name="Object" type="RigidBody2D"]
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_mvacj")
 lock_rotation = true
 script = ExtResource("1_okf3a")
 name_popup_scene = ExtResource("2_mvacj")
