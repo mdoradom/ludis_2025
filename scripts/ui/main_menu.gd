@@ -3,7 +3,7 @@ extends Control
 @export var title_breakable_object_data: BreakableObjectData
 @export var title_spawn_point: Marker2D
 
-@onready var letter_scene = preload("res://scenes/letter_title.tscn")
+@onready var letter_scene = preload("res://scenes/letter.tscn")
 @onready var hover_tween: Tween
 
 func _ready() -> void:
@@ -31,10 +31,10 @@ func spawn_title():
 	
 	# This is the center and peak/valley of the arc
 	var center_pos = title_spawn_point.global_position
-	var offset = 150.0
+	var offset = 80.0
 	
 	# The radius of the circle. A larger radius creates a flatter curve.
-	var arc_radius = 1000.0 
+	var arc_radius = 600.0 
 	
 	# Set to true for a "u" shape (valley), false for an "n" shape (hill)
 	var u_shape = false
