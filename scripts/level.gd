@@ -10,6 +10,8 @@ signal sticker_unlocked  # Add this new signal
 @export var initial_objects_number: int = 4
 @export var max_spawned_objects = 3
 
+@export var word_audio_delay: float = 0.5
+
 var breakable_object_factory: BreakableObjectFactory
 var letter_factory: LetterFactory
 var current_dictionary: WordDictionary
@@ -81,7 +83,7 @@ func play_formable_words_audio() -> void:
 	
 	# Play audio for each formable word
 	for word in formable_words:
-		var word_data: BreakableObjectData = current_dictionary.get_object(word)
+		var word_data: BreakableObjectData = current_dictionary.get_object_by_word(word)
 		
 		if word_data and word_data.dictation_audio:
 			var audio_player = AudioStreamPlayer.new()
@@ -92,6 +94,9 @@ func play_formable_words_audio() -> void:
 			# Wait for this audio to finish before playing next
 			await audio_player.finished
 			audio_player.queue_free()
+
+			# Add delay between words (adjust seconds as needed)
+			await get_tree().create_timer(word_audio_delay).timeout
 		else:
 			push_warning("No dictation audio set for word: ", word)
 
@@ -167,7 +172,7 @@ func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 		
 		# Check if these starting words can form other words
 		var formable_words: Array = get_node("WordChecker").check_formable_words_test()
-		if formable_words.is_empty():
+		if !formable_words.is_empty():
 			print("Found valid starting words after ", attempts, " attempts")
 			#available_letters_in_level.clear()
 			return candidate_words
