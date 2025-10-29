@@ -53,5 +53,10 @@ func _on_sticker_picked(sticker: Sticker) -> void:
 	
 	# Reparent sticker to viewport
 	# FIXME: PLEASE DO THIS BETTER, IS ONLY FOR TESTING!
+	var grid: GridContainer = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
+	var empty: Control = Control.new()
+	grid.add_child(empty)
+	grid.move_child(empty, sticker.get_index())
+	
 	var sticker_list = $"../SubViewportContainer/SubViewport/Stickers"
 	sticker.reparent(sticker_list)
