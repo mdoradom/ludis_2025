@@ -66,7 +66,14 @@ static func create_and_show(object_data: BreakableObjectData, parent_node: Node 
 	var popup_scene = preload("res://scenes/ui/sticker_popup.tscn")
 	var popup_instance = popup_scene.instantiate()
 	
-	var target_parent = parent_node if parent_node else SceneManager.current_scene
-	target_parent.add_child(popup_instance)
+	var target_parent = parent_node
+	if not target_parent:
+		var tree = Engine.get_main_loop() as SceneTree
+		if tree:
+			target_parent = tree.current_scene
 	
-	popup_instance.show_sticker_unlock(object_data)
+	if target_parent:
+		target_parent.add_child(popup_instance)
+		popup_instance.show_sticker_unlock(object_data)
+	else:
+		push_error("StickerPopup: Could not find a valid parent node to attach popup")
