@@ -9,7 +9,7 @@ func _on_level_game_finished() -> void:
 	$Panel/MarginContainer/VBoxContainer/StickersProgressBar.max_value = dict_size
 	$Panel/MarginContainer/VBoxContainer/StickersProgressBar.value = UserData.unlocked_stickers.get_size()
 	
-	$Panel/MarginContainer/VBoxContainer/WinGomets.text = str(UserData.new_gomets_earned)
+	$Panel/MarginContainer/VBoxContainer/WinGomets.text = str(UserData.total_gomets)
 
 func _on_retry_button_pressed() -> void:
 	finish_game()
@@ -22,7 +22,6 @@ func _on_go_to_main_menu_button_pressed() -> void:
 	SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
 
 func finish_game():
-	UserData.total_gomets += UserData.new_gomets_earned
 	UserData.new_gomets_earned = 0
 	
 	get_tree().paused = false
