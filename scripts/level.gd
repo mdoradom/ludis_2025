@@ -164,7 +164,16 @@ func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 		attempts += 1
 		available_letters_in_level.clear()  # Reset letters for fresh attempt
 		
-		var candidate_words: Array[BreakableObjectData] = objects_dictionary.get_random_objects(initial_objects_number)
+		# Create a combined pool of objects from both dictionaries
+		var combined_pool: Array[BreakableObjectData] = []
+		combined_pool.append_array(objects_dictionary.get_all_objects().values())
+		combined_pool.append_array(UserData.unlocked_stickers.get_all_objects().values())
+		
+		# Shuffle and select random objects from the combined pool
+		combined_pool.shuffle()
+		var candidate_words: Array[BreakableObjectData] = []
+		for i in range(min(initial_objects_number, combined_pool.size())):
+			candidate_words.append(combined_pool[i])
 		
 		# Simulate available letters from these words
 		for word_data in candidate_words:

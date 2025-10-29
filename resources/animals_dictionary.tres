@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="WordDictionary" load_steps=68 format=3 uid="uid://bnieedqkubedd"]
+[gd_resource type="Resource" script_class="WordDictionary" load_steps=69 format=3 uid="uid://bnieedqkubedd"]
 
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="1_gxdfp"]
 [ext_resource type="Script" uid="uid://c6oapo0myuruh" path="res://scripts/resources/word_dictionary.gd" id="2_lkq3i"]
+[ext_resource type="AudioStream" uid="uid://bqcom7g7l2po1" path="res://assets/audio/dictat/papallona.mp3" id="2_m532e"]
 [ext_resource type="Texture2D" uid="uid://bcg8slhn5bgiv" path="res://assets/textures/animals/papallona.png" id="2_sh2r2"]
 [ext_resource type="Texture2D" uid="uid://2h2wpubl6e6w" path="res://assets/textures/animals/abella.png" id="3_btrem"]
 [ext_resource type="AudioStream" uid="uid://bdbq4jayyiyfx" path="res://assets/audio/dictat/abella.mp3" id="3_yjbgs"]
@@ -50,6 +51,7 @@
 script = ExtResource("1_gxdfp")
 item_name = "PAPALLONA"
 sprite = ExtResource("2_sh2r2")
+dictation_audio = ExtResource("2_m532e")
 type = 1
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
