@@ -59,10 +59,13 @@ anchors_preset = -1
 anchor_left = 0.060000002
 anchor_right = 0.947
 anchor_bottom = 1.0
-offset_right = 0.33337402
+offset_left = -52.0
+offset_right = 48.333374
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 30
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -78,12 +81,17 @@ vertical_scroll_mode = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/h_separation = 167
+theme_override_constants/h_separation = 168
 theme_override_constants/v_separation = 205
 columns = 7
 
 [node name="StickerFactory" type="Node" parent="."]
 script = ExtResource("5_01x8y")
 missing_texture = ExtResource("2_y7cfg")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

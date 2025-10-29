@@ -20,6 +20,7 @@ enum Type {
 @export var type: Type
 
 var is_new: bool = false
+var album_position: Vector2
 
 func _init(p_name: String = "", p_sprite: Texture2D = null):
 	item_name = p_name
