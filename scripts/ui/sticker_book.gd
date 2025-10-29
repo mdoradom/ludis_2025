@@ -40,13 +40,22 @@ func _snap_to_position() -> void:
 func spawn_stickers():
 	var unlocked_sticker_dict: WordDictionary = UserData.unlocked_stickers
 	
-	for data in unlocked_sticker_dict.get_all_objects().values():
-		var sticker = sticker_factory.spawn_sticker_from_data(data, Vector2.ZERO)
-		
-		sticker.reparent($MarginContainer/VBoxContainer/ScrollContainer/GridContainer)
-		sticker.sticker_picked.connect(_on_sticker_picked)
+	for data: BreakableObjectData in unlocked_sticker_dict.get_all_objects().values():
+		if data.is_new:
+			var sticker = sticker_factory.spawn_sticker_from_data(data, Vector2.ZERO)
+			
+			sticker.reparent($MarginContainer/VBoxContainer/ScrollContainer/GridContainer)
+			sticker.sticker_picked.connect(_on_sticker_picked)
+		else:
+			var sticker = sticker_factory.spawn_sticker_from_data(data, data.album_position)
+			var sticker_list = $"../SubViewportContainer/SubViewport/Stickers"
+			sticker.reparent(sticker_list)
+			sticker.sticker_picked.connect(_on_sticker_picked)
 
 func _on_sticker_picked(sticker: Sticker) -> void:
+	
+	sticker.object_data.is_new = false
+	
 	# Slide down the sticker list
 	var tween = create_tween()
 	tween.tween_property(self, "anchor_top", 0.95, 0.2)
