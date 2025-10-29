@@ -145,7 +145,7 @@ texture_hover = ExtResource("13_8ekit")
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 48
-text = "Crèdits"
+text = "CRÈDITS"
 
 [connection signal="mouse_entered" from="JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="mouse_exited" from="JugarButton" to="." method="_on_jugar_button_mouse_exited"]

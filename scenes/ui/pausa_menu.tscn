@@ -57,21 +57,19 @@ theme_override_constants/separation = 39
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Continuar"
+text = "CONTINUAR"
 
 [node name="OpcionsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Opcions
-"
+text = "OPCIONS"
 
 [node name="SortirButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Sortir
-"
+text = "SORTIR"
 
 [node name="OptionsUI" parent="." instance=ExtResource("2_da8wt")]
 visible = false

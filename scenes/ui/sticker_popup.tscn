@@ -63,7 +63,7 @@ horizontal_alignment = 1
 [node name="UnlockMessage" type="Label" parent="BackgroundPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
-theme_override_font_sizes/font_size = 47
-text = "Nova enganxina
-desbloquejada!"
+theme_override_font_sizes/font_size = 42
+text = "NOVA ENGANXINA
+DESBLOQUEJADA!"
 horizontal_alignment = 1

@@ -66,7 +66,7 @@ layout_mode = 2
 [node name="MasterLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer4"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Master"
+text = "PRINCIPAL"
 
 [node name="MasterSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer4"]
 layout_mode = 2
@@ -79,7 +79,7 @@ layout_mode = 2
 [node name="MusicaLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Música"
+text = "MÚSICA"
 
 [node name="MusicaSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -92,7 +92,7 @@ layout_mode = 2
 [node name="EfectesLabel" type="Label" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Efectes"
+text = "EFECTES"
 
 [node name="EfectesSlider" type="HSlider" parent="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
@@ -101,7 +101,7 @@ step = 0.05
 
 [node name="CheckButton" type="CheckButton" parent="BackgroundPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Mode dislèxia"
+text = "MODE DISLÈXIA"
 
 [connection signal="pressed" from="BackgroundPanel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="value_changed" from="BackgroundPanel/MarginContainer/VBoxContainer/VBoxContainer4/MasterSlider" to="." method="_on_master_slider_value_changed"]

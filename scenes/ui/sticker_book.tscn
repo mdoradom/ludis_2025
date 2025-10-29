@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://daqk8s0ifhmrn"]
+[gd_scene load_steps=22 format=3 uid="uid://daqk8s0ifhmrn"]
 
 [ext_resource type="PackedScene" uid="uid://dgv0vuaf5t0jb" path="res://scenes/ui/sticker_list.tscn" id="1_7bl6s"]
 [ext_resource type="Shader" uid="uid://cph4b630nyvep" path="res://assets/shaders/background_movement.gdshader" id="1_febnm"]
@@ -206,7 +206,7 @@ offset_left = 145.0
 offset_top = 56.0
 offset_right = 203.0
 offset_bottom = 114.0
-text = "Pausa"
+text = "PAUSA"
 
 [node name="PausaMenu" parent="LevelGUI" instance=ExtResource("7_p7ys4")]
 visible = false
