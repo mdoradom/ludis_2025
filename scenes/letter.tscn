@@ -9,13 +9,13 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8y6hk"]
 friction = 15.0
-bounce = 0.7
+bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kg060"]
 size = Vector2(59.773, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdeoo"]
-radius = 91.00549
+radius = 68.06615
 
 [node name="Letter" type="RigidBody2D" node_paths=PackedStringArray("input_controller", "WGM", "text_label")]
 physics_material_override = SubResource("PhysicsMaterial_8y6hk")
