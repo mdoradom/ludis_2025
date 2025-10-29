@@ -59,6 +59,9 @@ func _process(delta):
 	
 	if is_dragging and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		_stop_dragging()
+	
+	# Check if letter is out of viewport bounds and teleport to center
+	_check_bounds()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -92,3 +95,18 @@ func _stop_dragging():
 	
 	rb.released.emit(rb)
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+
+func _check_bounds():
+	var viewport_size = get_viewport().get_visible_rect().size
+	var pos = rb.global_position
+	var margin = 50.0  # Small margin to avoid edge cases
+	
+	# Check if letter is out of bounds
+	if pos.x < -margin or pos.x > viewport_size.x + margin or \
+	   pos.y < -margin or pos.y > viewport_size.y + margin:
+		# Teleport to center with randomness
+		var center = viewport_size / 2.0
+		var random_offset = Vector2(randf_range(-250, 250), randf_range(-250, 250))
+		rb.global_position = center + random_offset
+		rb.linear_velocity = Vector2.ZERO
+		rb.angular_velocity = 0.0
