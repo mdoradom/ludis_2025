@@ -184,6 +184,7 @@ autowrap_mode = 2
 [node name="GometTexture" type="TextureRect" parent="GometContainer"]
 layout_mode = 2
 texture = ExtResource("18_5dct7")
+expand_mode = 2
 
 [connection signal="mouse_entered" from="JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="mouse_exited" from="JugarButton" to="." method="_on_jugar_button_mouse_exited"]
