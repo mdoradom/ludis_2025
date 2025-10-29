@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3yw8vxrncpoa"]
+[gd_scene load_steps=18 format=3 uid="uid://c3yw8vxrncpoa"]
 
 [ext_resource type="Script" uid="uid://qbuqbppdeaur" path="res://scripts/ui/main_menu.gd" id="1_e66b0"]
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="2_fe2o3"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bgak6nbotwjrw" path="res://assets/textures/animals/trito.png" id="7_8ekit"]
 [ext_resource type="PackedScene" uid="uid://b27nit2lokfdr" path="res://scenes/ui/options_menu.tscn" id="7_btxxm"]
 [ext_resource type="Texture2D" uid="uid://b5fb2a052lgnf" path="res://assets/textures/animals/oliba.png" id="11_n4uci"]
+[ext_resource type="Texture2D" uid="uid://oekrdxu5hgnj" path="res://assets/ui/settings_icon.png" id="11_otr3d"]
+[ext_resource type="Texture2D" uid="uid://bn3so54vx7g01" path="res://assets/ui/settings_icon_hover.png" id="13_8ekit"]
 
 [sub_resource type="Resource" id="Resource_1g8jr"]
 script = ExtResource("2_fe2o3")
@@ -47,12 +49,14 @@ mouse_filter = 1
 script = ExtResource("1_e66b0")
 title_breakable_object_data = SubResource("Resource_1g8jr")
 title_spawn_point = NodePath("TitleSpawnPoint")
+metadata/_edit_horizontal_guides_ = [540.0]
+metadata/_edit_vertical_guides_ = [960.0]
 
 [node name="MouseBody" type="StaticBody2D" parent="." groups=["mouse_body"]]
 script = ExtResource("3_1g8jr")
 
 [node name="TitleSpawnPoint" type="Marker2D" parent="."]
-position = Vector2(960, 190)
+position = Vector2(960, 128)
 
 [node name="MainMenuBackground" type="Sprite2D" parent="."]
 visible = false
@@ -70,11 +74,11 @@ grow_vertical = 2
 texture = SubResource("NoiseTexture2D_uhagc")
 
 [node name="Colom" type="Sprite2D" parent="."]
-position = Vector2(638, 634)
+position = Vector2(595.283, 635.5)
 texture = ExtResource("5_7suek")
 
 [node name="Trito" type="Sprite2D" parent="."]
-position = Vector2(348, 669)
+position = Vector2(305.28302, 670.5)
 texture = ExtResource("7_8ekit")
 
 [node name="JugarButton" type="TextureButton" parent="."]
@@ -82,10 +86,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 159.0
-offset_top = -471.0
-offset_right = 842.81464
-offset_bottom = -333.25317
+offset_left = 116.283005
+offset_top = -469.5
+offset_right = 800.09766
+offset_bottom = -331.75317
 grow_vertical = 0
 rotation = 0.21382767
 pivot_offset = Vector2(369.15, 68.52)
@@ -93,11 +97,11 @@ texture_normal = ExtResource("5_uhagc")
 stretch_mode = 0
 
 [node name="Trencalos" type="Sprite2D" parent="."]
-position = Vector2(554, 861)
+position = Vector2(511.28302, 862.5)
 texture = ExtResource("6_otr3d")
 
 [node name="Oliba" type="Sprite2D" parent="."]
-position = Vector2(879.00006, 809)
+position = Vector2(836.2831, 810.5)
 scale = Vector2(0.822884, 0.822884)
 texture = ExtResource("11_n4uci")
 
@@ -108,10 +112,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -724.0
-offset_top = -630.0
-offset_right = -6.4091797
-offset_bottom = 119.68335
+offset_left = -738.0
+offset_top = -478.0
+offset_right = -20.40918
+offset_bottom = 271.68335
 grow_horizontal = 0
 grow_vertical = 0
 rotation = -0.21770908
@@ -119,22 +123,36 @@ pivot_offset = Vector2(386.995, 378.16)
 texture_normal = ExtResource("6_btxxm")
 stretch_mode = 0
 
-[node name="OpcionsButton" type="Button" parent="."]
+[node name="OptionsUI" parent="." instance=ExtResource("7_btxxm")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = -79.0
-offset_right = 445.0
-offset_bottom = -25.0
+offset_top = -125.0
+offset_right = 197.0
 grow_vertical = 0
-pivot_offset = Vector2(214.62, 28.855)
-text = "Opcions
-"
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="OptionsUI" parent="." instance=ExtResource("7_btxxm")]
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OpcionsButton" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("11_otr3d")
+texture_pressed = ExtResource("13_8ekit")
+texture_hover = ExtResource("13_8ekit")
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 48
+text = "Crèdits"
 
 [connection signal="mouse_entered" from="JugarButton" to="." method="_on_jugar_button_mouse_entered"]
 [connection signal="mouse_exited" from="JugarButton" to="." method="_on_jugar_button_mouse_exited"]
@@ -142,6 +160,6 @@ visible = false
 [connection signal="mouse_entered" from="AlbumButton" to="." method="_on_album_button_mouse_entered"]
 [connection signal="mouse_exited" from="AlbumButton" to="." method="_on_album_button_mouse_exited"]
 [connection signal="pressed" from="AlbumButton" to="." method="_on_book_button_pressed"]
-[connection signal="mouse_entered" from="OpcionsButton" to="." method="_on_opcions_button_mouse_entered"]
-[connection signal="mouse_exited" from="OpcionsButton" to="." method="_on_opcions_button_mouse_exited"]
-[connection signal="pressed" from="OpcionsButton" to="." method="_on_opcions_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_pressed"]
