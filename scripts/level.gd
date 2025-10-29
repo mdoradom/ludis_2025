@@ -27,11 +27,6 @@ func _ready():
 	breakable_object_factory = get_node("BreakableObjectFactory")
 	letter_factory = get_node("LetterFactory")
 	
-	if UserData.is_first_playthrough:
-		var onboarding = get_node("Onboarding")
-		if onboarding:
-			onboarding.visible = true
-	
 	load_dictionary(starting_dictionary)
 	
 	objects_dictionary.load_words()
@@ -42,10 +37,6 @@ func _ready():
 		print("Starting Words:", starting_words[i].item_name)
 
 	for i in range(initial_objects_number):
-		#if !available_objects.has(word):
-			#print("Warning: Starting object '", word, "' not found in dictionary")
-			#return
-			
 		var viewport_size = get_viewport_rect().size
 		
 		# Base spawn position in the center
@@ -63,6 +54,12 @@ func _ready():
 	
 
 	get_node("WordChecker").check_formable_words_test()
+	
+	if UserData.is_first_playthrough:
+		var onboarding = get_node("Onboarding")
+		if onboarding:
+			onboarding.visible = true
+			await onboarding.visibility_changed
 	
 	await play_start_audio()
 	await play_formable_words_audio()
