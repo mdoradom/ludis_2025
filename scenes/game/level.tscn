@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2hdqh1mihrjm"]
+[gd_scene load_steps=19 format=3 uid="uid://b2hdqh1mihrjm"]
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/level.gd" id="1_khnyk"]
 [ext_resource type="Resource" uid="uid://bnieedqkubedd" path="res://resources/animals_dictionary.tres" id="2_65r54"]
@@ -12,7 +12,8 @@
 [ext_resource type="Script" uid="uid://dlav677dmw25q" path="res://scripts/ui/level_gui.gd" id="9_p2ltr"]
 [ext_resource type="Texture2D" uid="uid://855fcl1aoue3" path="res://assets/ui/green_pattern.png" id="9_y16i1"]
 [ext_resource type="PackedScene" uid="uid://0hc5taivg5yn" path="res://scenes/ui/end_game_ui.tscn" id="11_aakys"]
-[ext_resource type="Texture2D" uid="uid://iva21j2m76cx" path="res://assets/ui/megaphone.svg" id="13_y16i1"]
+[ext_resource type="PackedScene" uid="uid://bl5c8l0iod6t0" path="res://scenes/ui/onboarding_popup.tscn" id="13_y16i1"]
+[ext_resource type="Texture2D" uid="uid://iva21j2m76cx" path="res://assets/ui/megaphone.svg" id="14_a2g3c"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
 b = Vector2(1920, 0)
@@ -33,6 +34,9 @@ script = ExtResource("1_khnyk")
 starting_dictionary = ExtResource("2_65r54")
 objects_dictionary = ExtResource("3_irnlk")
 word_audio_delay = 1.0
+
+[node name="Onboarding" parent="." instance=ExtResource("13_y16i1")]
+visible = false
 
 [node name="ViewportBorders" type="StaticBody2D" parent="."]
 
@@ -110,7 +114,7 @@ offset_right = -30.0
 offset_bottom = -27.0
 grow_horizontal = 0
 grow_vertical = 0
-icon = ExtResource("13_y16i1")
+icon = ExtResource("14_a2g3c")
 
 [connection signal="game_finished" from="." to="LevelGUI/EndGameUI" method="_on_level_game_finished"]
 [connection signal="breakable_object_spawned" from="BreakableObjectFactory" to="." method="_on_breakable_object_factory_breakable_object_spawned"]
