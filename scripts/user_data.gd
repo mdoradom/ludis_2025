@@ -16,7 +16,7 @@ func _ready() -> void:
 	
 	# For debugging only
 	var timer: Timer = Timer.new()
-	timer.wait_time = 10.0
+	timer.wait_time = 1.0
 	timer.autostart = true
 	add_child(timer)  # importante: agregar el timer al árbol
 	
