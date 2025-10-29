@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="ludis_2025"
+config/name="Paraulina"
 config/version="0.1.0"
 run/main_scene="uid://c3yw8vxrncpoa"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://cfrcv485behv4"
+config/icon="uid://bsw8upch45m5q"
 
 [audio]
 
