@@ -58,12 +58,13 @@ func _ready():
 	
 
 	get_node("WordChecker").check_formable_words_test()
-
-	play_formable_words_audio()
+	
+	await play_start_audio()
+	await play_formable_words_audio()
 	
 	level_started = true
 
-func play_formable_words_audio() -> void:
+func play_start_audio() -> void:
 	# Play initial audio
 	var initial_audio_path = "res://assets/audio/dictat/frase-inicial.mp3"
 	var initial_audio = load(initial_audio_path) as AudioStream
@@ -77,6 +78,8 @@ func play_formable_words_audio() -> void:
 		# Wait for initial audio to finish
 		await audio_player.finished
 		audio_player.queue_free()
+
+func play_formable_words_audio() -> void:
 	
 	# Get formable words
 	var formable_words: Array = get_node("WordChecker").check_formable_words_test()
@@ -188,3 +191,7 @@ func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 	# Fallback: return last attempt if we hit max attempts
 	push_error("Could not find ideal starting words after ", max_attempts, " attempts. Using last set.")
 	return objects_dictionary.get_random_objects(initial_objects_number)
+
+
+func _on_speaker_button_pressed() -> void:
+	play_formable_words_audio()
