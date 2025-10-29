@@ -15,6 +15,9 @@ func _hover_effect(button: Control, hover_in: bool) -> void:
 		
 func _on_jugar_button_pressed() -> void:
 	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
+	UserData.is_first_playthrough = false
+	UserData.save_game()
+	hide()
 
 func _on_jugar_button_mouse_entered() -> void:
 	_hover_effect($JugarButton, true)

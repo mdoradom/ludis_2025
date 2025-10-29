@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://bh038x7sdmnum" path="res://assets/ui/onboarding.png" id="1_iyn3k"]
 
 [node name="Onboarding" type="Popup"]
+transparent_bg = true
 oversampling_override = 1.0
-size = Vector2i(2370, 1742)
+size = Vector2i(2829, 1917)
 visible = true
+transparent = true
 script = ExtResource("1_1m1cu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -15,20 +17,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1122.5
-offset_top = -871.0
-offset_right = 1122.5
-offset_bottom = 871.0
+offset_left = -977.5
+offset_top = -850.5
+offset_right = 1267.5
+offset_bottom = 891.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.47788507, 0.47788507)
 texture = ExtResource("1_iyn3k")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 48.0
-offset_top = 102.0
-offset_right = 655.0
-offset_bottom = 147.0
+offset_left = 417.0
+offset_top = 219.0
+offset_right = 1024.0
+offset_bottom = 264.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
 text = "Prem els objectes fins a trencar-los."
@@ -36,10 +38,10 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 554.0
-offset_top = 102.0
-offset_right = 1151.0
-offset_bottom = 147.0
+offset_left = 923.0
+offset_top = 219.0
+offset_right = 1520.0
+offset_bottom = 264.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
 text = "Apareixen les lletres que el formen!"
@@ -47,10 +49,10 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Label3" type="Label" parent="."]
-offset_left = -3.0
-offset_top = 487.0
-offset_right = 727.0
-offset_bottom = 532.0
+offset_left = 366.0
+offset_top = 604.0
+offset_right = 1096.0
+offset_bottom = 649.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
 text = "Escolta el dictat i crea 
@@ -59,10 +61,10 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 481.0
-offset_top = 499.0
-offset_right = 1207.0
-offset_bottom = 544.0
+offset_left = 850.0
+offset_top = 616.0
+offset_right = 1576.0
+offset_bottom = 661.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 16
 text = "Forma els noms dels animals per salvar-los"
@@ -70,10 +72,10 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="JugarButton" type="Button" parent="."]
-offset_left = 543.0
-offset_top = 790.0
-offset_right = 661.0
-offset_bottom = 838.0
+offset_left = 912.0
+offset_top = 907.0
+offset_right = 1030.0
+offset_bottom = 955.0
 text = "JUGAR"
 
 [connection signal="mouse_entered" from="JugarButton" to="." method="_on_jugar_button_mouse_entered"]

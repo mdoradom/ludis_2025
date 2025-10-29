@@ -27,6 +27,11 @@ func _ready():
 	breakable_object_factory = get_node("BreakableObjectFactory")
 	letter_factory = get_node("LetterFactory")
 	
+	if UserData.is_first_playthrough:
+		var onboarding = get_node("Onboarding")
+		if onboarding:
+			onboarding.visible = true
+	
 	load_dictionary(starting_dictionary)
 	
 	objects_dictionary.load_words()

@@ -5,6 +5,7 @@ var unlocked_stickers: WordDictionary
 
 var total_gomets: int
 var new_gomets_earned: int
+var is_first_playthrough: bool = true  # Add this new variable
 
 # === DEBUG ===
 #var debug_word_dictionary: WordDictionary = load("res://resources/animals_dictionary.tres")
@@ -42,6 +43,7 @@ func save_game():
 	
 	config.set_value("userdata", "unlocked_stickers", unlocked_stickers)
 	config.set_value("userdata", "total_gomets", total_gomets)
+	config.set_value("userdata", "is_first_playthrough", is_first_playthrough)
 	
 	config.save("user://userdata.ini")
 
@@ -55,3 +57,4 @@ func load_game():
 	
 	unlocked_stickers = config.get_value("userdata", "unlocked_stickers")
 	total_gomets = config.get_value("userdata", "total_gomets")
+	is_first_playthrough = config.get_value("userdata", "is_first_playthrough", true)
