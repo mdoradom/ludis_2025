@@ -2,6 +2,7 @@ extends Node2D
 class_name Level
 
 signal game_finished
+signal sticker_unlocked  # Add this new signal
 
 @export var starting_dictionary: WordDictionary
 @export var objects_dictionary: WordDictionary
@@ -53,10 +54,46 @@ func _ready():
 			spawn_pos
 		)
 	
-	# REMOVE
+
 	get_node("WordChecker").check_formable_words_test()
+
+	play_formable_words_audio()
 	
 	level_started = true
+
+func play_formable_words_audio() -> void:
+	# Play initial audio
+	var initial_audio_path = "res://assets/audio/dictat/frase-inicial.mp3"
+	var initial_audio = load(initial_audio_path) as AudioStream
+	
+	if initial_audio:
+		var audio_player = AudioStreamPlayer.new()
+		audio_player.stream = initial_audio
+		add_child(audio_player)
+		audio_player.play()
+		
+		# Wait for initial audio to finish
+		await audio_player.finished
+		audio_player.queue_free()
+	
+	# Get formable words
+	var formable_words: Array = get_node("WordChecker").check_formable_words_test()
+	
+	# Play audio for each formable word
+	for word in formable_words:
+		var word_data: BreakableObjectData = current_dictionary.get_object(word)
+		
+		if word_data and word_data.dictation_audio:
+			var audio_player = AudioStreamPlayer.new()
+			audio_player.stream = word_data.dictation_audio
+			add_child(audio_player)
+			audio_player.play()
+			
+			# Wait for this audio to finish before playing next
+			await audio_player.finished
+			audio_player.queue_free()
+		else:
+			push_warning("No dictation audio set for word: ", word)
 
 func load_dictionary(dictionary: WordDictionary):
 	current_dictionary = dictionary
@@ -94,6 +131,7 @@ func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableOb
 			b_object.object_data.is_new = true
 			var StickerPopup = preload("res://scripts/ui/sticker_popup.gd")
 			StickerPopup.create_and_show(b_object.object_data)
+			sticker_unlocked.emit()  # Emit signal when sticker is unlocked
 
 	
 	print(available_letters_in_level)
@@ -107,9 +145,9 @@ func _update_available_letters(b_object_data: BreakableObjectData) -> void:
 
 func _check_game_completion() -> void:
 	
-	var game_finished: bool = get_node("WordChecker").check_formable_words_test()
+	var formable_words: Array = get_node("WordChecker").check_formable_words_test()
 	
-	if game_finished:
+	if formable_words.is_empty():
 		emit_signal("game_finished")
 		#SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
 
@@ -128,7 +166,8 @@ func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 			_update_available_letters(word_data)
 		
 		# Check if these starting words can form other words
-		if !get_node("WordChecker").check_formable_words_test():
+		var formable_words: Array = get_node("WordChecker").check_formable_words_test()
+		if formable_words.is_empty():
 			print("Found valid starting words after ", attempts, " attempts")
 			#available_letters_in_level.clear()
 			return candidate_words

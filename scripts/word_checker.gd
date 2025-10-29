@@ -39,10 +39,10 @@ func get_formable_words(word_list: Array, available_letters: Dictionary) -> Arra
 
 # ----------------------------
 # Example test
-func check_formable_words_test() -> bool:
+func check_formable_words_test() -> Array:
 	var available_letters = get_parent().available_letters_in_level
 	var word_list = get_parent().current_dictionary.difference(UserData.unlocked_stickers)
 	var result = get_formable_words(word_list, available_letters)
 	print("Formable words:", result)  # Example output: ["cab", "abc", "bad", "cad"]
 	
-	return result.is_empty()
+	return result

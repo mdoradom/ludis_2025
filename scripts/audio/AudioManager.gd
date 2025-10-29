@@ -18,9 +18,8 @@ enum SFX {
 }
 
 enum MUSIC {
-	MAIN_MENU,		# not done
+	MAIN_MENU,		# done
 	GAMEPLAY,		# not done
-	STICKER_BOOK,	# not done
 }
 
 const MASTER_BUS = 0
@@ -59,7 +58,7 @@ func _preload_sound_effects() -> void:
 	# Add more sound effects here as needed
 
 func _preload_music_tracks() -> void:
-	# music_tracks[MUSIC.MAIN_MENU] = preload("res://assets/audio/music/main_menu.ogg")
+	music_tracks[MUSIC.MAIN_MENU] = preload("res://assets/audio/music/Caketown 1.mp3")
 	# music_tracks[MUSIC.GAMEPLAY] = preload("res://assets/audio/music/gameplay.ogg")
 	# Add more music tracks here as needed
 	pass

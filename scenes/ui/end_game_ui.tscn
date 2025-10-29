@@ -66,6 +66,7 @@ autowrap_mode = 1
 
 [node name="StickersProgressBar" type="ProgressBar" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 56
 step = 1.0
 
 [node name="WinGomets" type="Label" parent="Panel/MarginContainer/VBoxContainer"]

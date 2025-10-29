@@ -3,10 +3,11 @@ extends Control
 @export var title_breakable_object_data: BreakableObjectData
 @export var title_spawn_point: Marker2D
 
-@onready var letter_scene = preload("res://scenes/letter_title.tscn")
+@onready var letter_scene = load("res://scenes/letter_title.tscn")
 @onready var hover_tween: Tween
 
 func _ready() -> void:
+	AudioManager.play_music(AudioManager.MUSIC.MAIN_MENU)
 	spawn_title()
 
 func _on_play_button_pressed() -> void:
@@ -114,8 +115,6 @@ func _on_album_button_mouse_entered() -> void:
 func _on_album_button_mouse_exited() -> void:
 	_hover_effect($AlbumButton, false)
 
-func _on_opcions_button_mouse_entered() -> void:
-	_hover_effect($OpcionsButton, true)
-
-func _on_opcions_button_mouse_exited() -> void:
-	_hover_effect($OpcionsButton, false)
+func _on_credits_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
+	SceneManager.load_scene(SceneManager.SCENE_LEVEL.CREDITS)

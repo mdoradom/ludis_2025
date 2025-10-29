@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2hdqh1mihrjm"]
+[gd_scene load_steps=19 format=3 uid="uid://b2hdqh1mihrjm"]
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/level.gd" id="1_khnyk"]
 [ext_resource type="Resource" uid="uid://bnieedqkubedd" path="res://resources/animals_dictionary.tres" id="2_65r54"]
@@ -7,16 +7,25 @@
 [ext_resource type="Resource" uid="uid://clwe7ppeedrco" path="res://resources/level_1_objects.tres" id="3_irnlk"]
 [ext_resource type="Script" uid="uid://b7awot0i7fnfu" path="res://scripts/letter_factory.gd" id="4_rhpan"]
 [ext_resource type="Script" uid="uid://g86ro4cswpl3" path="res://scripts/word_checker.gd" id="5_ji7po"]
-[ext_resource type="Texture2D" uid="uid://cegyg1nfs32pf" path="res://assets/textures/in_game_background.jpg" id="7_mxnjv"]
+[ext_resource type="Shader" uid="uid://cph4b630nyvep" path="res://assets/shaders/background_movement.gdshader" id="8_5ceg4"]
 [ext_resource type="PackedScene" uid="uid://bndtg65o8diio" path="res://scenes/ui/pausa_menu.tscn" id="9_eyudv"]
 [ext_resource type="Script" uid="uid://dlav677dmw25q" path="res://scripts/ui/level_gui.gd" id="9_p2ltr"]
+[ext_resource type="Texture2D" uid="uid://855fcl1aoue3" path="res://assets/ui/green_pattern.png" id="9_y16i1"]
 [ext_resource type="PackedScene" uid="uid://0hc5taivg5yn" path="res://scenes/ui/end_game_ui.tscn" id="11_aakys"]
+[ext_resource type="Script" path="res://scripts/ui/stickers_progress_bar.gd" id="13_y16i1"]
+[ext_resource type="Texture2D" uid="uid://b0qinbllrtx1n" path="res://assets/ui/gomet.png" id="14_a2g3c"]
+[ext_resource type="Script" path="res://scripts/ui/gomet_counter.gd" id="14_x0g3o"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
 b = Vector2(1920, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_oekm8"]
 b = Vector2(0, 1080)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2g3c"]
+shader = ExtResource("8_5ceg4")
+shader_parameter/scroll_speed = 0.02
+shader_parameter/scroll_direction = Vector2(1, 0)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_khnyk")
@@ -51,11 +60,18 @@ script = ExtResource("4_rhpan")
 [node name="WordChecker" type="Node" parent="."]
 script = ExtResource("5_ji7po")
 
-[node name="InGameBackground" type="Sprite2D" parent="."]
+[node name="InGameBackground" type="TextureRect" parent="."]
 z_index = -10
-position = Vector2(960, 600)
-scale = Vector2(1.6080402, 1.171875)
-texture = ExtResource("7_mxnjv")
+material = SubResource("ShaderMaterial_a2g3c")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1934.4326
+offset_bottom = 1095.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_y16i1")
+stretch_mode = 1
 
 [node name="LevelGUI" type="CanvasLayer" parent="."]
 layer = 0
@@ -73,6 +89,35 @@ offset_top = 35.0
 offset_right = 128.0
 offset_bottom = 93.0
 text = "Pausa"
+
+[node name="StickersProgressBar" type="ProgressBar" parent="LevelGUI"]
+offset_left = 1626.0
+offset_top = 35.0
+offset_right = 1893.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 36
+step = 1.0
+script = ExtResource("13_y16i1")
+
+[node name="GometContainer" type="HBoxContainer" parent="LevelGUI"]
+offset_left = 1626.0
+offset_top = 106.0
+offset_right = 1894.0
+offset_bottom = 234.0
+script = ExtResource("14_x0g3o")
+
+[node name="GometLabel" type="Label" parent="LevelGUI/GometContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 56
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GometTexture" type="TextureRect" parent="LevelGUI/GometContainer"]
+layout_mode = 2
+texture = ExtResource("14_a2g3c")
 
 [connection signal="game_finished" from="." to="LevelGUI/EndGameUI" method="_on_level_game_finished"]
 [connection signal="breakable_object_spawned" from="BreakableObjectFactory" to="." method="_on_breakable_object_factory_breakable_object_spawned"]

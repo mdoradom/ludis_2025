@@ -5,14 +5,16 @@
 [ext_resource type="Script" uid="uid://c4n457xse28h1" path="res://scripts/mouse_body.gd" id="3_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://lv61x8f11npe" path="res://assets/textures/main_menu_background.png" id="4_m1kxf"]
 [ext_resource type="Texture2D" uid="uid://bskxjtp282cyw" path="res://assets/textures/animals/colom.png" id="5_7suek"]
+[ext_resource type="Shader" uid="uid://cph4b630nyvep" path="res://assets/shaders/background_movement.gdshader" id="5_877pj"]
+[ext_resource type="Texture2D" uid="uid://bii72fujh0fyp" path="res://assets/ui/brown_pattern.png" id="5_n4uci"]
 [ext_resource type="Texture2D" uid="uid://c0wk6ddfc5jcj" path="res://assets/textures/jugar_button.png" id="5_uhagc"]
 [ext_resource type="Texture2D" uid="uid://dsrtpj6cstm10" path="res://assets/textures/album_button.png" id="6_btxxm"]
 [ext_resource type="Texture2D" uid="uid://df54mrgdx3m8y" path="res://assets/textures/animals/trencalos.png" id="6_otr3d"]
 [ext_resource type="Texture2D" uid="uid://bgak6nbotwjrw" path="res://assets/textures/animals/trito.png" id="7_8ekit"]
 [ext_resource type="PackedScene" uid="uid://b27nit2lokfdr" path="res://scenes/ui/options_menu.tscn" id="7_btxxm"]
 [ext_resource type="Texture2D" uid="uid://b5fb2a052lgnf" path="res://assets/textures/animals/oliba.png" id="11_n4uci"]
-[ext_resource type="Texture2D" uid="uid://oekrdxu5hgnj" path="res://assets/ui/settings_icon.png" id="11_otr3d"]
-[ext_resource type="Texture2D" uid="uid://bn3so54vx7g01" path="res://assets/ui/settings_icon_hover.png" id="13_8ekit"]
+[ext_resource type="Texture2D" uid="uid://deevw7fbooan4" path="res://assets/ui/settings_icon.png" id="11_otr3d"]
+[ext_resource type="Texture2D" uid="uid://bk3f6udx2fsj4" path="res://assets/ui/settings_icon_hover.png" id="13_8ekit"]
 
 [sub_resource type="Resource" id="Resource_1g8jr"]
 script = ExtResource("2_fe2o3")
@@ -22,21 +24,10 @@ letter_spawn_force = 0.0
 letter_spawn_rotation = 0.0
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
-[sub_resource type="Gradient" id="Gradient_uhagc"]
-colors = PackedColorArray(0.95686275, 0.7490196, 0.58431375, 1, 0.8627451, 0.6156863, 0.4627451, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_btxxm"]
-frequency = 0.167
-fractal_lacunarity = 8.465
-fractal_gain = 13.115
-fractal_weighted_strength = 0.64
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_uhagc"]
-width = 1194
-height = 934
-noise = SubResource("FastNoiseLite_btxxm")
-color_ramp = SubResource("Gradient_uhagc")
-seamless = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ayp64"]
+shader = ExtResource("5_877pj")
+shader_parameter/scroll_speed = 0.02
+shader_parameter/scroll_direction = Vector2(1, 0)
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("title_spawn_point")]
 layout_mode = 3
@@ -65,13 +56,15 @@ scale = Vector2(0.5629883, 0.5629883)
 texture = ExtResource("4_m1kxf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ayp64")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("NoiseTexture2D_uhagc")
+texture = ExtResource("5_n4uci")
+stretch_mode = 1
 
 [node name="Colom" type="Sprite2D" parent="."]
 position = Vector2(595.283, 635.5)
@@ -112,10 +105,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -738.0
-offset_top = -478.0
-offset_right = -20.40918
-offset_bottom = 271.68335
+offset_left = -747.0
+offset_top = -524.0
+offset_right = -29.40918
+offset_bottom = 225.68335
 grow_horizontal = 0
 grow_vertical = 0
 rotation = -0.21770908
@@ -163,3 +156,4 @@ text = "Crèdits"
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_mouse_exited"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/OpcionsButton" to="." method="_on_opcions_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]

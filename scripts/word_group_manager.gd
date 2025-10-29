@@ -50,7 +50,7 @@ func detach_from_group():
 
 func snap_to_letter(other: Letter):
 	var group = world_group_scene.instantiate()
-	get_tree().root.add_child(group)
+	get_tree().current_scene.add_child(group)
 
 	# set group position to this letter’s position (anchor)
 	group.global_position = other.global_position

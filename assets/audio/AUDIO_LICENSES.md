@@ -1,0 +1,134 @@
+# Audio Assets and Licenses
+
+This document lists all audio assets used in the game and their respective licenses.
+
+## Sound Effects
+
+### UI Sounds
+
+- **switch_006.ogg** - Used for button clicks and UI interactions
+  - Source: [Kenney.nl UI Audio Pack](https://www.kenney.nl/assets/interface-sounds)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Button clicks, menu navigation
+
+- **confirmation_004.ogg** - Used for confirmation sounds and positive feedback
+  - Source: [Kenney.nl UI Audio Pack](https://www.kenney.nl/assets/interface-sounds)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Word completion, successful actions, positive feedback
+
+### Game Sounds
+
+- **bong_001.ogg** - Used for tap sounds and object interactions
+  - Source: [Kenney.nl UI Audio Pack](https://www.kenney.nl/assets/interface-sounds)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Tapping breakable objects, general interaction feedback
+  
+- **break_sound.wav** - Breaking/destruction sound for breakable objects
+  - Source: [Freesound - LloydEvans09](https://freesound.org/s/185846/)
+  - License: Attribution 4.0 International (CC BY 4.0)
+  - Usage: When breakable objects are destroyed by tapping
+  - Author: LloydEvans09
+  - Attribution: "Light wood by LloydEvans09"
+
+- **letter_snap.wav** - Letter snap sound (derived from CLICK_202.wav)
+  - Source: Derived from [Freesound - Jaszunio15](https://freesound.org/s/421416/)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Letter snapping mechanics
+  - Author: Jaszunio15 (original)
+  - Attribution: "CLICK_202.wav by Jaszunio15"
+
+### Sticker Book Sounds
+
+- **sfx_stickerripper_foil_05.wav** - Sticker placement sound
+  - Source: [Freesound - MrFossy](https://freesound.org/people/MrFossy/sounds/590323/)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Sticker book interactions, placing stickers
+  - Author: MrFossy
+
+- **plastic-sheet.wav** - Page turning and plastic handling sound
+  - Source: [Freesound - SpliceSound](https://freesound.org/s/188220/)
+  - License: CC0 1.0 Universal (Public Domain)
+  - Usage: Sticker book page turning, plastic sheet interactions
+  - Author: SpliceSound
+  - Attribution: "Transparency sheet, plastic sheet handling.wav by SpliceSound"
+  - Note: Modified to reduce noise and unwanted artifacts
+
+## Music Tracks
+
+### Background Music
+- **Cake Town** - Background music for menu and gameplay
+  - Source: [OpenGameArt - Matthew Pablo](https://opengameart.org/content/caketown-cuteplayful)
+  - License: CC-BY-SA 3.0
+  - Usage: Main menu and gameplay background music
+  - Author: Matthew Pablo
+  - Attribution: "Cake Town by Matthew Pablo (www.matthewpablo.com)"
+
+- **Gameplay Music** - Background music during gameplay
+  - Status: Not implemented
+  - Planned usage: `AudioManager.play_music(AudioManager.MUSIC.GAMEPLAY)`
+
+## License Information
+
+### CC0 1.0 Universal (Public Domain)
+The Creative Commons CC0 Public Domain Dedication waives copyright interest in a work you've created and dedicates it to the world-wide public domain.
+
+**What this means for our project:**
+- These assets can be used for any purpose, including commercial use
+- No attribution is required (though appreciated)
+- Assets can be modified, distributed, and used without restrictions
+
+### Attribution 4.0 International (CC BY 4.0)
+This license allows reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator.
+
+**What this means for our project:**
+- These assets can be used for any purpose, including commercial use
+- Attribution is required and must be clearly visible
+- Assets can be modified and distributed with proper credit
+
+### Attribution-ShareAlike 3.0 (CC BY-SA 3.0)
+This license allows reusers to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creator. The license allows for commercial use. If you remix, adapt, or build upon the material, you must license the modified material under identical terms.
+
+**What this means for our project:**
+- These assets can be used for any purpose, including commercial use
+- Attribution is required and must be clearly visible
+- Any derivative works must be licensed under the same CC BY-SA 3.0 license
+- If we modify the music, the modified version must also be CC BY-SA 3.0
+
+### Source Attribution
+We acknowledge the following creators:
+- **Kenney Vleugels** (kenney.nl) for providing high-quality, free game assets to the community
+- **MrFossy** (Freesound.org) for contributing sticker sound effects to the public domain
+- **Jaszunio15** (Freesound.org) for the letter snap sound effect
+- **LloydEvans09** (Freesound.org) for the wood breaking sound effect under CC BY 4.0
+- **SpliceSound** (Freesound.org) for the plastic sheet handling sound effect
+- **Matthew Pablo** (matthewpablo.com) for the Cake Town music track under CC BY-SA 3.0
+
+## Audio File Locations
+```
+assets/
+└── audio/
+    ├── effects/
+    │   ├── switch_006.ogg
+    │   ├── confirmation_004.ogg
+    │   ├── bong_001.ogg
+    │   ├── sfx_stickerripper_foil_05.wav
+    │   ├── break_sound.wav
+    │   ├── letter_snap_1.wav
+    │   ├── letter_snap_2.wav
+    │   └── plastic-sheet.wav
+    └── music/
+        └── cake_town.ogg
+```
+
+## Implementation Notes
+- All audio is managed through the `AudioManager` autoload singleton
+- Sound effects use the `AudioManager.SFX` enum for type-safe access
+- Music tracks use the `AudioManager.MUSIC` enum for type-safe access
+- Audio settings are saved to `user://audio_settings.cfg`
+- Three audio buses: Master, Effects, and Music with independent volume controls
+- Modified audio files maintain original attribution requirements where applicable
+
+---
+
+*Last updated: October 29, 2025*
+*Game: Paraulina*

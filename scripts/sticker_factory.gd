@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func spawn_sticker_from_data(object_data: BreakableObjectData, pos: Vector2) -> Sticker:
 	var object: Sticker = sticker_scene.instantiate()
+	object.global_position = pos
 	
 	if !object_data.sprite:
 		object_data.sprite = missing_texture

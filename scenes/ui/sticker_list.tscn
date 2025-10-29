@@ -40,7 +40,7 @@ texture = ExtResource("3_lraoj")
 expand_mode = 4
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.23700002)
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

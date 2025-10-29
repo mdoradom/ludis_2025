@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddidg5f3bqy84"]
+[gd_scene load_steps=10 format=3 uid="uid://cdp71qaq3q7x1"]
 
 [ext_resource type="Script" uid="uid://b0hbh6c2qvdqx" path="res://scripts/letter.gd" id="1_c4dsc"]
 [ext_resource type="Script" uid="uid://cm5qjrylere8k" path="res://scripts/letter_effects.gd" id="2_52f4b"]
@@ -16,7 +16,7 @@ size = Vector2(110, 110.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdeoo"]
 radius = 70.028564
 
-[node name="Letter" type="RigidBody2D" node_paths=PackedStringArray("input_controller", "WGM", "text_label")]
+[node name="Letter2" type="RigidBody2D" node_paths=PackedStringArray("input_controller", "WGM", "text_label")]
 physics_material_override = SubResource("PhysicsMaterial_8y6hk")
 lock_rotation = true
 script = ExtResource("1_c4dsc")

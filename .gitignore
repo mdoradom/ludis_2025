@@ -16,3 +16,4 @@ mono_crash.*.json
 /.vscode
 /test_export
 /web-test
+/videos
