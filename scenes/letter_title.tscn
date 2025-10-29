@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://cdp71qaq3q7x1"]
+
+[ext_resource type="Script" uid="uid://b0hbh6c2qvdqx" path="res://scripts/letter.gd" id="1_c4dsc"]
+[ext_resource type="Script" uid="uid://cm5qjrylere8k" path="res://scripts/letter_effects.gd" id="2_52f4b"]
+[ext_resource type="Texture2D" uid="uid://cl8s4coibt1vn" path="res://assets/textures/letter_background.png" id="3_m4fmq"]
+[ext_resource type="Script" uid="uid://b62yroyhyi8d8" path="res://scripts/word_group_manager.gd" id="4_i0q6o"]
+[ext_resource type="Script" uid="uid://biflpoikd3r3r" path="res://scripts/input_controller.gd" id="5_4cfwb"]
+[ext_resource type="Script" uid="uid://dvtsu1b2uvtsg" path="res://scripts/letter_word_detector.gd" id="6_cmkrj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8y6hk"]
+bounce = 0.7
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kg060"]
+size = Vector2(110, 110.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gdeoo"]
+radius = 70.028564
+
+[node name="Letter2" type="RigidBody2D" node_paths=PackedStringArray("input_controller", "WGM", "text_label")]
+physics_material_override = SubResource("PhysicsMaterial_8y6hk")
+lock_rotation = true
+script = ExtResource("1_c4dsc")
+input_controller = NodePath("InputController")
+WGM = NodePath("WordGroupManager")
+text_label = NodePath("Sprite/Label")
+
+[node name="Sprite" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = 15.0
+offset_right = -43.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_52f4b")
+
+[node name="background2" type="TextureRect" parent="Sprite"]
+modulate = Color(1, 0.77918017, 0.67961574, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -70.5
+offset_right = 97.688
+offset_bottom = 39.188004
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_m4fmq")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="background" type="TextureRect" parent="Sprite"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -70.0
+offset_right = 97.25
+offset_bottom = 31.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_m4fmq")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Sprite"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -113.0
+offset_right = 91.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.13028675, 0.13028678, 0.13028675, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.43529412)
+theme_override_font_sizes/font_size = 80
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kg060")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("..")
+length = 1.0
+
+[node name="WordGroupManager" type="Node" parent="." node_paths=PackedStringArray("letter_rb", "LWD")]
+script = ExtResource("4_i0q6o")
+letter_rb = NodePath("..")
+LWD = NodePath("../LetterWordDetector")
+
+[node name="InputController" type="Node" parent="." node_paths=PackedStringArray("rb", "spring_joint")]
+script = ExtResource("5_4cfwb")
+rb = NodePath("..")
+spring_joint = NodePath("../DampedSpringJoint2D")
+
+[node name="LetterWordDetector" type="Node2D" parent="."]
+script = ExtResource("6_cmkrj")
+search_debug_lines = true
+
+[node name="MagnetAreaSensor" type="Area2D" parent="LetterWordDetector"]
+visible = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LetterWordDetector/MagnetAreaSensor"]
+shape = SubResource("CircleShape2D_gdeoo")
+
+[connection signal="dragged" from="." to="Sprite" method="_on_letter_dragged"]
+[connection signal="dragged" from="." to="WordGroupManager" method="_on_letter_dragged"]
+[connection signal="dragged" from="." to="LetterWordDetector" method="_on_letter_dragged"]
+[connection signal="input_event" from="." to="InputController" method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="Sprite" method="_on_letter_mouse_entered"]
+[connection signal="mouse_exited" from="." to="Sprite" method="_on_letter_mouse_exited"]
+[connection signal="released" from="." to="Sprite" method="_on_letter_released"]
+[connection signal="released" from="." to="WordGroupManager" method="_on_letter_released"]
+[connection signal="released" from="." to="LetterWordDetector" method="_on_letter_released"]
+[connection signal="body_entered" from="LetterWordDetector/MagnetAreaSensor" to="LetterWordDetector" method="_on_magnet_area_sensor_body_entered"]
+[connection signal="body_exited" from="LetterWordDetector/MagnetAreaSensor" to="LetterWordDetector" method="_on_magnet_area_sensor_body_exited"]
