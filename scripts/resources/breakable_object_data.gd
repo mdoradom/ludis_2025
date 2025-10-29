@@ -5,6 +5,7 @@ extends Resource
 @export var sprite: Texture2D
 @export var taps_to_break: int = 2
 @export var break_sound: AudioStream
+@export var dictation_audio: AudioStream  # Audio for dictation/pronunciation of this object
 
 # Physical properties
 @export var letter_spawn_radius: float = 50.0
