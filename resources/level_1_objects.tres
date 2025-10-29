@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WordDictionary" load_steps=17 format=3 uid="uid://clwe7ppeedrco"]
+[gd_resource type="Resource" script_class="WordDictionary" load_steps=23 format=3 uid="uid://clwe7ppeedrco"]
 
 [ext_resource type="Script" uid="uid://daylw7kt2lwn6" path="res://scripts/resources/breakable_object_data.gd" id="1_2x2qx"]
 [ext_resource type="Script" uid="uid://c6oapo0myuruh" path="res://scripts/resources/word_dictionary.gd" id="2_2x2qx"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dy3ulstcirifr" path="res://assets/textures/objects/puça.png" id="6_fcb7s"]
 [ext_resource type="Texture2D" uid="uid://baff8a55r7lgt" path="res://assets/textures/objects/nuvol.png" id="7_yrs8v"]
 [ext_resource type="Texture2D" uid="uid://d12ymkfpn4sa3" path="res://assets/textures/objects/pedra.png" id="8_hr58j"]
+[ext_resource type="Texture2D" uid="uid://dhyquu8luohra" path="res://icon.svg" id="9_03c6g"]
+[ext_resource type="Texture2D" uid="uid://c7xc7m67kv2tj" path="res://assets/textures/objects/broquil.png" id="10_jfgbb"]
+[ext_resource type="Texture2D" uid="uid://crvc4t7o4f4yj" path="res://assets/textures/objects/peix.png" id="11_fcb7s"]
 
 [sub_resource type="Resource" id="Resource_61mpd"]
 script = ExtResource("1_2x2qx")
@@ -59,8 +62,29 @@ sprite = ExtResource("8_hr58j")
 type = 2
 metadata/_custom_type_script = "uid://daylw7kt2lwn6"
 
+[sub_resource type="Resource" id="Resource_6wis4"]
+script = ExtResource("1_2x2qx")
+item_name = "CIGRÓ"
+sprite = ExtResource("9_03c6g")
+type = 2
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_jfgbb"]
+script = ExtResource("1_2x2qx")
+item_name = "BRÒQUIL"
+sprite = ExtResource("10_jfgbb")
+type = 2
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
+[sub_resource type="Resource" id="Resource_fcb7s"]
+script = ExtResource("1_2x2qx")
+item_name = "PEIX"
+sprite = ExtResource("11_fcb7s")
+type = 2
+metadata/_custom_type_script = "uid://daylw7kt2lwn6"
+
 [resource]
 script = ExtResource("2_2x2qx")
 level_name = "Level 1"
-objects_array = Array[ExtResource("1_2x2qx")]([SubResource("Resource_61mpd"), SubResource("Resource_r87ko"), SubResource("Resource_h1r51"), SubResource("Resource_wy4fh"), SubResource("Resource_xsw1b"), SubResource("Resource_awlei"), SubResource("Resource_y1dmv")])
+objects_array = Array[ExtResource("1_2x2qx")]([SubResource("Resource_61mpd"), SubResource("Resource_r87ko"), SubResource("Resource_h1r51"), SubResource("Resource_wy4fh"), SubResource("Resource_xsw1b"), SubResource("Resource_awlei"), SubResource("Resource_y1dmv"), SubResource("Resource_6wis4"), SubResource("Resource_jfgbb"), SubResource("Resource_fcb7s")])
 metadata/_custom_type_script = "uid://c6oapo0myuruh"
