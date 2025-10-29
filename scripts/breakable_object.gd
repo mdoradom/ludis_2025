@@ -54,7 +54,7 @@ func _setup_name_popup():
 	
 	# Position above sprite
 	var sprite_size = $Sprite2D.texture.get_size() if $Sprite2D.texture else Vector2(64, 64)
-	name_popup_instance.position = Vector2(0, -sprite_size.y / 2 - 40)
+	name_popup_instance.position = Vector2(0, -sprite_size.y / 2 - 80)
 	name_popup_instance.modulate.a = 0.0
 	name_popup_instance.z_index = 10
 

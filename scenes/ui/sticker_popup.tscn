@@ -1,74 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://cyq5ckuv5v3bb"]
+[gd_scene load_steps=4 format=3 uid="uid://cyq5ckuv5v3bb"]
 
 [ext_resource type="Script" uid="uid://b6ycaterrx3re" path="res://scripts/ui/sticker_popup.gd" id="1_5hyyh"]
-[ext_resource type="Shader" uid="uid://dgh34u7x3h1tp" path="res://assets/shaders/blur.gdshader" id="1_ucfq1"]
 [ext_resource type="Theme" uid="uid://chc4u7qbnn5xb" path="res://default.tres" id="1_vouc4"]
 [ext_resource type="Texture2D" uid="uid://b5fb2a052lgnf" path="res://assets/textures/animals/oliba.png" id="3_7jhim"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hyyh"]
-shader = ExtResource("1_ucfq1")
-shader_parameter/blur_amount = 2.0
-shader_parameter/samples = 16
-
-[node name="PopUp" type="Popup"]
-oversampling_override = 1.0
-size = Vector2i(512, 640)
-visible = true
+[node name="PopUp" type="Control"]
+process_mode = 3
+top_level = true
+z_index = 1070
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 865.0
+offset_bottom = 435.0
+scale = Vector2(0.75, 0.75)
 theme = ExtResource("1_vouc4")
 script = ExtResource("1_5hyyh")
+display_duration = 1.5
+side_margin = -175.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-material = SubResource("ShaderMaterial_5hyyh")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 834.0
+offset_bottom = 403.0
 
-[node name="BackgroundPanel" type="Panel" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
+theme_override_constants/margin_left = -43
+theme_override_constants/margin_top = -43
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundPanel/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 0
+
+[node name="StickerContainer" type="CenterContainer" parent="BackgroundPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -36
 alignment = 1
 
-[node name="UnlockMessage" type="Label" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "Nova enganxina
-desbloquejada!"
-horizontal_alignment = 1
-
-[node name="StickerContainer" type="CenterContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="StickerTexture" type="TextureRect" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/StickerContainer"]
+[node name="StickerTexture" type="TextureRect" parent="BackgroundPanel/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 texture = ExtResource("3_7jhim")
 stretch_mode = 3
 
-[node name="StickerName" type="Label" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer"]
+[node name="StickerName" type="Label" parent="BackgroundPanel/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Nom"
+horizontal_alignment = 1
+
+[node name="UnlockMessage" type="Label" parent="BackgroundPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 47
+text = "Nova enganxina
+desbloquejada!"
 horizontal_alignment = 1

@@ -14,7 +14,7 @@ bounce = 0.7
 size = Vector2(59.773, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdeoo"]
-radius = 70.028564
+radius = 91.00549
 
 [node name="Letter" type="RigidBody2D" node_paths=PackedStringArray("input_controller", "WGM", "text_label")]
 physics_material_override = SubResource("PhysicsMaterial_8y6hk")
