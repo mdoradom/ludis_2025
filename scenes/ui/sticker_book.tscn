@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://daqk8s0ifhmrn"]
+[gd_scene load_steps=22 format=3 uid="uid://daqk8s0ifhmrn"]
 
 [ext_resource type="PackedScene" uid="uid://dgv0vuaf5t0jb" path="res://scenes/ui/sticker_list.tscn" id="1_7bl6s"]
 [ext_resource type="Shader" uid="uid://cph4b630nyvep" path="res://assets/shaders/background_movement.gdshader" id="1_febnm"]
@@ -212,6 +212,7 @@ text = "Pausa"
 visible = false
 
 [node name="NextPageButton" type="TextureButton" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 1726.0
 offset_top = 938.0
@@ -221,6 +222,7 @@ pivot_offset = Vector2(30, 30)
 texture_normal = ExtResource("19_yxdf3")
 
 [node name="PrevPageButton" type="TextureButton" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 210.0
 offset_top = 925.0

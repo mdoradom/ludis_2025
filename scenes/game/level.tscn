@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b2hdqh1mihrjm"]
+[gd_scene load_steps=16 format=3 uid="uid://b2hdqh1mihrjm"]
 
 [ext_resource type="Script" uid="uid://bt2vs5bhuxuq7" path="res://scripts/level.gd" id="1_khnyk"]
 [ext_resource type="Resource" uid="uid://bnieedqkubedd" path="res://resources/animals_dictionary.tres" id="2_65r54"]
@@ -12,9 +12,6 @@
 [ext_resource type="Script" uid="uid://dlav677dmw25q" path="res://scripts/ui/level_gui.gd" id="9_p2ltr"]
 [ext_resource type="Texture2D" uid="uid://855fcl1aoue3" path="res://assets/ui/green_pattern.png" id="9_y16i1"]
 [ext_resource type="PackedScene" uid="uid://0hc5taivg5yn" path="res://scenes/ui/end_game_ui.tscn" id="11_aakys"]
-[ext_resource type="Script" uid="uid://cmbuofdjw56kx" path="res://scripts/ui/stickers_progress_bar.gd" id="13_y16i1"]
-[ext_resource type="Texture2D" uid="uid://b0qinbllrtx1n" path="res://assets/ui/gomet.png" id="14_a2g3c"]
-[ext_resource type="Script" uid="uid://jvu62j418ji4" path="res://scripts/ui/gomet_counter.gd" id="14_x0g3o"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
 b = Vector2(1920, 0)
@@ -90,35 +87,6 @@ offset_top = 35.0
 offset_right = 128.0
 offset_bottom = 93.0
 text = "Pausa"
-
-[node name="StickersProgressBar" type="ProgressBar" parent="LevelGUI"]
-offset_left = 1626.0
-offset_top = 35.0
-offset_right = 1893.0
-offset_bottom = 93.0
-theme_override_font_sizes/font_size = 36
-step = 1.0
-script = ExtResource("13_y16i1")
-
-[node name="GometContainer" type="HBoxContainer" parent="LevelGUI"]
-offset_left = 1626.0
-offset_top = 106.0
-offset_right = 1894.0
-offset_bottom = 234.0
-script = ExtResource("14_x0g3o")
-
-[node name="GometLabel" type="Label" parent="LevelGUI/GometContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 56
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="GometTexture" type="TextureRect" parent="LevelGUI/GometContainer"]
-layout_mode = 2
-texture = ExtResource("14_a2g3c")
 
 [connection signal="game_finished" from="." to="LevelGUI/EndGameUI" method="_on_level_game_finished"]
 [connection signal="breakable_object_spawned" from="BreakableObjectFactory" to="." method="_on_breakable_object_factory_breakable_object_spawned"]
