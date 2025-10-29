@@ -7,6 +7,7 @@ extends Control
 @onready var hover_tween: Tween
 
 func _ready() -> void:
+	AudioManager.play_music(AudioManager.MUSIC.MAIN_MENU)
 	spawn_title()
 
 func _on_play_button_pressed() -> void:
