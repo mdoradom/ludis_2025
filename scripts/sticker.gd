@@ -50,6 +50,8 @@ func _process(delta):
 			_on_released(self)
 			return
 		
+		object_data.album_position = global_position
+		
 		target_position = get_global_mouse_position() - drag_offset
 		
 		# On first frame after reparenting, snap to target position to avoid jump
