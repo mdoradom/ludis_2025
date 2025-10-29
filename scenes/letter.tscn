@@ -15,7 +15,7 @@ bounce = 0.2
 size = Vector2(59.773, 60)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gdeoo"]
-radius = 68.06615
+radius = 88.0
 
 [node name="Letter" type="RigidBody2D" node_paths=PackedStringArray("input_controller", "WGM", "text_label")]
 physics_material_override = SubResource("PhysicsMaterial_8y6hk")
@@ -116,7 +116,6 @@ spring_joint = NodePath("../DampedSpringJoint2D")
 script = ExtResource("5_8y6hk")
 
 [node name="MagnetAreaSensor" type="Area2D" parent="LetterWordDetector"]
-visible = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LetterWordDetector/MagnetAreaSensor"]
