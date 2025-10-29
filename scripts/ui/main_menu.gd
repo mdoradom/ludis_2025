@@ -114,12 +114,6 @@ func _on_album_button_mouse_entered() -> void:
 func _on_album_button_mouse_exited() -> void:
 	_hover_effect($AlbumButton, false)
 
-func _on_opcions_button_mouse_entered() -> void:
-	_hover_effect($OpcionsButton, true)
-
-func _on_opcions_button_mouse_exited() -> void:
-	_hover_effect($OpcionsButton, false)
-
 func _on_credits_button_pressed() -> void:
 	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
 	SceneManager.load_scene(SceneManager.SCENE_LEVEL.CREDITS)
