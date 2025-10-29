@@ -51,14 +51,14 @@ func _preload_sound_effects() -> void:
 	sound_effects[SFX.BUTTON_CLICK] 	= preload("res://assets/audio/effects/switch_006.ogg")
 	sound_effects[SFX.STICK_STICKER] 	= preload("res://assets/audio/effects/sfx_stickerripper_foil_05.wav")
 	sound_effects[SFX.LETTER_SNAP] 		= preload("res://assets/audio/effects/letter_snap.wav")
-	sound_effects[SFX.COMPLETE_WORD] 	= preload("res://assets/audio/effects/confirmation_004.ogg")
+	sound_effects[SFX.COMPLETE_WORD] 	= preload("res://assets/audio/effects/confirmation_004.wav")
 	sound_effects[SFX.BREAK_SOUND] 		= preload("res://assets/audio/effects/break_sound.wav")
 	sound_effects[SFX.TAP_SOUND] 		= preload("res://assets/audio/effects/bong_001.ogg")
 	sound_effects[SFX.SLIDE_PLASTIC] 	= preload("res://assets/audio/effects/plastic-sheet.wav")
 	# Add more sound effects here as needed
 
 func _preload_music_tracks() -> void:
-	music_tracks[MUSIC.MAIN_MENU] = preload("res://assets/audio/music/Caketown 1.mp3")
+	music_tracks[MUSIC.MAIN_MENU] = preload("res://assets/audio/music/Caketown 1.wav")
 	# music_tracks[MUSIC.GAMEPLAY] = preload("res://assets/audio/music/gameplay.ogg")
 	# Add more music tracks here as needed
 	pass
