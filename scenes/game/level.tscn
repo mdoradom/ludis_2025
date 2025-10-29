@@ -12,9 +12,9 @@
 [ext_resource type="Script" uid="uid://dlav677dmw25q" path="res://scripts/ui/level_gui.gd" id="9_p2ltr"]
 [ext_resource type="Texture2D" uid="uid://855fcl1aoue3" path="res://assets/ui/green_pattern.png" id="9_y16i1"]
 [ext_resource type="PackedScene" uid="uid://0hc5taivg5yn" path="res://scenes/ui/end_game_ui.tscn" id="11_aakys"]
-[ext_resource type="Script" uid="uid://cmbuofdjw56kx" path="res://scripts/ui/stickers_progress_bar.gd" id="13_y16i1"]
+[ext_resource type="Script" path="res://scripts/ui/stickers_progress_bar.gd" id="13_y16i1"]
 [ext_resource type="Texture2D" uid="uid://b0qinbllrtx1n" path="res://assets/ui/gomet.png" id="14_a2g3c"]
-[ext_resource type="Script" uid="uid://jvu62j418ji4" path="res://scripts/ui/gomet_counter.gd" id="14_x0g3o"]
+[ext_resource type="Script" path="res://scripts/ui/gomet_counter.gd" id="14_x0g3o"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llaio"]
 b = Vector2(1920, 0)
