@@ -98,32 +98,36 @@ func _on_mouse_entered() -> void:
 	if !name_popup_instance:
 		return
 	
-	# Animate outline
+	# Animate outline only (no popup on hover)
 	var outline_tween = create_tween()
 	outline_tween.tween_property(sprite_material, "shader_parameter/outline_amount", 1.0, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
-	# Show name popup
-	var popup_tween = create_tween()
-	popup_tween.tween_property(name_popup_instance, "modulate:a", 1.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	popup_tween.tween_property(name_popup_instance, "position:y", name_popup_instance.position.y - 5, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _on_mouse_exited() -> void:
 	if !name_popup_instance:
 		return
 	
-	# Animate outline
+	# Animate outline only (no popup on hover)
 	var outline_tween = create_tween()
 	outline_tween.tween_property(sprite_material, "shader_parameter/outline_amount", 0.0, 0.1).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	
-	# Hide name popup
-	var popup_tween = create_tween()
-	popup_tween.tween_property(name_popup_instance, "modulate:a", 0.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	popup_tween.tween_property(name_popup_instance, "position:y", name_popup_instance.position.y + 5, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 
 func _on_dragged(object: Variant) -> void:
+	# Show name popup when dragging starts
+	if name_popup_instance:
+		var popup_tween = create_tween()
+		popup_tween.tween_property(name_popup_instance, "modulate:a", 1.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		popup_tween.tween_property(name_popup_instance, "position:y", name_popup_instance.position.y - 5, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
+	# Animate shadow
 	var tween = create_tween()
 	tween.tween_property(sprite_material, "shader_parameter/shadow_amount", 1.0, 0.2).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 
 func _on_released(object: Variant) -> void:
+	# Hide name popup when dragging ends
+	if name_popup_instance:
+		var popup_tween = create_tween()
+		popup_tween.tween_property(name_popup_instance, "modulate:a", 0.0, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+		popup_tween.tween_property(name_popup_instance, "position:y", name_popup_instance.position.y + 5, 0.15).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+	
+	# Animate shadow
 	var tween = create_tween()
 	tween.tween_property(sprite_material, "shader_parameter/shadow_amount", 0.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)

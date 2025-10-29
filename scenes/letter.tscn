@@ -114,7 +114,6 @@ spring_joint = NodePath("../DampedSpringJoint2D")
 
 [node name="LetterWordDetector" type="Node2D" parent="."]
 script = ExtResource("5_8y6hk")
-search_debug_lines = true
 
 [node name="MagnetAreaSensor" type="Area2D" parent="LetterWordDetector"]
 visible = false
