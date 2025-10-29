@@ -2,6 +2,7 @@ extends Node2D
 class_name Level
 
 signal game_finished
+signal sticker_unlocked  # Add this new signal
 
 @export var starting_dictionary: WordDictionary
 @export var objects_dictionary: WordDictionary
@@ -94,6 +95,7 @@ func _on_breakable_object_factory_breakable_object_spawned(b_object: BreakableOb
 			b_object.object_data.is_new = true
 			var StickerPopup = preload("res://scripts/ui/sticker_popup.gd")
 			StickerPopup.create_and_show(b_object.object_data)
+			sticker_unlocked.emit()  # Emit signal when sticker is unlocked
 
 	
 	print(available_letters_in_level)
