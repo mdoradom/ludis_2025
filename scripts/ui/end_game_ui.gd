@@ -13,17 +13,13 @@ func _on_level_game_finished() -> void:
 
 func _on_retry_button_pressed() -> void:
 	finish_game()
-
-	SceneManager.reload_current_scene()
+	get_tree().reload_current_scene()
 
 func _on_go_to_main_menu_button_pressed() -> void:
 	finish_game()
-	
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func finish_game():
 	UserData.new_gomets_earned = 0
 	
 	get_tree().paused = false
-
-	SceneManager.reload_current_scene()

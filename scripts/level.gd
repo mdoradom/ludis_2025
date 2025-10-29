@@ -154,7 +154,6 @@ func _check_game_completion() -> void:
 	
 	if formable_words.is_empty():
 		emit_signal("game_finished")
-		#SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
 
 func _generate_valid_starting_words() -> Array[BreakableObjectData]:
 	var max_attempts: int = 100  # Prevent infinite loop

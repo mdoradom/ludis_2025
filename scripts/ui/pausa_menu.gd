@@ -31,5 +31,4 @@ func _on_sortir_button_pressed() -> void:
 	self.visible = false
 	paused = false
 	get_tree().paused = false
-	SceneManager.reload_current_scene()
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.MAIN_MENU)
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")

@@ -12,15 +12,15 @@ func _ready() -> void:
 
 func _on_play_button_pressed() -> void:
 	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.GAME)
+	get_tree().change_scene_to_file("res://scenes/game/level.tscn")
 	
 func _on_book_button_pressed() -> void:
 	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.STICKER_BOOK)
+	get_tree().change_scene_to_file("res://scenes/ui/sticker_book.tscn")
 
 func _on_options_button_pressed() -> void:
 	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.OPTIONS)
+	get_tree().change_scene_to_file("res://scenes/ui/options_menu.tscn")
 	pass
 	
 func spawn_title():
@@ -117,4 +117,4 @@ func _on_album_button_mouse_exited() -> void:
 
 func _on_credits_button_pressed() -> void:
 	AudioManager.play_sfx(AudioManager.SFX.BUTTON_CLICK)
-	SceneManager.load_scene(SceneManager.SCENE_LEVEL.CREDITS)
+	get_tree().change_scene_to_file("res://scenes/ui/credits_menu.tscn")
