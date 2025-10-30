@@ -66,6 +66,49 @@ func _ready():
 	
 	level_started = true
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and event.keycode == KEY_F1:
+		_unlock_all_animals()
+
+func _unlock_all_animals() -> void:
+	print("DEBUG: Unlocking all animals...")
+	
+	# Load the animals dictionary - adjust the path to your actual animals dictionary resource
+	var animals_dict = load("res://resources/animals_dictionary.tres") as WordDictionary
+	
+	if not animals_dict:
+		push_error("Could not load animals dictionary!")
+		return
+	
+	animals_dict.load_words()
+	
+	# Get all objects from the animals dictionary
+	var all_animals = animals_dict.get_all_objects()
+	
+	print("DEBUG: Total animals in dictionary: ", all_animals.size())
+	
+	# Unlock each animal
+	var unlocked_count = 0
+	for animal_data in all_animals.values():
+		print("DEBUG: Checking animal: ", animal_data.item_name, " | Type: ", animal_data.type)
+		
+		# Animals should be STICKER type (value 1)
+		if animal_data.type == BreakableObjectData.Type.STICKER:
+			if not UserData.unlocked_stickers.has_word(animal_data.item_name):
+				UserData.unlocked_stickers.add_object(animal_data)
+				print("  -> Unlocked: ", animal_data.item_name)
+				unlocked_count += 1
+			else:
+				print("  -> Already unlocked: ", animal_data.item_name)
+	
+	# Save the game state
+	UserData.save_game()
+	
+	# Update UI elements
+	sticker_unlocked.emit()
+	
+	print("DEBUG: Unlocked ", unlocked_count, " new animals!")
+
 func play_start_audio() -> void:
 	# Play initial audio
 	var initial_audio_path = "res://assets/audio/dictat/frase-inicial.mp3"
